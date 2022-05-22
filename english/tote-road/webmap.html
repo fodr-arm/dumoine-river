@@ -8,8 +8,35 @@
   <meta name="description" content="Interactive trail web map page - English">
   <meta name="keywords" content="Outdoors, Recreation, History, Camping">
   <link rel="stylesheet" href="CSS\main-1.0.0.css">
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
 <!-- this will be the web map page -->
+<div id='map'></div>
+
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZm9kci1hcm0iLCJhIjoiY2wzaG9ndG80MGs4djNidW1od2Vzb3c1eCJ9.FdoZi8ODG8RCUdJIFr_d9g';
+    const map = new mapboxgl.Map({
+      container: 'map', // Specify the container ID
+      style: 'mapbox://styles/fodr-arm/cl3eop9rz000s14mf9dplhhky', // Specify which map style to use
+      center: [-46.28200362273795, 77.84759039375501], // Specify the starting position [lng, lat]
+      zoom: 10 // Specify the starting zoom
+    });
+  </script>
+
 </body>
 </html>
