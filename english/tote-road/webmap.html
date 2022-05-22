@@ -39,6 +39,12 @@
       maxZoom: 15
     });
     map.addControl(new mapboxgl.NavigationControl());
+    
+    const scale = new mapboxgl.ScaleControl({
+    maxWidth: 80,
+    unit: 'metric'
+    });
+    map.addControl(scale);
     /* 
     Add an event listener that runs
       when a user clicks on the map element.
@@ -64,6 +70,33 @@
         )
         .addTo(map);
     });
+    map.on('mouseenter', 'campsites', () => {
+      map.getCanvas().style.cursor = 'pointer';
+      });
+      
+      // Change the cursor back to a pointer
+      // when it leaves the campsites layer.
+      map.on('mouseleave', 'campsites', () => {
+      map.getCanvas().style.cursor = '';
+      });
+    map.on('click', 'significant-areas', (e) => {
+      new mapboxgl.Popup()
+      .setLngLat(e.lngLat)
+      .setHTML(e.features[0].properties.featuretype)
+      .addTo(map);
+      });
+      
+      // Change the cursor to a pointer when
+      // the mouse is over the significant areas layer.
+      map.on('mouseenter', 'significant-areas', () => {
+      map.getCanvas().style.cursor = 'pointer';
+      });
+      
+      // Change the cursor back to a pointer
+      // when it leaves the significant areas layer.
+      map.on('mouseleave', 'significant-areas', () => {
+      map.getCanvas().style.cursor = '';
+      });
   </script>
 </body>
 </html>
