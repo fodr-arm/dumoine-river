@@ -29,14 +29,38 @@
 <div id='map'></div>
 
   <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoiZm9kci1hcm0iLCJhIjoiY2wzaG9ndG80MGs4djNidW1od2Vzb3c1eCJ9.FdoZi8ODG8RCUdJIFr_d9g';
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZm9kci1hcm0iLCJhIjoiY2wzZW9lZjA3MDJodjNsbDUxY3M2MmFkZSJ9.3imPfCVXmLM7dci1i0D8KA';
     const map = new mapboxgl.Map({
       container: 'map', // Specify the container ID
       style: 'mapbox://styles/fodr-arm/cl3eop9rz000s14mf9dplhhky', // Specify which map style to use
-      center: [-46.28200362273795, 77.84759039375501], // Specify the starting position [lng, lat]
-      zoom: 10 // Specify the starting zoom
+      center: [-77.79220916559966, 46.27391391527709], // Specify the starting position [lng, lat]
+      zoom: 11 // Specify the starting zoom
+    });
+    /* 
+    Add an event listener that runs
+      when a user clicks on the map element.
+    */
+    map.on('click', (event) => {
+      // If the user clicked on one of your markers, get its information.
+      const features = map.queryRenderedFeatures(event.point, {
+        layers: ['POI'] // replace with your layer name
+      });
+      if (!features.length) {
+        return;
+      }
+      const feature = features[0];
+
+      /* 
+      Create a popup, specify its options 
+      and properties, and add it to the map.
+    */
+      const popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML(
+          `<h3>${feature.properties.name}</h3>`
+        )
+        .addTo(map);
     });
   </script>
-
 </body>
 </html>
