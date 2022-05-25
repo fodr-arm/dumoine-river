@@ -49,72 +49,36 @@
     Add an event listener that runs
       when a user clicks on the map element.
     */
-    var popup = new mapboxgl.Popup({
-        offset: [0, -15],
-        closeButton: false,
-        closeOnClick: false
+    map.on('click', (event) => {
+      // If the user clicked on one of your markers, get its information.
+      const features = map.queryRenderedFeatures(event.point, {
+        layers: ['campsites'] // replace with your layer name
       });
-    // map.on('click', (event) => {
-    //   // If the user clicked on one of your markers, get its information.
-    //   const features = map.queryRenderedFeatures(event.point, {
-    //     layers: ['campsites', 'historical-poi'] // replace with your layer name
-    //   });
-    //   if (!features.length) {
-    //     return;
-    //   }
-    //   const feature = features[0];
-
-    //   /* 
-    //   Create a popup, specify its options 
-    //   and properties, and add it to the map.
-    // */
-    //   const popup = new mapboxgl.Popup({ offset: [0, -15] })
-    //     .setLngLat(feature.geometry.coordinates)
-    //     .setHTML(
-    //       `<h3>${feature.properties.name}</h3>`
-    //     )
-    //     .addTo(map);
-    // });
-    map.on('load', function() {
-    map.on('mouseenter', 'campsites', function(e) {
-      map.getCanvas().style.cursor = 'pointer';
-
-      var coordinates = e.features[0].geometry.coordinates.slice();
-      var title = e.features[0].properties.LabelEN;
-      // var description = e.features[0].properties.description;
-      // var title2 = e.features[0].properties.title2;
-      // var description2 = e.features[0].properties.description2;
-
-      // Ensure that if the map is zoomed out such that multiple
-      // copies of the feature are visible, the popup appears
-      // over the copy being pointed to.
-      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      if (!features.length) {
+        return;
       }
+      const feature = features[0];
 
-      // Populate the popup and set its coordinates
-      // based on the feature found.
-      popup
-      .setLngLat(coordinates)
-      .setHTML('<h3>' + title + '</h3>')
-      .addTo(map);
-      });
-
-    map.on('mouseleave', 'test', function() {
-      map.getCanvas().style.cursor = '';
-      popup.remove();
+      /* 
+      Create a popup, specify its options 
+      and properties, and add it to the map.
+    */
+      const popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML(
+          `<h3>${feature.properties.Name}</h3>`
+        )
+        .addTo(map);
     });
-  });
-
-    // map.on('mouseenter', 'campsites', () => {
-    //   map.getCanvas().style.cursor = 'pointer';
-    //   });
+    map.on('mouseenter', 'campsites', () => {
+      map.getCanvas().style.cursor = 'pointer';
+      });
       
-    //   // Change the cursor back to a pointer
-    //   // when it leaves the campsites layer.
-    //   map.on('mouseleave', 'campsites', () => {
-    //   map.getCanvas().style.cursor = '';
-    //   });
+      // Change the cursor back to a pointer
+      // when it leaves the campsites layer.
+      map.on('mouseleave', 'campsites', () => {
+      map.getCanvas().style.cursor = '';
+      });
     // map.on('click', 'significant-areas', (e) => {
     //   new mapboxgl.Popup()
     //   .setLngLat(e.lngLat)
