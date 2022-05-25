@@ -32,7 +32,7 @@
     mapboxgl.accessToken = 'pk.eyJ1IjoiZm9kci1hcm0iLCJhIjoiY2wzZW9lZjA3MDJodjNsbDUxY3M2MmFkZSJ9.3imPfCVXmLM7dci1i0D8KA';
     const map = new mapboxgl.Map({
       container: 'map', // Specify the container ID
-      style: 'mapbox://styles/fodr-arm/cl3eop9rz000s14mf9dplhhky', // Specify which map style to use
+      style: 'mapbox://styles/fodr-arm/cl3kbpzfl000014mivgau2d3x', // Specify which map style to use
       center: [-77.79220916559966, 46.27391391527709], // Specify the starting position [lng, lat]
       zoom: 11, // Specify the starting zoom
       minZoom:10,
@@ -49,54 +49,90 @@
     Add an event listener that runs
       when a user clicks on the map element.
     */
-    map.on('click', (event) => {
-      // If the user clicked on one of your markers, get its information.
-      const features = map.queryRenderedFeatures(event.point, {
-        layers: ['campsites', 'historical-poi'] // replace with your layer name
+    var popup = new mapboxgl.Popup({
+        offset: [0, -15],
+        closeButton: false,
+        closeOnClick: false
       });
-      if (!features.length) {
-        return;
-      }
-      const feature = features[0];
+    // map.on('click', (event) => {
+    //   // If the user clicked on one of your markers, get its information.
+    //   const features = map.queryRenderedFeatures(event.point, {
+    //     layers: ['campsites', 'historical-poi'] // replace with your layer name
+    //   });
+    //   if (!features.length) {
+    //     return;
+    //   }
+    //   const feature = features[0];
 
-      /* 
-      Create a popup, specify its options 
-      and properties, and add it to the map.
-    */
-      const popup = new mapboxgl.Popup({ offset: [0, -15] })
-        .setLngLat(feature.geometry.coordinates)
-        .setHTML(
-          `<h3>${feature.properties.name}</h3>`
-        )
-        .addTo(map);
-    });
-    map.on('mouseenter', 'campsites', () => {
+    //   /* 
+    //   Create a popup, specify its options 
+    //   and properties, and add it to the map.
+    // */
+    //   const popup = new mapboxgl.Popup({ offset: [0, -15] })
+    //     .setLngLat(feature.geometry.coordinates)
+    //     .setHTML(
+    //       `<h3>${feature.properties.name}</h3>`
+    //     )
+    //     .addTo(map);
+    // });
+    map.on('load', function() {
+    map.on('mouseenter', 'campsites', function(e) {
       map.getCanvas().style.cursor = 'pointer';
-      });
-      
-      // Change the cursor back to a pointer
-      // when it leaves the campsites layer.
-      map.on('mouseleave', 'campsites', () => {
-      map.getCanvas().style.cursor = '';
-      });
-    map.on('click', 'significant-areas', (e) => {
-      new mapboxgl.Popup()
-      .setLngLat(e.lngLat)
-      .setHTML(e.features[0].properties.featuretype)
+
+      var coordinates = e.features[0].geometry.coordinates.slice();
+      var title = e.features[0].properties.LabelEN;
+      // var description = e.features[0].properties.description;
+      // var title2 = e.features[0].properties.title2;
+      // var description2 = e.features[0].properties.description2;
+
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      // Populate the popup and set its coordinates
+      // based on the feature found.
+      popup
+      .setLngLat(coordinates)
+      .setHTML('<h3>' + title + '</h3>')
       .addTo(map);
       });
-      
-      // Change the cursor to a pointer when
-      // the mouse is over the significant areas layer.
-      map.on('mouseenter', 'significant-areas', () => {
-      map.getCanvas().style.cursor = 'pointer';
-      });
-      
-      // Change the cursor back to a pointer
-      // when it leaves the significant areas layer.
-      map.on('mouseleave', 'significant-areas', () => {
+
+    map.on('mouseleave', 'test', function() {
       map.getCanvas().style.cursor = '';
-      });
+      popup.remove();
+    });
+  });
+
+    // map.on('mouseenter', 'campsites', () => {
+    //   map.getCanvas().style.cursor = 'pointer';
+    //   });
+      
+    //   // Change the cursor back to a pointer
+    //   // when it leaves the campsites layer.
+    //   map.on('mouseleave', 'campsites', () => {
+    //   map.getCanvas().style.cursor = '';
+    //   });
+    // map.on('click', 'significant-areas', (e) => {
+    //   new mapboxgl.Popup()
+    //   .setLngLat(e.lngLat)
+    //   .setHTML(e.features[0].properties.featuretype)
+    //   .addTo(map);
+    //   });
+      
+    //   // Change the cursor to a pointer when
+    //   // the mouse is over the significant areas layer.
+    //   map.on('mouseenter', 'significant-areas', () => {
+    //   map.getCanvas().style.cursor = 'pointer';
+    //   });
+      
+    //   // Change the cursor back to a pointer
+    //   // when it leaves the significant areas layer.
+    //   map.on('mouseleave', 'significant-areas', () => {
+    //   map.getCanvas().style.cursor = '';
+    //   });
   </script>
 </body>
 </html>
