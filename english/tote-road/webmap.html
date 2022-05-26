@@ -59,11 +59,117 @@
     .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
       border-bottom-color: #91c949;
     }
+    * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    color: #404040;
+    font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1 {
+    font-size: 22px;
+    margin: 0;
+    font-weight: 400;
+    line-height: 20px;
+    padding: 20px 2px;
+  }
+
+  a {
+    color: #404040;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #101010;
+  }
+
+  /* The page is split between map and sidebar - the sidebar gets 1/3, map
+  gets 2/3 of the page. You can adjust this to your personal liking. */
+  .sidebar {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    border-right: 1px solid rgba(0, 0, 0, 0.25);
+  }
+
+  .map {
+    position: absolute;
+    left: 25%;
+    width: 75%;
+    top: 0;
+    bottom: 0;
+  }
+
+  .heading {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 10px;
+  }
+  .listings {
+  height: 100%;
+  overflow: auto;
+  padding-bottom: 60px;
+}
+
+.listings .item {
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.listings .item:last-child { border-bottom: none; }
+
+.listings .item .title {
+  display: block;
+  color: #00853e;
+  font-weight: 700;
+}
+
+.listings .item .title small { font-weight: 400; }
+
+.listings .item.active .title,
+.listings .item .title:hover { color: #8cc63f; }
+
+.listings .item.active {
+  background-color: #f8f8f8;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  border-left: 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00853e;
+  border-radius: 0;
+}
   </style>
 </head>
 <body>
 <!-- this will be the web map page -->
-<div id='map'></div>
+<div class='sidebar'>
+  <div class='heading'>
+    <h1>Trail Features</h1>
+  </div>
+  <div id='listings' class='listings'></div>
+</div>
+<div id='map' class="map"></div>
 
   <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoiZm9kci1hcm0iLCJhIjoiY2wzZW9lZjA3MDJodjNsbDUxY3M2MmFkZSJ9.3imPfCVXmLM7dci1i0D8KA';
@@ -82,6 +188,88 @@
     unit: 'metric'
     });
     map.addControl(scale);
+    const sites ={
+      "type":"FeatureCollection", "features":[
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.85362773987164,46.21619771612313,-5.454756319522858E-05]},"properties":{"Name":"Primary campsite","LabelEN":null,"Feature":0,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.80607828552671,46.36343857310607,-5.4817646741867065E-05]},"properties":{"Name":"Boat Launch/ Campsite","LabelEN":null,"Feature":0,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.81586752349489,46.3444157083914,-5.478225648403168E-05]},"properties":{"Name":"Camp","LabelEN":null,"Feature":1,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.78346491342606,46.37047312384231,-5.48316165804863E-05]},"properties":{"Name":"Campsite","LabelEN":null,"Feature":1,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.82112143984794,46.33834364946912,-5.477108061313629E-05]},"properties":{"Name":"Campsite","LabelEN":null,"Feature":1,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.85514527089862,46.26513073841095,-5.4638832807540894E-05]},"properties":{"Name":"Campsite","LabelEN":null,"Feature":1,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.85140905876122,46.2604918594942,-5.462951958179474E-05]},"properties":{"Name":"Campsite - Ryan’s Chutes","LabelEN":null,"Feature":0,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.81342747181371,46.35068523844879,-5.479343235492706E-05]},"properties":{"Name":"Campsite 1 (Dumoine)","LabelEN":null,"Feature":1,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.81559696527208,46.344269021612796,-5.478318780660629E-05]},"properties":{"Name":"Campsite 2 (below First Set Of Rapids)","LabelEN":null,"Feature":1,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.81972559348608,46.33829611942148,-5.4770149290561676E-05]},"properties":{"Name":"Campsite 3 (waters Edge)","LabelEN":null,"Feature":1,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.80558954124109,46.36327754716077,-5.481485277414322E-05]},"properties":{"Name":"Group Campsite And Portage Start","LabelEN":null,"Feature":1,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.82575620238005,46.32536722695483,-5.474872887134552E-05]},"properties":{"Name":"New Camp (pot in Farm)","LabelEN":null,"Feature":1,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.83930814461398,46.31262762113002,-5.472544580698013E-05]},"properties":{"Name":"Patent Chute Campsite","LabelEN":null,"Feature":0,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.82536694515916,46.33619921859792,-5.4766424000263214E-05]},"properties":{"Name":"Potential Camp 2","LabelEN":null,"Feature":1,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.82463860348115,46.33627274544636,-5.4768286645412445E-05]},"properties":{"Name":"Red point Campsite","LabelEN":null,"Feature":0,"LabelFR":null}}
+        ]
+    };
+    sites.features.forEach(function (site, i) {
+      site.properties.id = i;
+    });
+    map.on('load', () => {
+  /* Add the data to your map as a layer */
+  map.addLayer({
+    id: 'locations',
+    type: 'circle',
+    /* Add a GeoJSON source containing place coordinates and information. */
+    source: {
+      type: 'geojson',
+      data: sites
+    }
+  });
+  buildLocationList(sites);
+});
+function buildLocationList(sites) {
+  for (const site of sites.features) {
+    /* Add a new listing section to the sidebar. */
+    const listings = document.getElementById('listings');
+    const listing = listings.appendChild(document.createElement('div'));
+    /* Assign a unique `id` to the listing. */
+    listing.id = `listing-${site.properties.id}`;
+    /* Assign the `item` class to each listing for styling. */
+    listing.className = 'item';
+
+    /* Add the link to the individual listing created above. */
+    const link = listing.appendChild(document.createElement('a'));
+    link.href = '#';
+    link.className = 'title';
+    link.id = `link-${site.properties.id}`;
+    link.innerHTML = `${site.properties.Name}`;
+
+    /* Add details to the individual listing. */
+    // const details = listing.appendChild(document.createElement('div'));
+    // details.innerHTML = `${site.properties.city}`;
+    // if (site.properties.phone) {
+    //   details.innerHTML += ` · ${site.properties.phoneFormatted}`;
+    // }
+    // if (site.properties.distance) {
+    //   const roundedDistance = Math.round(site.properties.distance * 100) / 100;
+    //   details.innerHTML += `<div><strong>${roundedDistance} miles away</strong></div>`;
+    // }
+  }
+}
+function flyToStore(currentFeature) {
+  map.flyTo({
+    center: currentFeature.geometry.coordinates,
+    zoom: 15
+  });
+}
+
+function createPopUp(currentFeature) {
+  const popUps = document.getElementsByClassName('mapboxgl-popup');
+  /** Check if there is already a popup on the map and if so, remove it */
+  if (popUps[0]) popUps[0].remove();
+
+  const popup = new mapboxgl.Popup({ closeOnClick: false })
+    .setLngLat(currentFeature.geometry.coordinates)
+    .setHTML(`<h3>Feature</h3><h4>${currentFeature.properties.Name}</h4>`)
+    .addTo(map);
+}
+
     /* 
     Add an event listener that runs
       when a user clicks on the map element.
