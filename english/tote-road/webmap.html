@@ -159,10 +159,48 @@
   background: #00853e;
   border-radius: 0;
 }
-  </style>
+.mapboxgl-popup-close-button {
+  display: visible;
+}
+
+.mapboxgl-popup-content {
+  font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+  padding: 0;
+  width: 180px;
+}
+
+.mapboxgl-popup-content h3 {
+  background: #91c949;
+  color: #fff;
+  margin: 0;
+  padding: 10px;
+  border-radius: 3px 3px 0 0;
+  font-weight: 700;
+  margin-top: -15px;
+}
+
+.mapboxgl-popup-content h4 {
+  margin: 0;
+  padding: 10px;
+  font-weight: 400;
+}
+
+.mapboxgl-popup-content div {
+  padding: 10px;
+}
+
+.mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
+  margin-top: 15px;
+}
+
+.mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
+  border-bottom-color: #91c949;
+}
+</style>
 </head>
 <body>
-<!-- this will be the web map page -->
+<!-- this will be the web map page 
+https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 <div class='sidebar'>
   <div class='heading'>
     <h1>Trail Features</h1>
@@ -184,8 +222,8 @@
     map.addControl(new mapboxgl.NavigationControl());
     
     const scale = new mapboxgl.ScaleControl({
-    maxWidth: 80,
-    unit: 'metric'
+      maxWidth: 80,
+      unit: 'metric'
     });
     map.addControl(scale);
     const sites ={
@@ -207,101 +245,187 @@
         {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.82463860348115,46.33627274544636,-5.4768286645412445E-05]},"properties":{"Name":"Red point Campsite","LabelEN":null,"Feature":0,"LabelFR":null}}
         ]
     };
-    sites.features.forEach(function (site, i) {
-      site.properties.id = i;
-    });
-    map.on('load', () => {
-  /* Add the data to your map as a layer */
-  map.addLayer({
-    id: 'locations',
-    type: 'circle',
-    /* Add a GeoJSON source containing place coordinates and information. */
-    source: {
-      type: 'geojson',
-      data: sites
-    }
-  });
-  buildLocationList(sites);
-});
-function buildLocationList(sites) {
-  for (const site of sites.features) {
-    /* Add a new listing section to the sidebar. */
-    const listings = document.getElementById('listings');
-    const listing = listings.appendChild(document.createElement('div'));
-    /* Assign a unique `id` to the listing. */
-    listing.id = `listing-${site.properties.id}`;
-    /* Assign the `item` class to each listing for styling. */
-    listing.className = 'item';
+/**
+       * Assign a unique id to each site. You'll use this `id`
+       * later to associate each point on the map with a listing
+       * in the sidebar.
+       */
+       sites.features.forEach((site, i) => {
+        site.properties.id = i;
+      });
 
-    /* Add the link to the individual listing created above. */
-    const link = listing.appendChild(document.createElement('a'));
-    link.href = '#';
-    link.className = 'title';
-    link.id = `link-${site.properties.id}`;
-    link.innerHTML = `${site.properties.Name}`;
+      /**
+       * Wait until the map loads to make changes to the map.
+       */
+      map.on('load', () => {
+        /* Add the data to your map as a layer */
+        map.addLayer({
+          'id': 'locations',
+          'type': 'circle',
+          paint: {
+            'circle-opacity': 0,
+          },
+          /* Add a GeoJSON source containing place coordinates and information. */
+          'source': {
+            'type': 'geojson',
+            'data': sites
+          }
+        });
 
-    /* Add details to the individual listing. */
-    // const details = listing.appendChild(document.createElement('div'));
-    // details.innerHTML = `${site.properties.city}`;
-    // if (site.properties.phone) {
-    //   details.innerHTML += ` · ${site.properties.phoneFormatted}`;
-    // }
-    // if (site.properties.distance) {
-    //   const roundedDistance = Math.round(site.properties.distance * 100) / 100;
-    //   details.innerHTML += `<div><strong>${roundedDistance} miles away</strong></div>`;
-    // }
-  }
-}
-function flyToStore(currentFeature) {
-  map.flyTo({
-    center: currentFeature.geometry.coordinates,
-    zoom: 15
-  });
-}
+        /**
+         * Add things to the page:
+         * - The location listings on the side of the page
+         */
+        buildLocationList(sites);
+      });
 
-function createPopUp(currentFeature) {
-  const popUps = document.getElementsByClassName('mapboxgl-popup');
-  /** Check if there is already a popup on the map and if so, remove it */
-  if (popUps[0]) popUps[0].remove();
+      /**
+       * Listen to the map and when it is clicked, do three things:
+       * 1. Query the map to determine if a feature in the
+       *    "locations" layer exists at that point.
+       * 2. If yes, then:
+       *   a. Fly to the point
+       *   b. Close all other popups and display popup for clicked site
+       *   c. Highlight listing in sidebar (and remove highlight for all other listings)
+       **/
+      map.on('click', (event) => {
+        /* Query the map to determine if a feature in the "locations" layer exists at that point. */
+        const features = map.queryRenderedFeatures(event.point, {
+          layers: ['locations']
+        });
 
-  const popup = new mapboxgl.Popup({ closeOnClick: false })
-    .setLngLat(currentFeature.geometry.coordinates)
-    .setHTML(`<h3>Feature</h3><h4>${currentFeature.properties.Name}</h4>`)
-    .addTo(map);
-}
+        /* If it does not exist, return */
+        if (!features.length) return;
+        const clickedPoint = features[0];
 
+        /* Fly to the point */
+        flyTosite(clickedPoint);
+
+        /* Close all other popups and display popup for clicked site */
+        createPopUp(clickedPoint);
+
+        /* Highlight listing in sidebar (and remove highlight for all other listings) */
+        const activeItem = document.getElementsByClassName('active');
+        if (activeItem[0]) {
+          activeItem[0].classList.remove('active');
+        }
+        const listing = document.getElementById(
+          `listing-${clickedPoint.properties.id}`
+        );
+        listing.classList.add('active');
+      });
+
+      /**
+       * Add a listing for each site to the sidebar.
+       **/
+      function buildLocationList(sites) {
+        for (const site of sites.features) {
+          /* Add a new listing section to the sidebar. */
+          const listings = document.getElementById('listings');
+          const listing = listings.appendChild(document.createElement('div'));
+          /* Assign a unique `id` to the listing. */
+          listing.id = `listing-${site.properties.id}`;
+          /* Assign the `item` class to each listing for styling. */
+          listing.className = 'item';
+
+          /* Add the link to the individual listing created above. */
+          const link = listing.appendChild(document.createElement('a'));
+          link.href = '#';
+          link.className = 'title';
+          link.id = `link-${site.properties.id}`;
+          link.innerHTML = `${site.properties.Name}`;
+
+          /* Add details to the individual listing. 
+          const details = listing.appendChild(document.createElement('div'));
+          details.innerHTML = `${site.properties.city}`;
+          if (site.properties.phone) {
+            details.innerHTML += ` &middot; ${site.properties.phoneFormatted}`;
+          }
+          if (site.properties.distance) {
+            const roundedDistance =
+              Math.round(site.properties.distance * 100) / 100;
+            details.innerHTML += `<div><strong>${roundedDistance} miles away</strong></div>`;
+          }
+          /**
+           * Listen to the element and when it is clicked, do four things:
+           * 1. Update the `currentFeature` to the site associated with the clicked link
+           * 2. Fly to the point
+           * 3. Close all other popups and display popup for clicked site
+           * 4. Highlight listing in sidebar (and remove highlight for all other listings)
+           **/
+          link.addEventListener('click', function () {
+            for (const feature of sites.features) {
+              if (this.id === `link-${feature.properties.id}`) {
+                flyTosite(feature);
+                createPopUp(feature);
+              }
+            }
+            const activeItem = document.getElementsByClassName('active');
+            if (activeItem[0]) {
+              activeItem[0].classList.remove('active');
+            }
+            this.parentNode.classList.add('active');
+          });
+        }
+      }
+
+      /**
+       * Use Mapbox GL JS's `flyTo` to move the camera smoothly
+       * a given center point.
+       **/
+      function flyTosite(currentFeature) {
+        map.flyTo({
+          center: currentFeature.geometry.coordinates,
+          zoom: 15
+        });
+      }
+
+      /**
+       * Create a Mapbox GL JS `Popup`.
+       **/
+      function createPopUp(currentFeature) {
+        const popUps = document.getElementsByClassName('mapboxgl-popup');
+        if (popUps[0]) popUps[0].remove();
+
+        const popup = new mapboxgl.Popup({ closeOnClick: false })
+          .setLngLat(currentFeature.geometry.coordinates)
+          .setHTML(
+            `<h3>Campsite</h3><h4>${currentFeature.properties.Name}</h4>`
+          )
+          .addTo(map);
+      }
     /* 
     Add an event listener that runs
       when a user clicks on the map element.
     */
-    const popup = new mapboxgl.Popup({
-      closeButton: false,
-      closeOnClick: true
-    });
-    map.on('mouseenter', 'campsites', (e) => {
-      // Change the cursor style as a UI indicator.
-      map.getCanvas().style.cursor = 'pointer';
+    // const popup = new mapboxgl.Popup({
+    //   closeButton: false,
+    //   closeOnClick: true
+    // });
+    // map.on('mouseenter', 'campsites', (e) => {
+    //   // Change the cursor style as a UI indicator.
+    //   map.getCanvas().style.cursor = 'pointer';
       
-      // Copy coordinates array.
-      const coordinates = e.features[0].geometry.coordinates.slice();
-      const name = e.features[0].properties.Name;
+    //   // Copy coordinates array.
+    //   const coordinates = e.features[0].geometry.coordinates.slice();
+    //   const name = e.features[0].properties.Name;
       
-      // Ensure that if the map is zoomed out such that multiple
-      // copies of the feature are visible, the popup appears
-      // over the copy being pointed to.
-      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-      }
+    //   // Ensure that if the map is zoomed out such that multiple
+    //   // copies of the feature are visible, the popup appears
+    //   // over the copy being pointed to.
+    //   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+    //   coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    //   }
       
-      // Populate the popup and set its coordinates
-      // based on the feature found.
-      popup.setLngLat(coordinates).setHTML(name).addTo(map);
-      });
+    //   // Populate the popup and set its coordinates
+    //   // based on the feature found.
+    //   popup.setLngLat(coordinates).setHTML(name).addTo(map);
+    //   });
       
-      map.on('mouseleave', 'campsites', () => {
-      map.getCanvas().style.cursor = '';
-      popup.remove();
-      });
+    //   map.on('mouseleave', 'campsites', () => {
+    //   map.getCanvas().style.cursor = '';
+    //   popup.remove();
+    //   });
     // map.on('click', (event) => {
     //   // If the user clicked on one of your markers, get its information.
     //   const features = map.queryRenderedFeatures(event.point, {
