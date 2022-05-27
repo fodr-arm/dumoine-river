@@ -129,17 +129,26 @@
 
 .listings .item:last-child { border-bottom: none; }
 
-.listings .item .title {
+.listings .item .Campsite {
   display: block;
   color: #00853e;
   font-weight: 700;
 }
 
-.listings .item .title small { font-weight: 400; }
+.listings .item .Campsite small { font-weight: 400; }
 
-.listings .item.active .title,
-.listings .item .title:hover { color: #8cc63f; }
+.listings .item.active .Campsite,
+.listings .item .Campsite:hover { color: #8cc63f; }
+.listings .item .Boat-Launch {
+  display: block;
+  color: #635711;
+  font-weight: 700;
+}
 
+.listings .item .Boat-Launch small { font-weight: 400; }
+
+.listings .item.active .Boat-Launch,
+.listings .item .Boat-Launch:hover { color: #a08f43; }
 .listings .item.active {
   background-color: #f8f8f8;
 }
@@ -203,7 +212,7 @@
 https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 <div class='sidebar'>
   <div class='heading'>
-    <h1>Trail Features</h1>
+    <h1>Dumoine River Tote Road Trail Features</h1>
   </div>
   <div id='listings' class='listings'></div>
 </div>
@@ -228,22 +237,89 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
     map.addControl(scale);
     const sites ={
       "type":"FeatureCollection", "features":[
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.85362773987164,46.21619771612313,-5.454756319522858E-05]},"properties":{"Name":"Primary campsite","LabelEN":null,"Feature":0,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.80607828552671,46.36343857310607,-5.4817646741867065E-05]},"properties":{"Name":"Boat Launch/ Campsite","LabelEN":null,"Feature":0,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.81586752349489,46.3444157083914,-5.478225648403168E-05]},"properties":{"Name":"Camp","LabelEN":null,"Feature":1,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.78346491342606,46.37047312384231,-5.48316165804863E-05]},"properties":{"Name":"Campsite","LabelEN":null,"Feature":1,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.82112143984794,46.33834364946912,-5.477108061313629E-05]},"properties":{"Name":"Campsite","LabelEN":null,"Feature":1,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.85514527089862,46.26513073841095,-5.4638832807540894E-05]},"properties":{"Name":"Campsite","LabelEN":null,"Feature":1,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.85140905876122,46.2604918594942,-5.462951958179474E-05]},"properties":{"Name":"Campsite - Ryan’s Chutes","LabelEN":null,"Feature":0,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.81342747181371,46.35068523844879,-5.479343235492706E-05]},"properties":{"Name":"Campsite 1 (Dumoine)","LabelEN":null,"Feature":1,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.81559696527208,46.344269021612796,-5.478318780660629E-05]},"properties":{"Name":"Campsite 2 (below First Set Of Rapids)","LabelEN":null,"Feature":1,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.81972559348608,46.33829611942148,-5.4770149290561676E-05]},"properties":{"Name":"Campsite 3 (waters Edge)","LabelEN":null,"Feature":1,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.80558954124109,46.36327754716077,-5.481485277414322E-05]},"properties":{"Name":"Group Campsite And Portage Start","LabelEN":null,"Feature":1,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.82575620238005,46.32536722695483,-5.474872887134552E-05]},"properties":{"Name":"New Camp (pot in Farm)","LabelEN":null,"Feature":1,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.83930814461398,46.31262762113002,-5.472544580698013E-05]},"properties":{"Name":"Patent Chute Campsite","LabelEN":null,"Feature":0,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.82536694515916,46.33619921859792,-5.4766424000263214E-05]},"properties":{"Name":"Potential Camp 2","LabelEN":null,"Feature":1,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.82463860348115,46.33627274544636,-5.4768286645412445E-05]},"properties":{"Name":"Red point Campsite","LabelEN":null,"Feature":0,"LabelFR":null}}
-        ]
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.85362773987164,46.21619771612313,-5.454756319522858E-05]},"properties":{"Description": "Insert campsite info here", "Type": "Campsite", "Name":"Primary campsite","LabelEN":null,"Feature":0,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.80607828552671,46.36343857310607,-5.4817646741867065E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Boat Launch/ Campsite","LabelEN":null,"Feature":0,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.81586752349489,46.3444157083914,-5.478225648403168E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Camp","LabelEN":null,"Feature":1,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.78346491342606,46.37047312384231,-5.48316165804863E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Campsite","LabelEN":null,"Feature":1,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.82112143984794,46.33834364946912,-5.477108061313629E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Campsite","LabelEN":null,"Feature":1,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.85514527089862,46.26513073841095,-5.4638832807540894E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Campsite","LabelEN":null,"Feature":1,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.85140905876122,46.2604918594942,-5.462951958179474E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Campsite - Ryan’s Chutes","LabelEN":null,"Feature":0,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.81342747181371,46.35068523844879,-5.479343235492706E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Campsite 1 (Dumoine)","LabelEN":null,"Feature":1,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.81559696527208,46.344269021612796,-5.478318780660629E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Campsite 2 (below First Set Of Rapids)","LabelEN":null,"Feature":1,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.81972559348608,46.33829611942148,-5.4770149290561676E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Campsite 3 (waters Edge)","LabelEN":null,"Feature":1,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.80558954124109,46.36327754716077,-5.481485277414322E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Group Campsite And Portage Start","LabelEN":null,"Feature":1,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.82575620238005,46.32536722695483,-5.474872887134552E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"New Camp (pot in Farm)","LabelEN":null,"Feature":1,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.83930814461398,46.31262762113002,-5.472544580698013E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Patent Chute Campsite","LabelEN":null,"Feature":0,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.82536694515916,46.33619921859792,-5.4766424000263214E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Potential Camp 2","LabelEN":null,"Feature":1,"LabelFR":null}},
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.82463860348115,46.33627274544636,-5.4768286645412445E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Red point Campsite","LabelEN":null,"Feature":0,"LabelFR":null}}, {
+      "type": "Feature",
+      "properties": {
+        "Type": "Boat-Launch",
+        "Name": "Mackay Public Boat Launch",
+        "Parking": "Free",
+        "Description": "Free public boat launch, overnight parking at your own risk."
+      },
+      "geometry": {
+        "coordinates": [
+          -77.810945,
+          46.169851
+        ],
+        "type": "Point"
+      },
+      "id": "289bcc7e1c24f6903e88ece5bcf4cd0a"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Type": "Boat-Launch",
+        "Name": "Driftwood Provincial Park",
+        "Description": "Secure public paid parking",
+        "Parking": "$$"
+      },
+      "geometry": {
+        "coordinates": [
+          -77.845709,
+          46.195449
+        ],
+        "type": "Point"
+      },
+      "id": "a1a2f77fc5479a72f2cb7a6a92fbb6d2"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Type": "Boat-Launch",
+        "Name": "Dumoine Valley Guides",
+        "Parking": "$$",
+        "Description": "Local outfitter with shuttle services"
+      },
+      "geometry": {
+        "coordinates": [
+          -77.722442,
+          46.19656
+        ],
+        "type": "Point"
+      },
+      "id": "c7e682260fffe3882315ae87b2bb57a0"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Type": "Boat-Launch",
+        "Name": "Stonecliffe Public Boat Launc",
+        "Parking": "Free",
+        "Description": "Free public boat launch, overnight parking at your own risk."
+      },
+      "geometry": {
+        "coordinates": [
+          -77.891593,
+          46.21576
+        ],
+        "type": "Point"
+      },
+      "id": "fee3d6f8ae7cd545cb06d466b6605b28"
+    }
+  ],
     };
 /**
        * Assign a unique id to each site. You'll use this `id`
@@ -331,21 +407,13 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
           /* Add the link to the individual listing created above. */
           const link = listing.appendChild(document.createElement('a'));
           link.href = '#';
-          link.className = 'title';
+          link.className = `${site.properties.Type}`;
           link.id = `link-${site.properties.id}`;
           link.innerHTML = `${site.properties.Name}`;
 
-          /* Add details to the individual listing. 
+          /*Add details to the individual listing. */
           const details = listing.appendChild(document.createElement('div'));
-          details.innerHTML = `${site.properties.city}`;
-          if (site.properties.phone) {
-            details.innerHTML += ` &middot; ${site.properties.phoneFormatted}`;
-          }
-          if (site.properties.distance) {
-            const roundedDistance =
-              Math.round(site.properties.distance * 100) / 100;
-            details.innerHTML += `<div><strong>${roundedDistance} miles away</strong></div>`;
-          }
+          details.innerHTML = `${site.properties.Description}`;
           /**
            * Listen to the element and when it is clicked, do four things:
            * 1. Update the `currentFeature` to the site associated with the clicked link
@@ -376,7 +444,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
       function flyTosite(currentFeature) {
         map.flyTo({
           center: currentFeature.geometry.coordinates,
-          zoom: 15
+          zoom: 13
         });
       }
 
@@ -390,7 +458,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
         const popup = new mapboxgl.Popup({ closeOnClick: false })
           .setLngLat(currentFeature.geometry.coordinates)
           .setHTML(
-            `<h3>Campsite</h3><h4>${currentFeature.properties.Name}</h4>`
+            `<h3>${currentFeature.properties.Type}</h3><h4>${currentFeature.properties.Name}</h4>`
           )
           .addTo(map);
       }
