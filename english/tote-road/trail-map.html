@@ -10,14 +10,33 @@
   <link rel="stylesheet" href="CSS\main-1.0.0.css">
 </head>
 <style>
-    .map {
-      max-width: 500px;
-      margin: auto;
+html, body {
+    height:100%;
+    width:100%;
+    margin:0px;
+}
+    .container {
+        box-sizing:border-box;
+        position: relative;
+        overflow: hidden;
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
+        padding-top:10px;
+        padding-bottom:10px;
+
+    }
+    .responsive-iframe {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        border: none;
     }
     </style>
 <body>
-    <div class="map">
-        <iframe title="Interactive trail map for the Dumoine River Tote Road Trail" src="webmap.html"></iframe>
+    <div class="container">
+        <iframe class="responsive-iframe" title="Interactive trail map for the Dumoine River Tote Road Trail" src="webmap.html#"></iframe>
     </div>
 </body>
 </html>
