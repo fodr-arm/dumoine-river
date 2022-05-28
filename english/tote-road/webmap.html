@@ -10,6 +10,9 @@
   <!--link rel="stylesheet" href="CSS\main-1.0.0.css"-->
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Gurmukhi&display=swap" rel="stylesheet"> 
   <style>
     body {
       margin: 0;
@@ -20,73 +23,79 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      width: 100%;
+      width: 75%;
     }
     /* Marker tweaks */
+	.mapboxgl-popup-close-button {
+		display: visible;
+		color: #eee;
+		padding-right: 15px;
+	}
 
-    .mapboxgl-popup-content {
-      font-size: 15px/22px;
-      font-family: Georgia, serif;
-      padding: 5px;
-      background: #406809c2;
-      color: rgb(255, 255, 255);
-    }
+	.mapboxgl-popup-content {
+	font: 400 15px/22px 'Tiro Gurmukhi', serif;
+	padding: 0;
+	width: 180px;
+	}
 
-    .mapboxgl-popup-content h3 {
-      background: #315303;
-      color: #fff;
-      margin: 0;
-      padding: 10px;
-      border-radius: 3px 3px 0 0;
-      font-weight: 100;
-      margin-top: -15px;
-    }
+	.mapboxgl-popup-content h3 {
+	background: #283d0b;
+	color: rgb(233, 247, 212);
+	margin: 0;
+	padding: 10px;
+	border-radius: 3px 3px 0 0;
+	font-weight: 700;
+	margin-top: -15px;
+	}
 
-    .mapboxgl-popup-content h4 {
-      margin: 0;
-      padding: 10px;
-      font-weight: 400;
-    }
+	.mapboxgl-popup-content h4 {
+	margin: 0;
+	padding: 10px;
+	font-weight: 400;
+	background: #d6ddb6e3;
+	color: rgb(33, 51, 4);
+	border: 1px solid #283d0b;
+	}
 
-    .mapboxgl-popup-content div {
-      padding: 10px;
-    }
+	.mapboxgl-popup-content div {
+	padding: 10px;
+	}
 
-    .mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
-      margin-top: 15px;
-    }
+	.mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
+	margin-top: 15px;
+	}
 
-    .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
-      border-bottom-color: #91c949;
-    }
-    * {
-    box-sizing: border-box;
-  }
+	.mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
+	border-bottom-color: #91c949;
+	}
+	* {
+    	box-sizing: border-box;
+  	}
   
-  body {
-    color: #404040;
-    font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', sans-serif;
-    margin: 0;
-    padding: 0;
-    -webkit-font-smoothing: antialiased;
-  }
+	body {
+		color: #404040;
+		font: 400 15px/22px 'Tiro Gurmukhi', serif;
+		margin: 0;
+		padding: 0;
+		-webkit-font-smoothing: antialiased;
+	}
 
-  h1 {
-    font-size: 22px;
-    margin: 0;
-    font-weight: 400;
-    line-height: 20px;
-    padding: 20px 2px;
-  }
+	h1 {
+		font-size: 22px;
+		margin: 0;
+		font-weight: 400;
+		line-height: 20px;
+		padding: 20px 2px;
+	}
 
-  a {
-    color: #404040;
-    text-decoration: none;
-  }
+	a {
+		color: #404040;
+		text-decoration: none;
+	}
 
-  a:hover {
-    color: #101010;
-  }
+	a:hover {
+		color: #101010;
+	}
 
   /* The page is split between map and sidebar - the sidebar gets 1/3, map
   gets 2/3 of the page. You can adjust this to your personal liking. */
@@ -109,10 +118,11 @@
   }
 
   .heading {
-    background: #fff;
+    background: #283d0b;
+	color: #f8f8f8;
     border-bottom: 1px solid #eee;
     height: max-content;
-    line-height: 60px;
+    line-height: 100px;
     padding: 0 10px;
   }
   .listings {
@@ -133,6 +143,12 @@
   display: block;
   color: #00853e;
   font-weight: 700;
+}
+.listings .item .KM {
+  display: block;
+  color: #37583d;
+  font-size: smaller;
+  padding-top:2px;
 }
 
 .listings .item .Campsite small { font-weight: 400; }
@@ -158,56 +174,18 @@
   background: #00853e;
   border-radius: 0;
 }
-.mapboxgl-popup-close-button {
-  display: visible;
-}
-
-.mapboxgl-popup-content {
-  font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', sans-serif;
-  padding: 0;
-  width: 180px;
-}
-
-.mapboxgl-popup-content h3 {
-  background: #91c949;
-  color: #fff;
-  margin: 0;
-  padding: 10px;
-  border-radius: 3px 3px 0 0;
-  font-weight: 700;
-  margin-top: -15px;
-}
-
-.mapboxgl-popup-content h4 {
-  margin: 0;
-  padding: 10px;
-  font-weight: 400;
-}
-
-.mapboxgl-popup-content div {
-  padding: 10px;
-}
-
-.mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
-  margin-top: 15px;
-}
-
-.mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
-  border-bottom-color: #91c949;
-}
 </style>
 </head>
 <body>
-<!-- this will be the web map page 
-https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
-<div class='sidebar'>
-  <div class='heading'>
-    <h1>Dumoine River Tote Road Trail Features</h1>
-  </div>
-  <div id='listings' class='listings'></div>
-</div>
-<div id='map' class="map"></div>
-
+	<!-- this will be the web map page 
+	https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
+	<div class='sidebar'>
+	<div class='heading'>
+		<h1>Dumoine River Campsites</h1>
+	</div>
+	<div id='listings' class='listings'></div>
+	</div>
+	<div id='map' class="map"></div>
   <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoiZm9kci1hcm0iLCJhIjoiY2wzZW9lZjA3MDJodjNsbDUxY3M2MmFkZSJ9.3imPfCVXmLM7dci1i0D8KA';
     const map = new mapboxgl.Map({
@@ -221,8 +199,8 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
     map.addControl(new mapboxgl.NavigationControl());
     
     const scale = new mapboxgl.ScaleControl({
-      maxWidth: 80,
-      unit: 'metric'
+      maxWidth: 200,
+      unit: 'metric',
     });
     map.addControl(scale);
     const sites ={
@@ -246,7 +224,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 1,
 				"Sequence": 1,
 				"Description": "Primary campsite with enough space for several groups.",
-        "Nearest Kilometer Marker": "Northern Trailhead"
+        "KM": "Northern Trailhead"
       }
 		},
         {
@@ -267,7 +245,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 2,
 				"Sequence": 2,
 				"Description": "Primary campsite with enough space for several groups.",
-        "Nearest Kilometer Marker": "Northern Trailhead"
+        "KM": "Northern Trailhead"
 			}
 		},
 		{
@@ -288,7 +266,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 3,
 				"Sequence": 3,
 				"Description": "Primary campsite with enough space for several groups.",
-        "Nearest Kilometer Marker": "KM 1"
+        "KM": "KM 1"
 			}
 		},
 		
@@ -310,7 +288,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 4,
 				"Sequence": 4,
 				"Description": "Rudimentary campsite with limited space.",
-        "Nearest Kilometer Marker": "KM 2"
+        "KM": "KM 2"
 			}
 		},
     {
@@ -331,7 +309,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": "5A",
 				"Sequence": 5,
 				"Description": "Primary campsite with enough space for several groups.",
-        "Nearest Kilometer Marker": "KM 4"
+        "KM": "KM 4"
 			}
 		},
         {
@@ -352,7 +330,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": "5B",
 				"Sequence": 5,
 				"Description": "Primary campsite with enough space for several groups.",
-        "Nearest Kilometer Marker": "KM 4"
+        "KM": "KM 4"
 			}
 		},
         {
@@ -373,7 +351,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 6,
 				"Sequence": 6,
 				"Description": "Rudimentary campsite with limited space.",
-        "Nearest Kilometer Marker": "KM 8"
+        "KM": "KM 8"
 			}
 		},
         {
@@ -394,7 +372,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 7,
 				"Sequence": 7,
 				"Description": "Rudimentary campsite with limited space.",
-        "Nearest Kilometer Marker": "KM 9"
+        "KM": "KM 9"
 			}
 		},
 		{
@@ -415,7 +393,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 8,
 				"Sequence": 8,
 				"Description": "Primary campsite with enough space for several groups.",
-        "Nearest Kilometer Marker": "KM 10"
+        "KM": "KM 10"
 			}
 		},
         {
@@ -436,7 +414,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 9,
 				"Sequence": 9,
 				"Description": "Primary campsite with enough space for several groups.",
-        "Nearest Kilometer Marker": "KM 10"
+        "KM": "KM 10"
 			}
 		},
         {
@@ -457,7 +435,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 10,
 				"Sequence": 10,
 				"Description": "Primary campsite with enough space for several groups.",
-        "Nearest Kilometer Marker": "KM 11"
+        "KM": "KM 11"
 			}
 		},
         {
@@ -478,7 +456,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 11,
 				"Sequence": 11,
 				"Description": "Rudimentary campsite with limited space.",
-        "Nearest Kilometer Marker": "KM 11"
+        "KM": "KM 11"
 			}
 		},
         {
@@ -499,7 +477,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 13,
 				"Sequence": 13,
 				"Description": "Rudimentary campsite with limited space.",
-        "Nearest Kilometer Marker": "KM 12"
+        "KM": "KM 12"
 			}
 		},
         {
@@ -520,7 +498,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 14,
 				"Sequence": 14,
 				"Description": "Primary campsite with enough space for several groups.",
-        "Nearest Kilometer Marker": "KM 13"
+        "KM": "KM 13"
 			}
 		},
 		{
@@ -541,7 +519,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": "15A",
 				"Sequence": 15,
 				"Description": "Primary campsite with enough space for several groups.",
-        "Nearest Kilometer Marker": "KM 14"
+        "KM": "KM 14"
 			}
 		},
         {
@@ -562,7 +540,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": "15B",
 				"Sequence": 15,
 				"Description": "Rudimentary campsite with limited space.",
-        "Nearest Kilometer Marker": "KM 14"
+        "KM": "KM 14"
 			}
 		},
 		{
@@ -583,7 +561,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 16,
 				"Sequence": 16,
 				"Description": "Primary campsite with enough space for several groups.",
-        "Nearest Kilometer Marker": "KM 16"
+        "KM": "KM 16"
 			}
 		},
         {
@@ -604,7 +582,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 17,
 				"Sequence": 17,
 				"Description": "Primary campsite with enough space for several groups.",
-        "Nearest Kilometer Marker": "KM 16"
+        "KM": "KM 16"
 			}
 		},
         {
@@ -625,7 +603,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 18,
 				"Sequence": 18,
 				"Description": "Primary campsite with enough space for several groups.",
-        "Nearest Kilometer Marker": "KM 17"
+        "KM": "KM 17"
 			}
 		},
 		{
@@ -646,7 +624,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 19,
 				"Sequence": 19,
 				"Description": "Primary campsite with enough space for several groups.",
-        "Nearest Kilometer Marker": "KM 19"
+        "KM": "KM 19"
 			}
 		},
         {
@@ -667,7 +645,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 20,
 				"Sequence": 20,
 				"Description": "Rudimentary campsite with limited space.",
-        "Nearest Kilometer Marker": "KM 20"
+        "KM": "KM 20"
 			}
 		},
         {
@@ -688,7 +666,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 21,
 				"Sequence": 21,
 				"Description": "Primary campsite with enough space for several groups.",
-        "Nearest Kilometer Marker": "KM 21"
+        "KM": "KM 21"
 			}
 		},
         {
@@ -709,7 +687,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 22,
 				"Sequence": 22,
 				"Description": "Primary campsite with enough space for several groups.",
-        "Nearest Kilometer Marker": "KM 24"
+        "KM": "KM 24"
 			}
 		},
         {
@@ -730,7 +708,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 23,
 				"Sequence": 23,
 				"Description": "Primary campsite with enough space for several groups.",
-        "Nearest Kilometer Marker": "KM 25"
+        "KM": "KM 25"
 			}
 		},
 		{
@@ -751,7 +729,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
 				"CampsiteLa": 24,
 				"Sequence": 24,
 				"Description": "Primary campsite with enough space for several groups.",
-        "Nearest Kilometer Marker": "Southern Trailhead"
+        "KM": "Southern Trailhead"
 			}
 		}
 	]
@@ -848,6 +826,10 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
           /*Add details to the individual listing. */
           const details = listing.appendChild(document.createElement('div'));
           details.innerHTML = `${site.properties.Description}`;
+		  
+		  const km = listing.appendChild(document.createElement('div'));
+		  km.className = "KM";
+		  km.innerHTML = `Nearest Kilometer Marker: ${site.properties.KM}`;
           /**
            * Listen to the element and when it is clicked, do four things:
            * 1. Update the `currentFeature` to the site associated with the clicked link
@@ -889,7 +871,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
         const popUps = document.getElementsByClassName('mapboxgl-popup');
         if (popUps[0]) popUps[0].remove();
 
-        const popup = new mapboxgl.Popup({ closeOnClick: false })
+        const popup = new mapboxgl.Popup({ closeOnClick: true })
           .setLngLat(currentFeature.geometry.coordinates)
           .setHTML(
             `<h3>Campsite</h3><h4>${currentFeature.properties.LabelEN}</h4>`
@@ -900,82 +882,134 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
     Add an event listener that runs
       when a user clicks on the map element.
     */
-    // const popup = new mapboxgl.Popup({
-    //   closeButton: false,
-    //   closeOnClick: true
-    // });
-    // map.on('mouseenter', 'campsites', (e) => {
-    //   // Change the cursor style as a UI indicator.
-    //   map.getCanvas().style.cursor = 'pointer';
+    const popup = new mapboxgl.Popup({
+      closeButton: false,
+      closeOnClick: true
+    });
+    map.on('mouseenter', 'campsites', (e) => {
+      // Change the cursor style as a UI indicator.
+      map.getCanvas().style.cursor = 'pointer';
       
-    //   // Copy coordinates array.
-    //   const coordinates = e.features[0].geometry.coordinates.slice();
-    //   const name = e.features[0].properties.Name;
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const name = e.features[0].properties.LabelEN;
       
-    //   // Ensure that if the map is zoomed out such that multiple
-    //   // copies of the feature are visible, the popup appears
-    //   // over the copy being pointed to.
-    //   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-    //   coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-    //   }
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
       
-    //   // Populate the popup and set its coordinates
-    //   // based on the feature found.
-    //   popup.setLngLat(coordinates).setHTML(name).addTo(map);
-    //   });
+      // Populate the popup and set its coordinates
+      // based on the feature found.
+      popup.setLngLat(coordinates).setHTML(`<h4>${name}</h4>`).addTo(map);
+      });
       
-    //   map.on('mouseleave', 'campsites', () => {
-    //   map.getCanvas().style.cursor = '';
-    //   popup.remove();
-    //   });
-    // map.on('click', (event) => {
-    //   // If the user clicked on one of your markers, get its information.
-    //   const features = map.queryRenderedFeatures(event.point, {
-    //     layers: ['campsites'] // replace with your layer name
-    //   });
-    //   if (!features.length) {
-    //     return;
-    //   }
-    //   const feature = features[0];
+      map.on('mouseleave', 'campsites', () => {
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+      });
 
-    //   /* 
-    //   Create a popup, specify its options 
-    //   and properties, and add it to the map.
-    // */
-    //   const popup = new mapboxgl.Popup({ offset: [0, -15] })
-    //     .setLngLat(feature.geometry.coordinates)
-    //     .setHTML(
-    //       `<h3>${feature.properties.Name}</h3>`
-    //     )
-    //     .addTo(map);
-    // });
-    // map.on('mouseenter', 'campsites', () => {
-    //   map.getCanvas().style.cursor = 'pointer';
-    //   });
+	  /**********************************/
+	  /*Section for scenic points popups*/
+	  map.on('mouseenter', 'scenic', (e) => {
+      // Change the cursor style as a UI indicator.
+      map.getCanvas().style.cursor = 'pointer';
       
-    //   // Change the cursor back to a pointer
-    //   // when it leaves the campsites layer.
-    //   map.on('mouseleave', 'campsites', () => {
-    //   map.getCanvas().style.cursor = '';
-    //   });
-    // map.on('click', 'significant-areas', (e) => {
-    //   new mapboxgl.Popup()
-    //   .setLngLat(e.lngLat)
-    //   .setHTML(e.features[0].properties.featuretype)
-    //   .addTo(map);
-    //   });
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const name = e.features[0].properties.NewLabel;
       
-    //   // Change the cursor to a pointer when
-    //   // the mouse is over the significant areas layer.
-    //   map.on('mouseenter', 'significant-areas', () => {
-    //   map.getCanvas().style.cursor = 'pointer';
-    //   });
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
       
-    //   // Change the cursor back to a pointer
-    //   // when it leaves the significant areas layer.
-    //   map.on('mouseleave', 'significant-areas', () => {
-    //   map.getCanvas().style.cursor = '';
-    //   });
+      // Populate the popup and set its coordinates
+      // based on the feature found.
+      popup.setLngLat(coordinates).setHTML(`<h4>${name}</h4>`).addTo(map);
+      });
+      
+      map.on('mouseleave', 'scenic', () => {
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+      });
+
+	  /**********************************/
+	  /*Section for side trail popups*/
+	  const linepopup = new mapboxgl.Popup({closeButton: false,
+      closeOnClick: true});
+	  map.on('mouseenter', 'sidetrails', (e) => {
+      // Change the cursor style as a UI indicator.
+      map.getCanvas().style.cursor = 'pointer';
+	  const description = e.features[0].properties.Description;
+	  linepopup.setLngLat(e.lngLat).setHTML(`<h4>${description}</h4>`).addTo(map);
+      // Populate the popup and set its coordinates
+      // based on the feature found.
+	  });
+      map.on('mouseleave', 'sidetrails', () => {
+      map.getCanvas().style.cursor = '';
+      linepopup.remove();
+      });
+
+	  /**********************************/
+	  /*Section for boat launch popups*/
+	  map.on('mouseenter', 'boatlaunch', (e) => {
+      // Change the cursor style as a UI indicator.
+      map.getCanvas().style.cursor = 'pointer';
+      
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const name = e.features[0].properties.Name;
+	  const description = e.features[0].properties.Description;
+      
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+      
+      // Populate the popup and set its coordinates
+      // based on the feature found.
+      popup.setLngLat(coordinates).setHTML(`<h3>${name}</h3>`+`<h4>${description}</h4>`).addTo(map);
+      });
+      
+      map.on('mouseleave', 'boatlaunch', () => {
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+      });
+
+	  /**********************************/
+	  /*Section for rapids popups*/
+	  map.on('mouseenter', 'rapids', (e) => {
+      // Change the cursor style as a UI indicator.
+      map.getCanvas().style.cursor = 'pointer';
+      
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const name = e.features[0].properties.NewLabel;
+	  const description = e.features[0].properties.PopupInfo;
+      
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+      
+      // Populate the popup and set its coordinates
+      // based on the feature found.
+      popup.setLngLat(coordinates).setHTML(`<h3>${description}</h3>`+`<h4>${name}</h4>`).addTo(map);
+      });
+      
+      map.on('mouseleave', 'rapids', () => {
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+      });
   </script>
 </body>
 </html>
