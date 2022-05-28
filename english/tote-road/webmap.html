@@ -759,7 +759,6 @@
             'data': sites
           }
         });
-
         /**
          * Add things to the page:
          * - The location listings on the side of the page
@@ -942,17 +941,17 @@
 	  /*Section for side trail popups*/
 	  const linepopup = new mapboxgl.Popup({closeButton: false,
       closeOnClick: true});
-	  map.on('mouseenter', 'sidetrails', (e) => {
+	  map.on('mouseenter', 'othertrails', (e) => {
       // Change the cursor style as a UI indicator.
       map.getCanvas().style.cursor = 'pointer';
-	  const description = e.features[0].properties.Description;
-	  linepopup.setLngLat(e.lngLat).setHTML(`<h4>${description}</h4>`).addTo(map);
+	  const desc = e.features[0].properties.Description;
+	  linepopup.setLngLat(e.lngLat).setHTML(`<h4>${desc}</h4>`).addTo(map);
       // Populate the popup and set its coordinates
       // based on the feature found.
 	  });
-      map.on('mouseleave', 'sidetrails', () => {
+      map.on('mouseleave', 'othertrails', () => {
       map.getCanvas().style.cursor = '';
-      linepopup.remove();
+	  linepopup.remove();
       });
 
 	  /**********************************/
