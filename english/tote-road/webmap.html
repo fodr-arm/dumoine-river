@@ -111,7 +111,7 @@
   .heading {
     background: #fff;
     border-bottom: 1px solid #eee;
-    height: 60px;
+    height: max-content;
     line-height: 60px;
     padding: 0 10px;
   }
@@ -139,16 +139,6 @@
 
 .listings .item.active .Campsite,
 .listings .item .Campsite:hover { color: #8cc63f; }
-.listings .item .Boat-Launch {
-  display: block;
-  color: #635711;
-  font-weight: 700;
-}
-
-.listings .item .Boat-Launch small { font-weight: 400; }
-
-.listings .item.active .Boat-Launch,
-.listings .item .Boat-Launch:hover { color: #a08f43; }
 .listings .item.active {
   background-color: #f8f8f8;
 }
@@ -236,92 +226,536 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
     });
     map.addControl(scale);
     const sites ={
-      "type":"FeatureCollection", "features":[
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.85362773987164,46.21619771612313,-5.454756319522858E-05]},"properties":{"Description": "Insert campsite info here", "Type": "Campsite", "Name":"Primary campsite","LabelEN":null,"Feature":0,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.80607828552671,46.36343857310607,-5.4817646741867065E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Boat Launch/ Campsite","LabelEN":null,"Feature":0,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.81586752349489,46.3444157083914,-5.478225648403168E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Camp","LabelEN":null,"Feature":1,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.78346491342606,46.37047312384231,-5.48316165804863E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Campsite","LabelEN":null,"Feature":1,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.82112143984794,46.33834364946912,-5.477108061313629E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Campsite","LabelEN":null,"Feature":1,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.85514527089862,46.26513073841095,-5.4638832807540894E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Campsite","LabelEN":null,"Feature":1,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.85140905876122,46.2604918594942,-5.462951958179474E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Campsite - Ryan’s Chutes","LabelEN":null,"Feature":0,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.81342747181371,46.35068523844879,-5.479343235492706E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Campsite 1 (Dumoine)","LabelEN":null,"Feature":1,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.81559696527208,46.344269021612796,-5.478318780660629E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Campsite 2 (below First Set Of Rapids)","LabelEN":null,"Feature":1,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.81972559348608,46.33829611942148,-5.4770149290561676E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Campsite 3 (waters Edge)","LabelEN":null,"Feature":1,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.80558954124109,46.36327754716077,-5.481485277414322E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Group Campsite And Portage Start","LabelEN":null,"Feature":1,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.82575620238005,46.32536722695483,-5.474872887134552E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"New Camp (pot in Farm)","LabelEN":null,"Feature":1,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.83930814461398,46.31262762113002,-5.472544580698013E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Patent Chute Campsite","LabelEN":null,"Feature":0,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.82536694515916,46.33619921859792,-5.4766424000263214E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Potential Camp 2","LabelEN":null,"Feature":1,"LabelFR":null}},
-        {"type":"Feature","geometry":{"type":"Point","coordinates":[-77.82463860348115,46.33627274544636,-5.4768286645412445E-05]},"properties":{"Description": "Insert campsite info here","Type": "Campsite","Name":"Red point Campsite","LabelEN":null,"Feature":0,"LabelFR":null}}, {
-      "type": "Feature",
-      "properties": {
-        "Type": "Boat-Launch",
-        "Name": "Mackay Public Boat Launch",
-        "Parking": "Free",
-        "Description": "Free public boat launch, overnight parking at your own risk."
-      },
-      "geometry": {
-        "coordinates": [
-          -77.810945,
-          46.169851
-        ],
-        "type": "Point"
-      },
-      "id": "289bcc7e1c24f6903e88ece5bcf4cd0a"
-    },
+	"type": "FeatureCollection",
+	"features": [
+        {
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.77164470512861,
+					46.378305414269995,
+					-0.000054844655096530914
+				]
+			},
+			"properties": {
+				"Name": "Camp  Po`nis",
+				"LabelEN": "Camp  Po`nis",
+				"Feature": 0,
+				"LabelFR": "Camp  Po`nis",
+				"CampsiteLa": 1,
+				"Sequence": 1,
+				"Description": "Primary campsite with enough space for several groups.",
+        "Nearest Kilometer Marker": "Northern Trailhead"
+      }
+		},
+        {
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.77287527016051,
+					46.37767142167213,
+					-0.00005484558641910553
+				]
+			},
+			"properties": {
+				"Name": "Camp  Bellevue",
+				"LabelEN": "Camp Bellevue",
+				"Feature": 0,
+				"LabelFR": "Camp Bellevue",
+				"CampsiteLa": 2,
+				"Sequence": 2,
+				"Description": "Primary campsite with enough space for several groups.",
+        "Nearest Kilometer Marker": "Northern Trailhead"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.77630418527616,
+					46.37228887440548,
+					-0.00005483254790306091
+				]
+			},
+			"properties": {
+				"Name": "Camp Timber Brands",
+				"LabelEN": "Camp Ankose",
+				"Feature": 0,
+				"LabelFR": "Camp Ankose",
+				"CampsiteLa": 3,
+				"Sequence": 3,
+				"Description": "Primary campsite with enough space for several groups.",
+        "Nearest Kilometer Marker": "KM 1"
+			}
+		},
+		
+        {
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.78346491342606,
+					46.37047312384231,
+					-0.0000548316165804863
+				]
+			},
+			"properties": {
+				"Name": "Campsite",
+				"LabelEN": "Camp Timber Brands",
+				"Feature": 1,
+				"LabelFR": "Camp des marques de bois",
+				"CampsiteLa": 4,
+				"Sequence": 4,
+				"Description": "Rudimentary campsite with limited space.",
+        "Nearest Kilometer Marker": "KM 2"
+			}
+		},
     {
-      "type": "Feature",
-      "properties": {
-        "Type": "Boat-Launch",
-        "Name": "Driftwood Provincial Park",
-        "Description": "Secure public paid parking",
-        "Parking": "$$"
-      },
-      "geometry": {
-        "coordinates": [
-          -77.845709,
-          46.195449
-        ],
-        "type": "Point"
-      },
-      "id": "a1a2f77fc5479a72f2cb7a6a92fbb6d2"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "Type": "Boat-Launch",
-        "Name": "Dumoine Valley Guides",
-        "Parking": "$$",
-        "Description": "Local outfitter with shuttle services"
-      },
-      "geometry": {
-        "coordinates": [
-          -77.722442,
-          46.19656
-        ],
-        "type": "Point"
-      },
-      "id": "c7e682260fffe3882315ae87b2bb57a0"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "Type": "Boat-Launch",
-        "Name": "Stonecliffe Public Boat Launc",
-        "Parking": "Free",
-        "Description": "Free public boat launch, overnight parking at your own risk."
-      },
-      "geometry": {
-        "coordinates": [
-          -77.891593,
-          46.21576
-        ],
-        "type": "Point"
-      },
-      "id": "fee3d6f8ae7cd545cb06d466b6605b28"
-    }
-  ],
-    };
-/**
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.80560593801152,
+					46.363378197825625,
+					-0.00005481671541929245
+				]
+			},
+			"properties": {
+				"Name": "Boat Launch/ Campsite",
+				"LabelEN": "Camp Robinson Lake A",
+				"Feature": 0,
+				"LabelFR": "Camp Lac Robsinson",
+				"CampsiteLa": "5A",
+				"Sequence": 5,
+				"Description": "Primary campsite with enough space for several groups.",
+        "Nearest Kilometer Marker": "KM 4"
+			}
+		},
+        {
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.80519763691717,
+					46.36206019789182,
+					-0.000054815784096717834
+				]
+			},
+			"properties": {
+				"Name": "Hiking/Campsite",
+				"LabelEN": "Camp Robinson Lake B",
+				"Feature": 0,
+				"LabelFR": "Camp Lac Robsinson",
+				"CampsiteLa": "5B",
+				"Sequence": 5,
+				"Description": "Primary campsite with enough space for several groups.",
+        "Nearest Kilometer Marker": "KM 4"
+			}
+		},
+        {
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.81415893773455,
+					46.35044119718901,
+					-0.00005479156970977783
+				]
+			},
+			"properties": {
+				"Name": "Campsite 1 (Dumoine)",
+				"LabelEN": "CAMP C FODA",
+				"Feature": 1,
+				"LabelFR": "CAMP C FODA",
+				"CampsiteLa": 6,
+				"Sequence": 6,
+				"Description": "Rudimentary campsite with limited space.",
+        "Nearest Kilometer Marker": "KM 8"
+			}
+		},
+        {
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.81682106382164,
+					46.343100573194526,
+					-0.00005477946251630783
+				]
+			},
+			"properties": {
+				"Name": "Group Campsite And Portage Start",
+				"LabelEN": "Camp Spectator Island",
+				"Feature": 1,
+				"LabelFR": "Camp de l'Île du spectateur",
+				"CampsiteLa": 7,
+				"Sequence": 7,
+				"Description": "Rudimentary campsite with limited space.",
+        "Nearest Kilometer Marker": "KM 9"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.82003178632164,
+					46.33825639181005,
+					-0.00005477108061313629
+				]
+			},
+			"properties": {
+				"Name": "Campsite 3 (waters Edge)",
+				"LabelEN": "Camp Big Pine",
+				"Feature": 0,
+				"LabelFR": "Camp du grand pin",
+				"CampsiteLa": 8,
+				"Sequence": 8,
+				"Description": "Primary campsite with enough space for several groups.",
+        "Nearest Kilometer Marker": "KM 10"
+			}
+		},
+        {
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.82112143984794,
+					46.33834364946912,
+					-0.00005477108061313629
+				]
+			},
+			"properties": {
+				"Name": "Campsite",
+				"LabelEN": "Camp Esker",
+				"Feature": 0,
+				"LabelFR": "Camp Esker",
+				"CampsiteLa": 9,
+				"Sequence": 9,
+				"Description": "Primary campsite with enough space for several groups.",
+        "Nearest Kilometer Marker": "KM 10"
+			}
+		},
+        {
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.82463860348115,
+					46.33627274544636,
+					-0.000054768286645412445
+				]
+			},
+			"properties": {
+				"Name": "Red point Campsite",
+				"LabelEN": "Square Timber Bench",
+				"Feature": 0,
+				"LabelFR": "Camp du banc en bois équarri",
+				"CampsiteLa": 10,
+				"Sequence": 10,
+				"Description": "Primary campsite with enough space for several groups.",
+        "Nearest Kilometer Marker": "KM 11"
+			}
+		},
+        {
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.82536694515916,
+					46.33619921859792,
+					-0.000054766424000263214
+				]
+			},
+			"properties": {
+				"Name": "Potential Camp 2",
+				"LabelEN": "Camp Cedar",
+				"Feature": 1,
+				"LabelFR": "Camp du cèdre",
+				"CampsiteLa": 11,
+				"Sequence": 11,
+				"Description": "Rudimentary campsite with limited space.",
+        "Nearest Kilometer Marker": "KM 11"
+			}
+		},
+        {
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.82598619952688,
+					46.32533946146255,
+					-0.00005474872887134552
+				]
+			},
+			"properties": {
+				"Name": "New Camp (pot in Farm)",
+				"LabelEN": "Camp Potvin Ferme",
+				"Feature": 1,
+				"LabelFR": "Camp de la Ferme Potvin",
+				"CampsiteLa": 13,
+				"Sequence": 13,
+				"Description": "Rudimentary campsite with limited space.",
+        "Nearest Kilometer Marker": "KM 12"
+			}
+		},
+        {
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.82962308560904,
+					46.32111941919873,
+					-0.00005473848432302475
+				]
+			},
+			"properties": {
+				"Name": "Pine Roots",
+				"LabelEN": "Camp Pine Roots",
+				"Feature": 0,
+				"LabelFR": "Camp des racines de pins",
+				"CampsiteLa": 14,
+				"Sequence": 14,
+				"Description": "Primary campsite with enough space for several groups.",
+        "Nearest Kilometer Marker": "KM 13"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.83930930100657,
+					46.313000501933075,
+					-0.0000547235831618309
+				]
+			},
+			"properties": {
+				"Name": "Patent Chute Campsite Canoeist",
+				"LabelEN": "Camp Patton Chute - C",
+				"Feature": 0,
+				"LabelFR": "Camp des chutes Patton - C",
+				"CampsiteLa": "15A",
+				"Sequence": 15,
+				"Description": "Primary campsite with enough space for several groups.",
+        "Nearest Kilometer Marker": "KM 14"
+			}
+		},
+        {
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.83949602390855,
+					46.31377026913665,
+					-0.00005472637712955475
+				]
+			},
+			"properties": {
+				"Name": "Patent Chute Campsite Hiking",
+				"LabelEN": "Camp Patton Chute - H",
+				"Feature": 1,
+				"LabelFR": "Camp des chutes Patton -H",
+				"CampsiteLa": "15B",
+				"Sequence": 15,
+				"Description": "Rudimentary campsite with limited space.",
+        "Nearest Kilometer Marker": "KM 14"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.84847437264082,
+					46.296146562481724,
+					-0.00005469471216201782
+				]
+			},
+			"properties": {
+				"Name": "? Camp Amik",
+				"LabelEN": "Camp Amik",
+				"Feature": 0,
+				"LabelFR": "Camp Amik",
+				"CampsiteLa": 16,
+				"Sequence": 16,
+				"Description": "Primary campsite with enough space for several groups.",
+        "Nearest Kilometer Marker": "KM 16"
+			}
+		},
+        {
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.85262720442165,
+					46.29455450898869,
+					-0.00005468912422657013
+				]
+			},
+			"properties": {
+				"Name": "? Camp Bertrands Ferme",
+				"LabelEN": "Camp Bertrands Farm",
+				"Feature": 0,
+				"LabelFR": "Camp de la Ferme Bertrand",
+				"CampsiteLa": 17,
+				"Sequence": 17,
+				"Description": "Primary campsite with enough space for several groups.",
+        "Nearest Kilometer Marker": "KM 16"
+			}
+		},
+        {
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.8436679603463,
+					46.29163724755104,
+					-0.0000546872615814209
+				]
+			},
+			"properties": {
+				"Name": "? Camp Fildegrande",
+				"LabelEN": "Camp Fildegrande",
+				"Feature": 0,
+				"LabelFR": "Camp Fildegrande",
+				"CampsiteLa": 18,
+				"Sequence": 18,
+				"Description": "Primary campsite with enough space for several groups.",
+        "Nearest Kilometer Marker": "KM 17"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.85419043228691,
+					46.27498398529947,
+					-0.00005465559661388397
+				]
+			},
+			"properties": {
+				"Name": "? Camp Trois Roche",
+				"LabelEN": "Camp Trois Roche",
+				"Feature": 0,
+				"LabelFR": "Camp Trois Roches",
+				"CampsiteLa": 19,
+				"Sequence": 19,
+				"Description": "Primary campsite with enough space for several groups.",
+        "Nearest Kilometer Marker": "KM 19"
+			}
+		},
+        {
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.85514527089862,
+					46.26513073841095,
+					-0.000054638832807540894
+				]
+			},
+			"properties": {
+				"Name": "Campsite",
+				"LabelEN": "Pointer Boat Camp",
+				"Feature": 1,
+				"LabelFR": "Camp de la chaloupe",
+				"CampsiteLa": 20,
+				"Sequence": 20,
+				"Description": "Rudimentary campsite with limited space.",
+        "Nearest Kilometer Marker": "KM 20"
+			}
+		},
+        {
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.85140905876122,
+					46.2604918594942,
+					-0.00005462951958179474
+				]
+			},
+			"properties": {
+				"Name": "Campsite - Ryan’s Chutes",
+				"LabelEN": "Camp Mukwa Beweetig",
+				"Feature": 0,
+				"LabelFR": "Camp Mukwa Beweetig",
+				"CampsiteLa": 21,
+				"Sequence": 21,
+				"Description": "Primary campsite with enough space for several groups.",
+        "Nearest Kilometer Marker": "KM 21"
+			}
+		},
+        {
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.85816053037938,
+					46.23961687926021,
+					-0.00005459040403366089
+				]
+			},
+			"properties": {
+				"Name": null,
+				"LabelEN": "Camp Inlet",
+				"Feature": 0,
+				"LabelFR": "Camp du passage",
+				"CampsiteLa": 22,
+				"Sequence": 22,
+				"Description": "Primary campsite with enough space for several groups.",
+        "Nearest Kilometer Marker": "KM 24"
+			}
+		},
+        {
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.85589379035724,
+					46.22870551504892,
+					-0.000054570846259593964
+				]
+			},
+			"properties": {
+				"Name": null,
+				"LabelEN": "Camp Rockcliffe",
+				"Feature": 0,
+				"LabelFR": "Camp Rockcliffe",
+				"CampsiteLa": 23,
+				"Sequence": 23,
+				"Description": "Primary campsite with enough space for several groups.",
+        "Nearest Kilometer Marker": "KM 25"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-77.85319061416895,
+					46.21669205652924,
+					-0.00005454756319522858
+				]
+			},
+			"properties": {
+				"Name": "Primary campsite",
+				"LabelEN": "Camp Aygina-gwasing Sibi",
+				"Feature": 0,
+				"LabelFR": "Camp Aygina-gwasing Sibi",
+				"CampsiteLa": 24,
+				"Sequence": 24,
+				"Description": "Primary campsite with enough space for several groups.",
+        "Nearest Kilometer Marker": "Southern Trailhead"
+			}
+		}
+	]
+}/**
        * Assign a unique id to each site. You'll use this `id`
        * later to associate each point on the map with a listing
        * in the sidebar.
@@ -407,9 +841,9 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
           /* Add the link to the individual listing created above. */
           const link = listing.appendChild(document.createElement('a'));
           link.href = '#';
-          link.className = `${site.properties.Type}`;
+          link.className = 'Campsite';
           link.id = `link-${site.properties.id}`;
-          link.innerHTML = `${site.properties.Name}`;
+          link.innerHTML = `${site.properties.LabelEN}`;
 
           /*Add details to the individual listing. */
           const details = listing.appendChild(document.createElement('div'));
@@ -458,7 +892,7 @@ https://docs.mapbox.com/help/tutorials/building-a-site-locator/-->
         const popup = new mapboxgl.Popup({ closeOnClick: false })
           .setLngLat(currentFeature.geometry.coordinates)
           .setHTML(
-            `<h3>${currentFeature.properties.Type}</h3><h4>${currentFeature.properties.Name}</h4>`
+            `<h3>Campsite</h3><h4>${currentFeature.properties.LabelEN}</h4>`
           )
           .addTo(map);
       }
