@@ -989,7 +989,7 @@
 	  /*Section for side trail popups*/
 	  const linepopup = new mapboxgl.Popup({closeButton: true,
       closeOnClick: true});
-	  map.on('mouseenter', 'othertrails', (e) => {
+	  map.on('mouseenter', 'othersidetrails', (e) => {
       // Change the cursor style as a UI indicator.
       map.getCanvas().style.cursor = 'pointer';
 	  const desc = e.features[0].properties.Description;
@@ -997,7 +997,7 @@
       // Populate the popup and set its coordinates
       // based on the feature found.
 	  });
-      map.on('mouseleave', 'othertrails', () => {
+      map.on('mouseleave', 'othersidetrails', () => {
       map.getCanvas().style.cursor = '';
 	  linepopup.remove();
       });
