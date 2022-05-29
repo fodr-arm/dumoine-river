@@ -13,6 +13,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tiro+Gurmukhi&display=swap" rel="stylesheet"> 
+  <link href='https://watergis.github.io/mapbox-gl-legend/mapbox-gl-legend.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.13.1/mapbox-gl.js'></script>
+  <script src="https://watergis.github.io/mapbox-gl-legend/mapbox-gl-legend.js"></script>
+   
   <style>
     body {
       margin: 0;
@@ -25,6 +29,13 @@
       bottom: 0;
       width: 75%;
     }
+	.mapboxgl-legend-list {
+		font-family: 'Tiro Gurmukhi', serif;
+		color:rgb(33, 51, 4)
+	}
+	label{
+		color:#283d0b
+	}
     /* Marker tweaks */
 	.mapboxgl-popup-close-button {
 		display: visible;
@@ -203,6 +214,22 @@
       unit: 'metric',
     });
     map.addControl(scale);
+            map.on('load', function() {
+                const targets = {
+					'campsites': 'Campsite',
+					'kilometermarkers': 'Kilometer Marker',
+					'foremanscabin': 'Historic Attraction',
+					'scenic': 'Scenic View Point',
+					'rapids': 'Rapids',
+					'boatlaunch': 'Boat Launch',
+				};
+				map.addControl(new watergis.MapboxLegendControl(targets, {
+                    showDefault: true, 
+                    showCheckbox: true, 
+                    onlyRendered: false,
+                    reverseOrder: false
+                }), 'top-right');
+            })
     const sites ={
 	"type": "FeatureCollection",
 	"features": [
@@ -1029,6 +1056,74 @@
       map.on('mouseleave', 'rapids', () => {
       map.getCanvas().style.cursor = '';
       popup.remove();
+      });
+	  /**********************************/
+	  /*Section for rapids popups*/
+	  map.on('mouseenter', 'foremanscabin', (e) => {
+      // Change the cursor style as a UI indicator.
+      map.getCanvas().style.cursor = 'pointer';
+      
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const name = e.features[0].properties.NewLabel;
+      
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+      
+      // Populate the popup and set its coordinates
+      // based on the feature found.
+      popup.setLngLat(coordinates).setHTML(`<h4>${name}</h4>`).addTo(map);
+      });
+      
+      map.on('mouseleave', 'foremanscabin', () => {
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+      });
+	  map.on('click', 'historicalareas', (e) => {
+		const name = e.features[0].properties.NameEN;
+		popup
+		.setLngLat(e.lngLat)
+		.setHTML(`<h3>Historically Significant Area</h3>`+`<h4>${name}<br><a href="https://fodr-arm.github.io/dumoine-river/english/tote-road/trail-history.html" target="_blank"><i>Learn more</i></a> </h4>`)
+		.addTo(map);
+		});
+		
+		// Change the cursor to a pointer when
+		// the mouse is over the states layer.
+		map.on('mouseenter', 'historicalareas', () => {
+		map.getCanvas().style.cursor = 'pointer';
+		});
+		
+		// Change the cursor back to a pointer
+		// when it leaves the states layer.
+		map.on('mouseleave', 'historicalareas', () => {
+		map.getCanvas().style.cursor = '';
+		});
+
+		map.on('mouseenter', 'rivercrossing', (e) => {
+      // Change the cursor style as a UI indicator.
+      map.getCanvas().style.cursor = 'pointer';
+	  linepopup.setLngLat(e.lngLat).setHTML(`<h3>River Crossing</h3><h4>Use caution when crossing the Fildegrande River. Water levels fluctuate and can become a hazard.</h4>`).addTo(map);
+      // Populate the popup and set its coordinates
+      // based on the feature found.
+	  });
+      map.on('mouseleave', 'rivercrossing', () => {
+      map.getCanvas().style.cursor = '';
+	  linepopup.remove();
+      });
+	  map.on('mouseenter', 'historictrails', (e) => {
+	  map.getCanvas().style.cursor = 'pointer';
+	  const type = e.features[0].properties.Type;
+	  linepopup.setLngLat(e.lngLat).setHTML(`<h3>${type}</h3><h4>This section of the trail has a rich history! <br><a href="https://fodr-arm.github.io/dumoine-river/english/tote-road/trail-history.html" target="_blank"><i>Learn more</i></a></h4>`).addTo(map);
+      // Populate the popup and set its coordinates
+      // based on the feature found.
+	  });
+      map.on('mouseleave', 'historictrails', () => {
+      map.getCanvas().style.cursor = '';
+	  linepopup.remove();
       });
   </script>
 </body>
