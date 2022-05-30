@@ -1100,13 +1100,16 @@
 	});
 	/**********************************/
 	/*Section for historical trails popup*/
-	map.on('mouseenter', 'historictrails', (e) => {
+	map.on('click', 'historictrails', (e) => {
 		map.getCanvas().style.cursor = 'pointer';
 		const type = e.features[0].properties.Type;
 		/*Add content to the popup including a link to the historical page on the website to learn more about the significance of that trail section*/
 		popup.setLngLat(e.lngLat).setHTML(`<h3>${type}</h3><h4>This section of the trail has a rich history! <br><a href="https://fodr-arm.github.io/dumoine-river/english/tote-road/trail-history.html" target="_blank"><i>Learn more</i></a></h4>`).addTo(map);
 
 	});
+	map.on('mouseenter', 'historictrails', () =>{
+		map.getCanvas().style.cursor = 'pointer';
+	})
 	map.on('mouseleave', 'historictrails', () => {
 		map.getCanvas().style.cursor = '';
 	});
