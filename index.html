@@ -7,11 +7,57 @@
   <meta name="author" content="Allison Talsma, Carol Buckingham, Kira-Marie Lazda">
   <meta name="description" content="Friends of the Dumoine River landing page">
   <meta name="keywords" content="Not-for-profit organization, Outdoors, Recreation, History">
-  <link rel="stylesheet" href="CSS\main-1.0.0.css">
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Gurmukhi&display=swap" rel="stylesheet"> 
+  <!--link rel="stylesheet" href="CSS\main-1.0.0.css"-->
+  <style>
+    body {
+      background-image: url(C:/GIS/Collab/dumoine-river/Images/river.jpg); /*https://www.voyageurtripper.com/dumoine-river-canoe-trip/*/
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      font-family: 'Tiro Gurmukhi', serif;
+      overflow: hidden;
+      color: rgb(4, 26, 4);
+    }
+    /* .background {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(245, 245, 220, 0.404);
+    } */
+    .center {
+      text-align: center;
+      padding:10px;
+      position:absolute;
+      left: 50%;
+      top:50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      background-color: rgba(245, 245, 220, 0.404);
+      border-radius: 5px;
+    }
+    .Language {
+      background-color: rgb(7, 31, 7);
+      border: none;
+      color: rgb(185, 196, 174);
+      padding:15px 32px;
+      display: inline-block;
+      font-size: 20px;
+      font-family: 'Tiro Gurmukhi', serif;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
+  <div class="background">
 <!-- this will be the landing page to choose English or French -->
 <!-- include note about pages not being optimized for mobile if applicable -->
 <!-- could potentially include a teaser for the Labour Day opening weekend hike -->
+<div class="center">
+  <h1>Welcome to the Dumoine River Trail</h1>
+  <button class="Language" onclick="document.location='english/home.html'">English</button>
+  <button class="Language" onclick="document.location='french/home.html'">Français</button>
+  <h1>Bienvenue au Sentier de la Rivière Dumoine</h1>
+</div>
+</div>
 </body>
 </html>
