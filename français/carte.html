@@ -232,14 +232,14 @@
 		};
 		/*Access the watergis mapbox gl legend plugin to add the legend of the selected targets to the map*/
 		/*Plugin source code available here: https://github.com/watergis/mapbox-gl-legend*/
-		map.addControl(new watergis.MapboxLegendControl(targets, {
+		legend = new watergis.MapboxLegendControl(targets, {
 			showDefault: true, 
 			showCheckbox: true, /*If this is set to false, users will not be able to toggle layers on and off from the legend*/
 			onlyRendered: false,
 			reverseOrder: false
-		}), 'top-right');
+		})
+		map.addControl(legend, 'top-right');
 	})
-
 	/*Create a new variable to store the JSON data for the campsites that will appear in the info side panel*/
     const sites ={
 	"type": "FeatureCollection",
@@ -1038,14 +1038,12 @@
 		map.getCanvas().style.cursor = 'pointer';
 		
 		const coordinates = e.features[0].geometry.coordinates.slice();
-		const name = e.features[0].properties.LabelFR;
-		const description = e.features[0].properties.DescFR;
-		
+		const name = e.features[0].properties.LabelFR;		
 		while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
 		coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
 		}
 		// Populate the popup and set its coordinates based on the feature found.
-		popup.setLngLat(coordinates).setHTML(`<h3>${description}</h3>`+`<h4>${name}</h4>`).addTo(map);
+		popup.setLngLat(coordinates).setHTML(`<h4>${name}</h4>`).addTo(map);
 	});
 	
 	map.on('mouseleave', 'rapids', () => {
@@ -1072,7 +1070,7 @@
 	/**********************************/
 	/*Section for historical areas popups*/
 	map.on('click', 'historicalareas', (e) => {
-		const name = e.features[0].properties.LabelFR;
+		const name = e.features[0].properties.NameFR;
 		popup
 		.setLngLat(e.lngLat)
 		/*Add content to the popup including a link to the historical page on the website to learn more about the significance of the area*/
