@@ -110,22 +110,35 @@
 		color: #101010;
 	}
 
-  /* The page is split between map and sidebar - the sidebar gets 1/5, map
+    /* The page is split between map and sidebar - the sidebar gets 1/5, map
   gets 4/5 of the page. */
+ .panel {
+	position: absolute;
+	width: 20%;
+    height: 100vh;
+ } 
+ .info {
+	  position: sticky;
+	  height: 25%;
+	  width:100%;
+	  overflow: auto;
+	  border-bottom: #00853e 2px solid;
+
+  }
   .sidebar {
-    position: absolute;
-    width: 20%;
-    height: 100%;
+    position: sticky;
     top: 0;
     left: 0;
-    overflow: hidden;
+	height: 75%;
     border-right: 1px solid rgba(0, 0, 0, 0.25);
+	overflow:auto;
   }
-
+  
   .map {
     position: absolute;
     left: 20%;
     width: 80%;
+	height:100%;
     top: 0;
     bottom: 0;
   }
@@ -138,10 +151,23 @@
     line-height: 100px;
     padding: 0 10px;
   }
+  .subheading {
+	  padding: 7px;
+  }
+  .subheading h4,p {
+	  margin-top: 5px;
+	  margin-bottom:3px;
+  }
+  .subheading a{
+	  font-weight:bolder; 
+  }
+  .subheading a:hover{
+	  text-decoration: none;
+	  color:#00853e 
+  }
   .listings {
   height: 100%;
-  overflow: auto;
-  padding-bottom: 60px;
+ /* overflow: auto; */
 }
 
 .listings .item {
@@ -192,11 +218,20 @@
 </head>
 <body>
 	<!--Section to hold the information panel (on the left as styled in css^)-->
-	<div class='sidebar'>
-	<div class='heading'>
-		<h1>Sites de Camp sur la Rivière Dumoine</h1>
-	</div>
-	<div id='listings' class='listings'></div>
+	<div class="panel">
+		<div class="info">
+			<div class='heading'>
+				<h1>Les camps sur la Rivière Dumoine</h1>
+			</div>
+			<div class="subheading">
+				<h4>Comment utiliser cette carte</h4>
+				<p>Il s'agit d'une carte interactive: vous pouvez vous déplacer sur la carte, et survoler et cliquer sur les caractéristiques pour voir le sentier plus en détail.</p>
+				<p>Pour un tutoriel plus complet sur la façon d'utiliser cette carte, <a href=trail-information.html>cliquez ici.</a></p>
+			</div>
+		</div>
+		<div class='sidebar'>
+			<div id='listings' class='listings'></div>
+		</div>
 	</div>
 	<!--The section to hold the map-->
 	<div id='map' class="map"></div>
@@ -251,9 +286,8 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.77164470512861,
-					46.378305414269995,
-					-0.000054844655096530914
+				-77.771514,
+      			46.378116
 				]
 			},
 			"properties": {
@@ -272,9 +306,9 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.77287527016051,
-					46.37767142167213,
-					-0.00005484558641910553
+				-77.772875,
+      46.377671,
+      -0.000054
 				]
 			},
 			"properties": {
@@ -293,9 +327,8 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.77630418527616,
-					46.37228887440548,
-					-0.00005483254790306091
+				-77.776485,
+      46.37254
 				]
 			},
 			"properties": {
@@ -315,9 +348,8 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.78346491342606,
-					46.37047312384231,
-					-0.0000548316165804863
+				-77.783747,
+      46.370427
 				]
 			},
 			"properties": {
@@ -336,9 +368,8 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.80560593801152,
-					46.363378197825625,
-					-0.00005481671541929245
+				-77.805636,
+      46.363995
 				]
 			},
 			"properties": {
@@ -357,9 +388,8 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.80519763691717,
-					46.36206019789182,
-					-0.000054815784096717834
+				-77.805836,
+      46.362253
 				]
 			},
 			"properties": {
@@ -378,9 +408,8 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.81415893773455,
-					46.35044119718901,
-					-0.00005479156970977783
+				-77.813559,
+      46.350956
 				]
 			},
 			"properties": {
@@ -399,9 +428,8 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.81682106382164,
-					46.343100573194526,
-					-0.00005477946251630783
+				-77.816907,
+      46.34314
 				]
 			},
 			"properties": {
@@ -420,9 +448,8 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.82003178632164,
-					46.33825639181005,
-					-0.00005477108061313629
+				-77.820013,
+      46.338352
 				]
 			},
 			"properties": {
@@ -441,9 +468,9 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.82112143984794,
-					46.33834364946912,
-					-0.00005477108061313629
+				-77.821121,
+      46.338343,
+      -0.000054
 				]
 			},
 			"properties": {
@@ -462,9 +489,8 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.82463860348115,
-					46.33627274544636,
-					-0.000054768286645412445
+				-77.824761,
+      46.336496
 				]
 			},
 			"properties": {
@@ -483,9 +509,9 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.82536694515916,
-					46.33619921859792,
-					-0.000054766424000263214
+				-77.825366,
+      46.336199,
+      -0.000054
 				]
 			},
 			"properties": {
@@ -503,8 +529,8 @@
 			"type": "Feature",
 			"geometry": {
 				"coordinates": [
-				-77.82768748769078,
-				46.328810320696874
+				-77.827687,
+      46.32881
 				],
 				"type": "Point"
 			},
@@ -525,9 +551,9 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.82598619952688,
-					46.32533946146255,
-					-0.00005474872887134552
+				-77.825986,
+      46.325339,
+      -0.000054
 				]
 			},
 			"properties": {
@@ -546,9 +572,8 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.82962308560904,
-					46.32111941919873,
-					-0.00005473848432302475
+				-77.829814,
+      46.321236
 				]
 			},
 			"properties": {
@@ -567,9 +592,9 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.83930930100657,
-					46.313000501933075,
-					-0.0000547235831618309
+				-77.839496,
+      46.31377,
+      -0.000054
 				]
 			},
 			"properties": {
@@ -588,9 +613,9 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.83949602390855,
-					46.31377026913665,
-					-0.00005472637712955475
+				-77.839309,
+      46.313,
+      -0.000054
 				]
 			},
 			"properties": {
@@ -609,9 +634,9 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.84847437264082,
-					46.296146562481724,
-					-0.00005469471216201782
+				-77.848474,
+      46.296146,
+      -0.000054
 				]
 			},
 			"properties": {
@@ -630,9 +655,8 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.8495,
-					46.29455450898869,
-					-0.00005468912422657013
+				-77.849526,
+      46.294554
 				]
 			},
 			"properties": {
@@ -651,9 +675,9 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.8436679603463,
-					46.29163724755104,
-					-0.0000546872615814209
+				-77.843667,
+      46.291637,
+      -0.000054
 				]
 			},
 			"properties": {
@@ -672,9 +696,8 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.85419043228691,
-					46.27498398529947,
-					-0.00005465559661388397
+				-77.854008,
+      46.27517
 				]
 			},
 			"properties": {
@@ -693,9 +716,9 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.85514527089862,
-					46.26513073841095,
-					-0.000054638832807540894
+				-77.855145,
+      46.26513,
+      -0.000054
 				]
 			},
 			"properties": {
@@ -714,9 +737,9 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.85140905876122,
-					46.2604918594942,
-					-0.00005462951958179474
+				-77.851409,
+      46.260491,
+      -0.000054
 				]
 			},
 			"properties": {
@@ -735,9 +758,8 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.85816053037938,
-					46.23961687926021,
-					-0.00005459040403366089
+				-77.858221,
+      46.238828
 				]
 			},
 			"properties": {
@@ -756,9 +778,9 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.85589379035724,
-					46.22870551504892,
-					-0.000054570846259593964
+				-77.855893,
+      46.228705,
+      -0.000054
 				]
 			},
 			"properties": {
@@ -777,9 +799,9 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-77.85319061416895,
-					46.21669205652924,
-					-0.00005454756319522858
+				-77.85319,
+      46.216692,
+      -0.000054
 				]
 			},
 			"properties": {
@@ -794,7 +816,7 @@
 			}
 		}
 	]
-}/**
+}
     
 	/* Assign a unique id to each site. You'll use this `id` later to associate each point on the map with a listing in the sidebar.*/
 	sites.features.forEach((site, i) => {
