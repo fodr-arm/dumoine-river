@@ -199,11 +199,18 @@ input, select, textarea {
 		position: relative;
 		text-align: center;
 		color: #adcab8;
-		margin-bottom: 1em;
+		margin:auto;
+		margin-bottom: 2em;
+		background-image: url(../Images/foggy.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		width:50%;
 	  }
 	  .imgcontainer img{
 		  border-radius: 2%;
-		  opacity: 75%;
+		  opacity: 0%;
+		  text-align: center;
 	  }
 	  .centered p{
 		position: absolute;
@@ -213,6 +220,7 @@ input, select, textarea {
 		background-color: #14291cc0;
 		padding:2%;
 		margin:0;
+		max-width: 80%;
 	  }
 /* Section/Article */
 
