@@ -135,11 +135,11 @@ input, select, textarea {
 		}
 
 			h2.major span {
-				background: #fff;
+				background: none;
 				position: relative;
 				display: inline-block;
 				top: -0.775em;
-				padding: 0 1.25em 0 1.25em;
+				padding: 0;
 			}
 
 	h3, h4 {
@@ -209,6 +209,74 @@ input, select, textarea {
 		text-transform: uppercase;
 		color: #c1cac5;
 	}
+	* Box */
+
+	.box.excerpt {
+		position: relative;
+		overflow: hidden;
+	}
+
+		.box.excerpt header {
+			margin: 0 0 1em 0;
+		}
+
+		.box.excerpt .image, .box.excerpt p {
+			margin-bottom: 0;
+		}
+
+	.box.feature1 {
+		text-align: center;
+	}
+
+		.box.feature1 header {
+			margin-bottom: 3em;
+		}
+
+			.box.feature1 header.first h2 {
+				font-size: 2.5em;
+			}
+
+			.box.feature1 header.first p {
+				font-size: 1.2em;
+			}
+
+			.box.feature1 header.second {
+				position: relative;
+				display: inline-block;
+				text-align: left;
+				margin: 0 auto;
+				white-space: nowrap;
+				left: 24px;
+			}
+
+				.box.feature1 header.second p {
+					line-height: 1em;
+				}
+
+				.box.feature1 header.second:before {
+					font-size: 48px;
+					position: absolute;
+					right: 100%;
+					margin-right: 18px;
+					opacity: 0.5;
+					bottom: -4px;
+				}
+
+	.box.feature2 {
+		text-align: center;
+	}
+
+	.box.article-list article {
+		border-bottom: solid 1px #dbdbdb;
+		margin: 0 0 2.75em 0;
+		padding: 0 0 2.75em 0;
+	}
+
+		.box.article-list article:last-child {
+			border-bottom: 0;
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
 
 /* Container */
 
@@ -1734,6 +1802,10 @@ input, select, textarea {
 	header.major {
 		padding-bottom: 2em;
 	}
+	header.first.major {
+		padding:0;
+		margin:0;
+	}
 	header.special {
 		margin-bottom: 5em;
 		padding-top: 7em;
@@ -1926,6 +1998,10 @@ input, select, textarea {
 			.wrapper.style3 {
 				background: #fff;
 				color: inherit;
+			}
+			.wrapper.style1 {
+			margin-bottom: 0;
+			padding-bottom:2em;
 			}
 /* List */
 
@@ -2588,7 +2664,7 @@ input, select, textarea {
 
 	#banner {
 		position: relative;
-		background-image: url("overlay.png"), url("overlay.png"), url("../../images/banner.jpg");
+		background-image: url("../Images/overlay.png"), url("../Images/overlay.png"), url("../Images/path.jpg");
 		background-position: top left, top left, center center;
 		background-repeat: repeat, repeat, no-repeat;
 		background-size: auto, auto, cover;
@@ -3141,7 +3217,7 @@ input, select, textarea {
 				}
 
 					h2.major span {
-						padding: 0 1em;
+						padding: 0;
 					}
 
 		/* Section/Article */
