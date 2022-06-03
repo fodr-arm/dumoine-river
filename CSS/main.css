@@ -195,7 +195,25 @@ input, select, textarea {
 	p, ul, ol, dl, table {
 		margin-bottom: 2em;
 	}
-
+	.imgcontainer {
+		position: relative;
+		text-align: center;
+		color: #adcab8;
+		margin-bottom: 1em;
+	  }
+	  .imgcontainer img{
+		  border-radius: 2%;
+		  opacity: 75%;
+	  }
+	  .centered p{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: #14291cc0;
+		padding:2%;
+		margin:0;
+	  }
 /* Section/Article */
 
 	section, article {
@@ -2675,7 +2693,7 @@ input, select, textarea {
 		#banner .content {
 			position: relative;
 			background-color: rgba(21, 28, 23, 0.85);
-			background-image: url("overlay.png"), url("images/highlight.png");
+			background-image: url("overlay.png"), url("../Images/highlight.png");
 			background-position: top left, center center;
 			background-size: auto, 100% 250%;
 			background-repeat: repeat, no-repeat;
@@ -2730,7 +2748,7 @@ input, select, textarea {
 		border-bottom: solid 5px #c1cac5;
 		border-top-width: 35px;
 		border-bottom-width: 10px;
-		padding: 6em 0 6em 0;
+		padding: 0em 0 2em 0;
 	}
 
 	#main > :last-child {
