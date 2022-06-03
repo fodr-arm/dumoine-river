@@ -222,6 +222,9 @@ input, select, textarea {
 		margin:0;
 		max-width: 80%;
 	  }
+	  .mySlides {display:none}
+.w3-left, .w3-right, .w3-badge {cursor:pointer}
+.w3-badge {height:13px;width:13px;padding:0}
 /* Section/Article */
 
 	section, article {
@@ -2685,7 +2688,9 @@ input, select, textarea {
 				border-left: solid 1em transparent;
 				border-right: solid 1em transparent;
 			}
-
+			.mySlides {display:none}
+			.w3-left, .w3-right, .w3-badge {cursor:pointer}
+			.w3-badge {height:13px;width:13px;padding:0}
 /* Banner */
 
 	#banner {
