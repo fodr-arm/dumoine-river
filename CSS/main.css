@@ -2643,7 +2643,7 @@ input, select, textarea {
 /* Main */
 
 	#main {
-		background: rgb(193, 208, 224);
+		background: #fff;
 		border-top: solid 5px #b1ddab;
 		border-bottom: solid 5px #c1cac5;
 		border-top-width: 35px;
