@@ -1,7 +1,9 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic|Open+Sans+Condensed:700");
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,900");
 
 /*
+	Twenty by HTML5 UP
 	TXT by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
@@ -191,7 +193,7 @@ input, select, textarea {
 	}
 
 	p, ul, ol, dl, table {
-		margin-bottom: 3em;
+		margin-bottom: 2em;
 	}
 
 /* Section/Article */
@@ -199,10 +201,6 @@ input, select, textarea {
 	section, article {
 		margin-bottom: 6em;
 	}
-
-		section > :last-child, section:last-child, article > :last-child, article:last-child {
-			margin-bottom: 0;
-		}
 
 	header > p {
 		display: block;
@@ -696,12 +694,12 @@ input, select, textarea {
 						}
 
 				.row {
-					margin-top: -50px;
-					margin-left: -50px;
+					margin-top: -40px;
+					margin-left: -40px;
 				}
 
 					.row > * {
-						padding: 50px 0 0 50px;
+						padding: 40px 0 0 40px;
 					}
 
 					.row.gtr-uniform {
@@ -1728,6 +1726,72 @@ input, select, textarea {
 
 		}
 
+/* Section/Article */
+	section.special, article.special {
+		text-align: center;
+	}
+
+	header.major {
+		padding-bottom: 2em;
+	}
+	header.special {
+		margin-bottom: 5em;
+		padding-top: 7em;
+		position: relative;
+		text-align: center;
+	}
+
+		header.special:before, header.special:after {
+			border-bottom: solid 1.5px;
+			border-top: solid 1.5px;
+			content: '';
+			height: 7px;
+			opacity: 0.1;
+			position: absolute;
+			top: 1.75em;
+			width: 43%;
+		}
+
+		header.special:before {
+			left: 0;
+		}
+
+		header.special:after {
+			right: 0;
+		}
+
+		header.special h2 {
+			margin-bottom: 0;
+		}
+
+		header.special h2 + p {
+			margin-bottom: 0;
+			padding-top: 1.5em;
+		}
+
+		header.special .icon {
+			cursor: default;
+			height: 7em;
+			left: 0;
+			position: absolute;
+			text-align: center;
+			top: 1em;
+			width: 100%;
+		}
+
+			header.special .icon:before {
+				font-size: 3.5em;
+				opacity: 0.35;
+			}
+
+	footer > :last-child {
+		margin-bottom: 0;
+	}
+
+	footer.major {
+		padding-top: 3em;
+	}
+
 /* Image */
 
 	.image {
@@ -1857,6 +1921,16 @@ input, select, textarea {
 			font-size: 1.65em;
 		}
 
+/* Wrapper */
+		.wrapper {
+			margin-bottom: 5em;
+			padding: 5em;
+		}
+
+			.wrapper.style3 {
+				background: #fff;
+				color: inherit;
+			}
 /* List */
 
 	ul {
@@ -1867,6 +1941,36 @@ input, select, textarea {
 		ul li {
 			padding-left: 0.5em;
 		}
+
+/* Buttons */
+
+	ul.buttons {
+		cursor: default;
+		list-style: none;
+		padding-left: 0;
+	}
+
+		ul.buttons:last-child {
+			margin-bottom: 0;
+		}
+
+		ul.buttons li {
+			display: inline-block;
+			padding: 0 0 0 1.5em;
+		}
+
+			ul.buttons li:first-child {
+				padding: 0;
+			}
+
+		ul.buttons.stacked li {
+			display: block;
+			padding: 1.5em 0 0 0;
+		}
+
+			ul.buttons.stacked li:first-child {
+				padding: 0;
+			}
 
 	ol {
 		list-style: decimal;
@@ -2545,6 +2649,26 @@ input, select, textarea {
 		border-top-width: 35px;
 		border-bottom-width: 10px;
 		padding: 6em 0 6em 0;
+	}
+
+	#main > :last-child {
+		margin-bottom: 0;
+	}
+
+	#main .sidebar section {
+		border-top: solid 1px rgba(124, 128, 129, 0.2);
+		margin: 3em 0 0 0;
+		padding: 3em 0 0 0;
+	}
+
+		#main .sidebar section:first-child {
+			border-top: 0;
+			padding-top: 0;
+			margin-top: 0;
+		}
+
+	body.index #main {
+		padding-top: 5em;
 	}
 
 /* Sidebar + Content */
