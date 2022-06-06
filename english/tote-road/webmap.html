@@ -238,7 +238,7 @@
 			<div class="subheading">
 				<h4>How to use this map</h4>
 				<p>This is an interactive map: you can zoom and pan around the map, and hover and click on features to view the trail in more detail.</p>
-				<p>For a more complete tutorial on how to use this map, <a href=trail-information.html#HowTo target="_blank">click here.</a></p>
+				<p>For a more complete tutorial on how to use this map, <a href=trail-information.html#About target="_blank">click here.</a></p>
 			</div>
 		</div>
 		<!-- The sidebar div gets populated with listings using js below -->
@@ -292,7 +292,7 @@
 				showCheckbox: true, /*If this is set to false, users will not be able to toggle layers on and off from the legend*/
 				onlyRendered: false,
 				reverseOrder: false
-			}), 'top-right');
+			}), 'top-left');
 		})
 
 		// *** CAMPSITE DATA FOR SIDEBAR LISTINGS SECTION ***
@@ -666,7 +666,7 @@
 					"LabelFR": "Camp Amik",
 					"CampsiteLa": 16,
 					"Sequence": 16,
-					"Description": "Primary campsite with enough space for four tents. Fire pit on site and thunderbox nearby.",
+					"Description": "Primary campsite with enough space for four tents. Fire pit on site and thunderbox nearby. <i>Note: There are canoes available near the campsite to help cross the Fildegrand river.</i>",
 					"KM": "KM 16"
 				}
 			},
@@ -686,7 +686,7 @@
 					"LabelFR": "Camp de la Ferme Bertrand",
 					"CampsiteLa": 17,
 					"Sequence": 17,
-					"Description": "Primary campsite with enough space for four tents. Fire pit on site and thunderbox nearby.",
+					"Description": "Primary campsite with enough space for four tents. Fire pit on site and thunderbox nearby.<i>Note: There are canoes available near the campsite to help cross the Fildegrand river.</i>",
 					"KM": "KM 16"
 				}
 			},
@@ -1147,7 +1147,8 @@
 		/*Section for river crossing popup*/
 		map.on('mouseenter', 'rivercrossing', (e) => {
 			map.getCanvas().style.cursor = 'pointer';
-			popup.setLngLat(e.lngLat).setHTML(`<h3>River Crossing</h3><h4>Use caution when crossing the Fildegrand River. Water levels fluctuate and can become a hazard.</h4>`).addTo(map);
+			popup.setLngLat(e.lngLat).setHTML(`<h3>River Crossing</h3><h4>Use caution when crossing the Fildegrand River. Water levels fluctuate and can become a hazard. 
+				<strong>A few canoes have been left on either side of the river to help with crossing.</strong> Please leave them on the banks of the Fildegrand after you have crossed.</h4>`).addTo(map);
 		});
 		map.on('mouseleave', 'rivercrossing', () => {
 			map.getCanvas().style.cursor = '';
