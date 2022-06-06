@@ -228,6 +228,13 @@ input, select, textarea {
 .w3-content {
 	margin-bottom: 2em;
 }
+.logonav{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -6px;
+}
 .btn {
 	background-color: rgb(60, 146, 93);
 	border: none;
