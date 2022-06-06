@@ -268,8 +268,8 @@ input, select, textarea {
 		text-transform: uppercase;
 		color: #c1cac5;
 	}
-	* Box */
 
+	/* Box */
 	.box.excerpt {
 		position: relative;
 		overflow: hidden;
@@ -2543,7 +2543,7 @@ input, select, textarea {
 /* Page Wrapper */
 
 	#page-wrapper > section {
-		margin-bottom: 0;
+		margin-bottom: 10px;
 	}
 
 /* Header */
@@ -2789,17 +2789,17 @@ input, select, textarea {
 	#main {
 		background: #fff;
 		border-top: solid 5px #b1ddab;
-		border-bottom: solid 5px #c1cac5;
-		border-top-width: 35px;
-		border-bottom-width: 10px;
+		border-top-width: 25px;
+		box-shadow: 5px 5px 10px #b7c7be;
 		padding: 0em 0 2em 0;
 	}
 	#main2 {
 		background: #fff;
 		border-top: solid 5px #b1ddab;
-		border-bottom: solid 5px #c1cac5;
+		/* border-bottom: solid 5px #c1cac5; */
 		border-top-width: 35px;
-		border-bottom-width: 10px;
+		/* border-bottom-width: 10px; */
+		box-shadow: 5px 5px 10px #b7c7be;
 		padding: 6em 0 6em 0;
 	}
 
