@@ -241,6 +241,20 @@ input, select, textarea {
   .btn:hover {
 	background-color: rgb(32, 90, 54);
   }
+  .smallbtn {
+	background-color: rgb(60, 146, 93);
+	border: none;
+	color: rgb(32, 32, 32);
+	padding: 5px;
+	cursor: pointer;
+	font-size: 18px;
+	margin-bottom: 2px;
+  }
+  
+  /* Darker background on mouse-over */
+  .smallbtn:hover {
+	background-color: rgb(32, 90, 54);
+  }
 /* Section/Article */
 
 	section, article {

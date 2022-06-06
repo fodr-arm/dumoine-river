@@ -221,7 +221,7 @@
 	<div class="panel">
 		<div class="info">
 			<div class='heading'>
-				<h1>Les camps sur la Rivière Dumoine</h1>
+				<h1>Sentier Dumoine</h1>
 			</div>
 			<div class="subheading">
 				<h4>Comment utiliser cette carte</h4>
@@ -681,10 +681,10 @@
 				]
 			},
 			"properties": {
-				"Name": "? Camp Fildegrande",
-				"LabelEN": "Camp Fildegrande",
+				"Name": "? Camp Fildegrand",
+				"LabelEN": "Camp Fildegrand",
 				"Feature": 0,
-				"LabelFR": "Camp Fildegrande",
+				"LabelFR": "Camp Fildegrand",
 				"CampsiteLa": 18,
 				"Sequence": 18,
 				"Description": "Site de camp adapté pour plusieurs groupes.",
@@ -1114,7 +1114,7 @@
 	/*Section for river crossing popup*/
 	map.on('mouseenter', 'rivercrossing', (e) => {
 		map.getCanvas().style.cursor = 'pointer';
-		popup.setLngLat(e.lngLat).setHTML(`<h3>Traversée de la rivière</h3><h4>Soyez prudent en traversant la rivière Fildegrande. Les niveaux d'eau peuvent varier et poser des risques.</h4>`).addTo(map);
+		popup.setLngLat(e.lngLat).setHTML(`<h3>Traversée de la rivière</h3><h4>Soyez prudent en traversant la rivière Fildegrand. Les niveaux d'eau peuvent varier et poser des risques.</h4>`).addTo(map);
 	});
 	map.on('mouseleave', 'rivercrossing', () => {
 		map.getCanvas().style.cursor = '';
