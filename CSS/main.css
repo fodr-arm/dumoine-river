@@ -2065,6 +2065,7 @@ input, select, textarea {
 			.wrapper.style3 {
 				background: #fff;
 				color: inherit;
+				padding-top: 0;
 			}
 			.wrapper.style1 {
 			margin-bottom: 0;
