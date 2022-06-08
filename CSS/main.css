@@ -2844,7 +2844,7 @@ input, select, textarea {
 		border-top: solid 5px #b1ddab;
 		border-top-width: 25px;
 		box-shadow: 5px 5px 10px #b7c7be;
-		padding: 0em 0 2em 0;
+		padding: 2em 0 2em 0;
 	}
 	#main2 {
 		background: #fff;
