@@ -7,6 +7,7 @@
   <meta name="author" content="Allison Talsma, Carol Buckingham, Kira-Marie Lazda">
   <meta name="description" content="Interactive trail web map page - English">
   <meta name="keywords" content="Outdoors, Recreation, History, Camping">
+  <link rel="icon" href="../../Images/logow.png">
   <!--Mapbox GL JS source code and stylesheet-->
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
@@ -280,7 +281,6 @@
 			const targets = {
 				'campsites': 'Campsite',
 				'kilometermarkers': 'Kilometer Marker',
-				'foremanscabin': 'Historic Attraction',
 				'scenic': 'Scenic View Point',
 				'rapids': 'Rapids',
 				'boatlaunch': 'Boat Launch',
@@ -297,7 +297,8 @@
 
 		// *** CAMPSITE DATA FOR SIDEBAR LISTINGS SECTION ***
 		/*Create a new variable to store the JSON data for the campsites that will appear in the info side panel*/
-		// If you need to change a campsite name or description as it appears in the sidepanel, modify it directly in this JSON data.
+		// If you need to change a campsite name or description as it appears in the sidepanel, modify it directly in this JSON data below.
+		//For the info panel and popups, the 3 properties being used are: LabelEN, Description and KM
 		const sites ={
 		"type": "FeatureCollection",
 		"features": [
@@ -578,9 +579,9 @@
 				},
 				"properties": {
 					"Name": "New Camp (pot in Farm)",
-					"LabelEN": "Camp Potvin Ferme",
+					"LabelEN": "Camp Potvin Stopping Place",
 					"Feature": 1,
-					"LabelFR": "Camp de la Ferme Potvin",
+					"LabelFR": "Camp de la Arrêtte Forestière Potvin",
 					"CampsiteLa": 13,
 					"Sequence": 13,
 					"Description": "Rudimentary campsite with limited space.",
@@ -681,9 +682,9 @@
 				},
 				"properties": {
 					"Name": "? Camp Bertrands Ferme",
-					"LabelEN": "Camp Bertrands Farm",
+					"LabelEN": "Camp Bertrands Stopping Place",
 					"Feature": 0,
-					"LabelFR": "Camp de la Ferme Bertrand",
+					"LabelFR": "Camp de la Arrêtte Forestière Bertrand",
 					"CampsiteLa": 17,
 					"Sequence": 17,
 					"Description": "Primary campsite with enough space for four tents. Fire pit on site and thunderbox nearby.<i>Note: There are canoes available near the campsite to help cross the Fildegrand river.</i>",
@@ -722,7 +723,7 @@
 				},
 				"properties": {
 					"Name": "? Camp Trois Roche",
-					"LabelEN": "Camp Trois Roche",
+					"LabelEN": "Camp Three Rocks",
 					"Feature": 0,
 					"LabelFR": "Camp Trois Roches",
 					"CampsiteLa": 19,
@@ -1107,23 +1108,7 @@
 			map.getCanvas().style.cursor = '';
 			popup.remove();
 		});
-		/**********************************/
-		/*Section for cabin popup*/
-		map.on('mouseenter', 'foremanscabin', (e) => {
-			map.getCanvas().style.cursor = 'pointer';
-			const coordinates = e.features[0].geometry.coordinates.slice();
-			const name = e.features[0].properties.NewLabel;
 
-			while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-			coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;}
-
-			popup.setLngLat(coordinates).setHTML(`<h4>${name}</h4>`).addTo(map);
-		});
-		
-		map.on('mouseleave', 'foremanscabin', () => {
-			map.getCanvas().style.cursor = '';
-			popup.remove();
-		});
 		/**********************************/
 		/*Section for historical areas popups*/
 		map.on('click', 'historicalareas', (e) => {
