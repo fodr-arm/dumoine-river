@@ -227,6 +227,48 @@
 	background: #00853e;
 	border-radius: 0;
 	}
+	.alert{
+		background-color: #eee;
+		width:30%;
+		padding: 10px 15px;
+		position:absolute;
+		transform: translate(-50%, -50%);
+		top: 50%;
+		left: 50%;
+		border-radius: 8px;
+		border-color: #404040;
+	}
+	.alert h1{
+		padding:0;
+		font-weight: bold;
+	}
+	.alert button{
+		display: block;
+		margin: 0 0 20px auto ;
+		background-color: transparent;
+		font-size: 30px;
+		color: #37583d;
+		border: none;
+		outline: none;
+		cursor: pointer;
+	}
+	.alert p{
+		font-size: 14px;
+		text-align: justify;
+		margin:20px 0;
+	}
+	@media screen and (max-width:600px) {
+		.alert{
+			width:90%;
+		}
+		.alert h1 {
+			font-size: 12px;
+		}
+		.alert p{
+			font-size: smaller;
+		}
+	}
+	
 </style>
 </head>
 <body>
@@ -249,7 +291,11 @@
 	</div>
 	<!--The section to hold the map-->
 	<div id='map' class="map"></div>
-
+	<div class="alert">
+		<button id="close">&times;</button>
+		<h1>Disclaimer</h1>
+		<p>This map is for informational purposes only and does not guarantee the accuracy of any feature locations on the map as it is extremely likely that some errors exist. The creator, Friends of the Dumoine, does not warrant any part of the map or its features to be spatially or temporally accurate or fit for a particular use. Friends of the Dumoine River, its members and associated partners are not liable for any damage or injury sustained as a result of using any portion or reproduction of this map.</p>
+	</div>
 	<script>
 		// ***MAP SECTION***
 		/*Initializing a new map using private access token and style url of the style 'English-V2' from fodr Mapbox account*/
@@ -290,7 +336,7 @@
 			/*Access the watergis mapbox gl legend plugin to add the legend of the selected targets to the map*/
 			/*Plugin source code available here: https://github.com/watergis/mapbox-gl-legend*/
 			map.addControl(new watergis.MapboxLegendControl(targets, {
-				showDefault: true, 
+				showDefault: false, 
 				showCheckbox: true, /*If this is set to false, users will not be able to toggle layers on and off from the legend*/
 				onlyRendered: false,
 				reverseOrder: true
@@ -1175,9 +1221,15 @@
 
 		// This is the popup browser alert that appears when you first load the map.
 		// It shows a disclaimer and users will have to click 'OK' before they enter the map.
+		// window.onload=function(){
+   		// 	alert("This map is for informational purposes only and does not guarantee the accuracy of any feature locations on the map as it is extremely likely that some errors exist. The creator, Friends of the Dumoine, does not warrant any part of the map or its features to be spatially or temporally accurate or fit for a particular use. Friends of the Dumoine River, its members and associated partners are not liable for any damage or injury sustained as a result of using any portion or reproduction of this map.");
+		// };
 		window.onload=function(){
-   			alert("This map is for informational purposes only and does not guarantee the accuracy of any feature locations on the map as it is extremely likely that some errors exist. The creator, Friends of the Dumoine, does not warrant any part of the map or its features to be spatially or temporally accurate or fit for a particular use. Friends of the Dumoine River, its members and associated partners are not liable for any damage or injury sustained as a result of using any portion or reproduction of this map.");
+			document.querySelector(".alert").style.display="block";	
 		};
+		document.querySelector("#close").addEventListener("click", function(){
+			document.querySelector(".alert").style.display="none";
+		});
 	</script>
 </body>
 </html>
