@@ -2137,6 +2137,11 @@ input, select, textarea {
 			box-shadow: -1px 1px 4px #708074;
 		}
 
+		.image.banner {
+			display: block;
+			margin: 0 0 2em 0;
+		}
+
 /* Button */
 
 	input[type="button"],
