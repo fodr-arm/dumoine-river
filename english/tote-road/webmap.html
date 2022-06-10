@@ -1154,6 +1154,12 @@
 		map.on('mouseleave', 'historictrails', () => {
 			map.getCanvas().style.cursor = '';
 		});
+
+		// This is the popup browser alert that appears when you first load the map.
+		// It shows a disclaimer and users will have to click 'OK' before they enter the map.
+		window.onload=function(){
+   			alert("This map is for informational purposes only and does not guarantee the accuracy of any feature locations on the map. Do not rely on this for navigation or emergency purposes.");
+		};
 	</script>
 </body>
 </html>

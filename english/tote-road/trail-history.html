@@ -10,6 +10,173 @@
   <link rel="stylesheet" href="../../CSS/main.css">
   <link rel="icon" href="../../Images/logow.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <style>
+    *,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+}
+
+.timeline {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background: #006E51;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+
+.timelinecontainer {
+  padding: 15px 30px;
+  position: relative;
+  background: inherit;
+  width: 50%;
+}
+
+.timelinecontainer.left {
+  left: 0;
+}
+
+.timelinecontainer.right {
+  left: 50%;
+}
+
+.timelinecontainer::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: calc(50% - 8px);
+  right: -8px;
+  background: #ffffff;
+  border: 2px solid #006E51;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+.timelinecontainer.right::after {
+  left: -8px;
+}
+
+.timelinecontainer::before {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  top: calc(50% - 1px);
+  right: 8px;
+  background: #006E51;
+  z-index: 1;
+}
+
+.timelinecontainer.right::before {
+  left: 8px;
+}
+
+.timelinecontainer .date {
+  position: absolute;
+  display: inline-block;
+  top: calc(50% - 8px);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #006E51;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 1;
+}
+
+.timelinecontainer.left .date {
+  right: -75px;
+}
+
+.timelinecontainer.right .date {
+  left: -75px;
+}
+
+
+.timelinecontainer .content {
+  padding: 30px 90px 30px 30px;
+  background: #abc786;
+  position: relative;
+  border-radius: 0 500px 500px 0;
+}
+
+.timelinecontainer.right .content {
+  padding: 30px 30px 30px 90px;
+  border-radius: 500px 0 0 500px;
+}
+
+.timelinecontainer .content h2 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: normal;
+  color: #006E51;
+}
+
+.timelinecontainer .content p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 22px;
+  color: #000000;
+}
+
+@media (max-width: 767.98px) {
+  .timeline::after {
+    left: 90px;
+  }
+
+  .timelinecontainer {
+    width: 100%;
+    padding-left: 120px;
+    padding-right: 30px;
+  }
+
+  .timelinecontainer.right {
+    left: 0%;
+  }
+
+  .timelinecontainer.left::after, 
+  .timelinecontainer.right::after {
+    left: 82px;
+  }
+
+  .timelinecontainer.left::before,
+  .timelinecontainer.right::before {
+    left: 100px;
+    border-color: transparent #006E51 transparent transparent;
+  }
+
+  .timelinecontainer.left .date,
+  .timelinecontainer.right .date {
+    right: auto;
+    left: 15px;
+  }
+
+  
+  .timelinecontainer.left .content,
+  .timelinecontainer.right .content {
+    padding: 30px 30px 30px 90px;
+    border-radius: 500px 0 0 500px;
+  }
+}
+  </style>
 </head>
 <body>
   <nav id="nav">
@@ -38,12 +205,10 @@
   <section id="main2">
     <div class="container">
       <div class="row">
-        <div class="col-9 col-12-medium">
+        <div class="col-12">
           <div class="content">
-
-            <!-- Content -->
-
-              <article class="box page-content">
+          <!-- Content -->
+            <article class="box page-content">
 
                 <header>
                   <h2>Dumoine Tote Road History</h2>
@@ -57,24 +222,106 @@
                     The Ottawa River watershed is the traditional home of the Algonquin Nation and the Dumoine was the traditional home of the Dumoine River Band of that nation. 
                     This band, a group of 12 families, created the first portages and hunting trails in the watershed.
                   </p>
+                  <h3>A timeline of the Dumoine's natural and human history</h3>
                 </section>
-              </article>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-	<div class="wrapper style3">
-    <div class="inner">
-      <div class="container">
-        <div class="row">
-          <div class="col-8 col-12-medium">
+              <!-- https://codepen.io/htmlcodex/pen/LYGjPgV -->
+                <div class="timeline">
+                  <div class="timelinecontainer left">
+                    <div class="content">
+                      <h2>10,000 years ago</h2>
+                      <p>
+                        The mouth of the river was submerged beneath the northern limit of the Champlain Sea.                      </p>
+                    </div>
+                  </div>
+                  <div class="timelinecontainer right">
+                    <div class="content">
+                      <h2>5000 to 8000 years ago</h2>
+                      <p>
+                        Ancestors of the Anishnabe lived at Morrison Island thirty kilometres from the mouth of the Dumoine and traded with nomadic tribes travelling by foot or canoe up and down the river.                      </p>
+                    </div>
+                  </div>
+                  <div class="timelinecontainer left">
+                    <div class="content">
+                      <h2>1000-2000 years ago</h2>
+                      <p>
+                        A band of Algonquin families claimed or were assigned by communal  law the Dumoine River as their bands territory. As a band they identified each families hunting territory of 500-1000 square miles , limits defined by significant natural features.                      </p>
+                    </div>
+                  </div>
+                  <div class="timelinecontainer right">
+                    <div class="content">
+                      <h2>1000-500 years ago</h2>
+                      <p>
+                        Summer travel by the band to harvest natural events like berries,waterfoul,birchbark and fish especially eels, to trade and to socialize and meet as a tribe during the open water season , involved long stopovers at the gateway to their territory, the mouth of the Dumoine. 
 
-            <!-- Article list -->
+                        Travel by birchbark canoe by the band involved both upriver and downriver travel on the Dumoine and Ottawa Rivers.                      </p>
+                    </div>
+                  </div>
+                  <div class="timelinecontainer left">
+                    <div class="content">
+                      <h2>1500-1600 AD</h2>
+                      <p>
+                        Contact with Europeans was first made in the Gulf of St Lawrence (Cartier and Basque fishermen) in the 1500s. Word and trade goods would have reached the powerful Morrison Island band known as The Kitchissippirini . Their Chief ‘Tessouat’ with other chiefs met Champlain at the Gulf in 1603.                      </p>
+                    </div>
+                  </div>
+                  <div class="timelinecontainer right">
+                    <div class="content">
+                      <h2>1600-1700</h2>
+                      <p>
+                        Early French Traders recognized the trade potential at the Dumoine mouth on their way to establish a fort on Lac Temiscamingue. 
+                        Trade and travel was severely interrupted by the Beaver Wars involving the Haudennaussonee (five nation Iroquois) and the Anishnabe and Wyandot/Wendat (Huron) people. The original post on *Lac Temiscamingue was destroyed by Seneca Warriors during this period as was the village on Morrison Island.
+                      </p>
+                    </div>
+                  </div>
+                <div class="timelinecontainer left">
+                  <div class="content">
+                    <h2>1700-1800</h2>
+                    <p>
+                      The mouth of the river was submerged beneath the northern limit of the Champlain Sea.                      </p>
+                  </div>
+                </div>
+                <div class="timelinecontainer right">
+                  <div class="content">
+                    <h2>5000 to 8000 years ago</h2>
+                    <p>
+                      Ancestors of the Anishnabe lived at Morrison Island thirty kilometres from the mouth of the Dumoine and traded with nomadic tribes travelling by foot or canoe up and down the river.                      </p>
+                  </div>
+                </div>
+                <div class="timelinecontainer left">
+                  <div class="content">
+                    <h2>1000-2000 years ago</h2>
+                    <p>
+                      A band of Algonquin families claimed or were assigned by communal  law the Dumoine River as their bands territory. As a band they identified each families hunting territory of 500-1000 square miles , limits defined by significant natural features.                      </p>
+                  </div>
+                </div>
+                <div class="timelinecontainer right">
+                  <div class="content">
+                    <h2>1000-500 years ago</h2>
+                    <p>
+                      Summer travel by the band to harvest natural events like berries,waterfoul,birchbark and fish especially eels, to trade and to socialize and meet as a tribe during the open water season , involved long stopovers at the gateway to their territory, the mouth of the Dumoine. 
+
+                      Travel by birchbark canoe by the band involved both upriver and downriver travel on the Dumoine and Ottawa Rivers.                      </p>
+                  </div>
+                </div>
+                <div class="timelinecontainer left">
+                  <div class="content">
+                    <h2>1500-1600 AD</h2>
+                    <p>
+                      Contact with Europeans was first made in the Gulf of St Lawrence (Cartier and Basque fishermen) in the 1500s. Word and trade goods would have reached the powerful Morrison Island band known as The Kitchissippirini . Their Chief ‘Tessouat’ with other chiefs met Champlain at the Gulf in 1603.                      </p>
+                  </div>
+                </div>
+                <div class="timelinecontainer right">
+                  <div class="content">
+                    <h2>1600-1700</h2>
+                    <p>
+                      Early French Traders recognized the trade potential at the Dumoine mouth on their way to establish a fort on Lac Temiscamingue. 
+                      Trade and travel was severely interrupted by the Beaver Wars involving the Haudennaussonee (five nation Iroquois) and the Anishnabe and Wyandot/Wendat (Huron) people. The original post on *Lac Temiscamingue was destroyed by Seneca Warriors during this period as was the village on Morrison Island.
+                    </p>
+                  </div>
+                </div>
+              </div>
               <section class="box article-list">
                 <h2 id="Uses">Historical Sites</h2>
 
-                <!-- Excerpt -->
                   <article class="box excerpt">
                     <a href="#" class="image left"><img src="../../Images/potvins.jpeg" alt="" /></a>
                     <div>
@@ -89,7 +336,6 @@
                     </div>
                   </article>
 
-                <!-- Excerpt -->
                   <article class="box excerpt">
                     <a href="#" class="image left"><img src="../../Images/stoppingplaces.JPG" alt="" /></a>
                     <div>
@@ -104,12 +350,94 @@
                     </div>
                   </article>
 
-                <!-- Excerpt -->
                   <article class="box excerpt">
                     <a href="#" class="image left"><img src="../../Images/slide.jpg" alt="" /></a>
                     <div>
                       <header>
-                        <!-- <span class="date">Date</span> -->
+                        <h3><a href="#">Grande Chutes</a></h3>
+                      </header>
+                      <p>The river drives would take advantage of the portages and camps created by the Dumoine Band on their annual spring running of the logs. 
+                        The longest timber slide in Eastern Canada was built to safely transport the logs around the spectacularly ferocious Grande Chute.</p>
+                    </div>
+                  </article>
+                  <article class="box excerpt">
+                  <img src="../../Images/dumoineriver.jpg">
+                </article>
+              </section>
+              <section class="box spotlight">
+                <h2>Activities</h2>
+                <article>
+                  <a href="#" class="image featured"><img src="../../Images/loggers.jpeg" alt=""></a>
+                  <header>
+                    <h3><a href="#">Logging</a></h3>
+                    <p>Timber slides and Lumberjacks</p>
+                  </header>
+                  <p>Throughout the four centuries since 1600, European traders, priests, lumbermen, settlers, forest rangers and sportsmen adopted these trails for their own purposes. 
+                    The lumber trade, which began cutting the big pines of the Dumoine in the 1830s, was dependent on huge amounts of supplies 
+                    (estimated at three pounds for every board foot cut) to run their winter cutting operations.</p>
+                  <p>To accomplish this they built a road, suitable for horse-drawn sleighs and wagons, from the mouth of the Dumoine to the shanty camps along the Dumoine and Fildegrande Rivers. 
+                    The cut logs were moved by the floodwaters of the spring on annual river drives, so all the shanties were close to water flowing into these two rivers.</p>
+                </article>
+                <article>
+                  <a href="#" class="image featured"><img src="../../Images/maincamp.jpg" alt=""></a>
+                  <header>
+                    <h3><a href="#">Fire Fighting</a></h3>
+                    <p>Rangers and Forest Fires</p>
+                  </header>
+                  <p>In the 1900s the forest was patrolled by forest rangers watching for fires from a series of fire towers throughout the Dumoine Valley. 
+                  The Tote road became the access route for these rangers and their fire fighting equipment. 
+                  Lastly, a new breed of urban sportsmen, keen on the Dumoine hunting and fishing experience, walked up the Dumoine Tote Road to their cabins beginning in 1918.</p>
+                  <p>By 1960 air patrols by float planes were used to locate fires. Improved trucks and bush roads all replaced the forest rangers, the river drives and offered an alternative for the walk-in sportsmen. 
+                    The Tote Road was then abandoned to nature.</p>
+                  </article>
+              </section>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+	<!-- <div class="wrapper style3">
+    <div class="inner">
+      <div class="container">
+        <div class="row">
+          <div class="col-8 col-12-medium">
+
+              <section class="box article-list">
+                <h2 id="Uses">Historical Sites</h2>
+
+                  <article class="box excerpt">
+                    <a href="#" class="image left"><img src="../../Images/potvins.jpeg" alt="" /></a>
+                    <div>
+                      <header>
+                        <span class="date">1800s</span>
+                        <h3><a href="#">Homesteads</a></h3>
+                      </header>
+                      <p>In the winter, teamsters, usually local farmers using their own horses and sleighs, would be paid by the pound to haul for loads of feed for the men and horses. 
+                        They would “Tote” their loads into the camps. Hundreds of teams consisting of two horses and one man hauling 2000 pound loads would travel up the tote road many times each winter. 
+                        Their travel limit per day was about 12 miles so crude homesteads with extra stables and bunkhouses were established to shelter the men and horses, 
+                        by the lumber companies or entrepreneurial families, at this distance.</p>
+                    </div>
+                  </article>
+
+                  <article class="box excerpt">
+                    <a href="#" class="image left"><img src="../../Images/stoppingplaces.JPG" alt="" /></a>
+                    <div>
+                      <header>
+                        <span class="date">1850s</span>
+                        <h3><a href="#">Stopping Places</a></h3>
+                      </header>
+                      <p>On the Dumoine Tote road the Dufoe family was at the beginning, at the mouth of the Dumoine, then the Bertrand Family was at the junction of the Dumoine and Fildegrande Rivers where the road split. 
+                        Another 8 miles up the Dumoine was the Potvin family stopping place, and 8 miles up the Fildegrande was a logging company stopping place at Dixon Lake called ‘Halfway’. 
+                        There was a company stopping place at Robinson Lake four miles from the Potvin’s and another at Rowanton, 10 miles from Robinson Lake, above Grande Chute.
+                      </p>
+                    </div>
+                  </article>
+
+                  <article class="box excerpt">
+                    <a href="#" class="image left"><img src="../../Images/slide.jpg" alt="" /></a>
+                    <div>
+                      <header>
                         <h3><a href="#">Grande Chutes</a></h3>
                       </header>
                       <p>The river drives would take advantage of the portages and camps created by the Dumoine Band on their annual spring running of the logs. 
@@ -124,7 +452,6 @@
           </div>
           <div class="col-4 col-12-medium">
 
-            <!-- Spotlight -->
               <section class="box spotlight">
                 <h2>Activities</h2>
                 <article>
@@ -159,7 +486,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
  <!-- Footer Wrapper -->
 <div id="footer-wrapper">
   <footer id="footer" class="container">
