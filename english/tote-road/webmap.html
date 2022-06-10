@@ -284,6 +284,8 @@
 				'scenic': 'Scenic View Point',
 				'rapids': 'Rapids',
 				'boatlaunch': 'Boat Launch',
+				'directions': 'Driving Route to Trailhead',
+				'protected-area': 'Dumoine Aquatic Reserve'
 			};
 			/*Access the watergis mapbox gl legend plugin to add the legend of the selected targets to the map*/
 			/*Plugin source code available here: https://github.com/watergis/mapbox-gl-legend*/
@@ -291,7 +293,7 @@
 				showDefault: true, 
 				showCheckbox: true, /*If this is set to false, users will not be able to toggle layers on and off from the legend*/
 				onlyRendered: false,
-				reverseOrder: false
+				reverseOrder: true
 			}), 'top-left');
 		})
 
@@ -811,7 +813,7 @@
 					"LabelFR": "Camp Rockcliffe",
 					"CampsiteLa": 23,
 					"Sequence": 23,
-					"Description": "Primary campsite with enough space for four tents. Fire pit on site and thunderbox nearby.",
+					"Description": "Primary campsite with enough space for four tents. Fire pit on site and thunderbox nearby. <i> Note: This campsite is accessible by motorboat.</i>",
 					"KM": "KM 25"
 				}
 			},
@@ -832,7 +834,7 @@
 					"LabelFR": "Camp Aygina-gwasing Sibi",
 					"CampsiteLa": 24,
 					"Sequence": 24,
-					"Description": "Primary campsite with enough space for four tents. Fire pit on site and thunderbox nearby.",
+					"Description": "Primary campsite with enough space for four tents. Fire pit on site and thunderbox nearby. <i> Note: This campsite is accessible by motorboat.</i>",
 					"KM": "Southern Trailhead"
 				}
 			}
@@ -1155,10 +1157,26 @@
 			map.getCanvas().style.cursor = '';
 		});
 
+		/**********************************/
+		/*Section for historical trails popup*/
+		map.on('click', 'directions', (e) => {
+			map.getCanvas().style.cursor = 'pointer';
+			const info = e.features[0].properties.Directions;
+			/*Add content to the popup including a link to the historical page on the website to learn more about the significance of that trail section*/
+			popup.setLngLat(e.lngLat).setHTML(`<p>${info}</p>`).addTo(map);
+
+		});
+		map.on('mouseenter', 'directions', () =>{
+			map.getCanvas().style.cursor = 'pointer';
+		})
+		map.on('mouseleave', 'directions', () => {
+			map.getCanvas().style.cursor = '';
+		});
+
 		// This is the popup browser alert that appears when you first load the map.
 		// It shows a disclaimer and users will have to click 'OK' before they enter the map.
 		window.onload=function(){
-   			alert("This map is for informational purposes only and does not guarantee the accuracy of any feature locations on the map. Do not rely on this for navigation or emergency purposes.");
+   			alert("This map is for informational purposes only and does not guarantee the accuracy of any feature locations on the map as it is extremely likely that some errors exist. The creator, Friends of the Dumoine, does not warrant any part of the map or its features to be spatially or temporally accurate or fit for a particular use. Friends of the Dumoine River, its members and associated partners are not liable for any damage or injury sustained as a result of using any portion or reproduction of this map.");
 		};
 	</script>
 </body>
