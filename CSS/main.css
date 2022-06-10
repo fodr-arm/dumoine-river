@@ -471,10 +471,11 @@ input, select, textarea {
 		position: relative;
 		overflow: hidden;
 	}
-	.box.article-list {
+
+	/* .box.article-list {
 		border-right: #8cb39bb0 solid 2px;
 		padding-right: 15px;
-	}
+	} */
 	.box.article-list article {
 		border-bottom: solid 1px #dbdbdb;
 		margin: 0 0 2.75em 0;
