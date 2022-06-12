@@ -146,6 +146,23 @@ input, select, textarea {
 		font-size: 1.25em;
 	}
 
+		h3.major {
+			position: relative;
+			border-top: solid 5px #e7eae8;
+			font-size: 1.65em;
+			text-align: center;
+			margin: 0 0 1em 0;
+			top: 0.775em;
+		}
+
+			h3.major span {
+				background: #fff;
+				position: relative;
+				display: inline-block;
+				top: -0.775em;
+				padding: 0 1.25em 0 1.25em;
+			}
+
 	a {
 		color: #006376;
 		text-decoration: underline;
@@ -408,6 +425,7 @@ input, select, textarea {
 
 	div.col2 {
 		float:left;
+		width:70%;
 	}
 
 	/* Box */
@@ -469,6 +487,7 @@ input, select, textarea {
 	.box.news {
 		position: relative;
 		overflow: hidden;
+		padding: 1em;
 	}
 
 	/* .box.article-list {
@@ -2127,13 +2146,6 @@ input, select, textarea {
 			margin: 0 2em 2em 0;
 			max-width: 275px;
 			box-shadow: 1px 1px 4px #708074;
-		}
-
-		.image.col2 {
-			float: right;
-			margin: 2em 0 2em 2em;
-			width: 280px;
-			box-shadow: -1px 1px 4px #708074;
 		}
 
 		.image.banner {
