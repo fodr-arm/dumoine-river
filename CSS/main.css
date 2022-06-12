@@ -494,6 +494,10 @@ input, select, textarea {
 		column-count: 3;
 	}
 
+	.box.shuttle {
+		column-count: 2;
+	}
+
 	/* .box.article-list {
 		border-right: #8cb39bb0 solid 2px;
 		padding-right: 15px;
