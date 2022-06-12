@@ -490,6 +490,10 @@ input, select, textarea {
 		padding: 1em;
 	}
 
+	.box.clubs {
+		column-count: 3;
+	}
+
 	/* .box.article-list {
 		border-right: #8cb39bb0 solid 2px;
 		padding-right: 15px;
