@@ -2139,6 +2139,11 @@ input, select, textarea {
 			margin: 0 2em 2em 0;
 			max-width: 300px;
 		}
+		.image.right {
+			float: right;
+			margin: 0 2em 2em 0;
+			max-width: 300px;
+		}
 
 		.image.centered {
 			display: block;
