@@ -518,6 +518,11 @@ input, select, textarea {
 		width: 64em;
 	}
 
+	.container.home {
+		width: 90em;
+		margin-top: -9em;
+	}
+
 		@media screen and (max-width: 1680px) {
 
 			.container {
@@ -2990,7 +2995,6 @@ input, select, textarea {
 		padding: 4em 0 6em 0;
 		margin:0px;
 	}
-
 
 	#main > :last-child {
 		margin-bottom: 0;
