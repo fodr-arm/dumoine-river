@@ -2465,7 +2465,7 @@ html {
 				}
 
 				ul.contact li:hover a.fa-instagram {
-					background-color: #750e53;
+					background-color: #f20587;
 				}
 
 				ul.contact li:hover a.fa-google-plus {
@@ -2475,7 +2475,7 @@ html {
 			ul.contact li:active {
 				top: 0;
 			}
-/* Partner Logos in Footer */
+
 			.logos{
 				padding: 0 6px;
 				float: left;
@@ -2495,37 +2495,6 @@ html {
 			  @media only screen and (max-width: 648px) {
 				.logos {
 				  width: 100%;
-				}
-			  }
-			  /* Contact Us Form */
-			  .form {
-				border-radius: 5px; 
-				padding: 1px 3px; 
-				width: 100%;
-			  }
-			  .form input{
-				margin-top: 5px; 
-				background-color: #fff; 
-				height:35px; 
-				width:30vw;
-			  }
-			  .form textarea {
-				margin-top: 5px;
-				background-color: #fff; 
-				height:50px; 
-				width:30vw;
-			  }
-			  .form button {
-				font-size:14px; 
-				background-color:#b1ddab; 
-				color:rgb(69, 109, 69); 
-				font-weight:bold; 
-				padding:10px 35px; 
-				margin: 5px 0 0 0;
-			  }
-			  @media screen and (max-width: 736px){
-				.form button{
-					width: 30vw;
 				}
 			  }
 /* Special */
@@ -2941,12 +2910,12 @@ html {
 			}
 
 			#nav li:hover a, #nav li:hover span {
-				background: #6a855b;
+				background: #6A855B;
 				color: #fff;
 			}
 
 			#nav li.active a, #nav li.active span {
-				background: #6a855b;
+				background: #6A855B;
 				color: #fff;
 			}
 
@@ -2985,7 +2954,7 @@ html {
 
 			.dropotron li:hover > a, .dropotron li:hover > span {
 				color: #fff;
-				background: #7B8780;
+				background: #598541;
 			}
 
 			.dropotron li.active > a, .dropotron li.active > span {
@@ -3002,13 +2971,14 @@ html {
 			font-size: 0.9em;
 		}
 
+		/* the section is for the tiny triangle in the nav bar dropdown menu */
 			.dropotron.level-0:before {
 				content: '';
 				position: absolute;
 				left: 50%;
 				margin-left: -1em;
 				top: -0.65em;
-				border-bottom: solid 1em #6B7770;
+				border-bottom: solid 1em #6A855B;
 				border-left: solid 1em transparent;
 				border-right: solid 1em transparent;
 			}
