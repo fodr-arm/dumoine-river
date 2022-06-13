@@ -2897,7 +2897,7 @@ html {
 				position: relative;
 				display: block;
 				text-decoration: none;
-				color: #6b7770;
+				color: rgba(41, 56, 33, 0.8);
 				top: -6px;
 				padding: 6px 1.5em 0.25em 1.5em;
 				border-bottom-left-radius: 6px;
@@ -2910,23 +2910,23 @@ html {
 			}
 
 			#nav li:hover a, #nav li:hover span {
-				background: #C1CAC5;
+				background: #6a855b;
 				color: #fff;
 			}
 
 			#nav li.active a, #nav li.active span {
-				background: #C1CAC5;
+				background: #6a855b;
 				color: #fff;
 			}
 
 			#nav li.current a {
-				background: #b1ddab;
+				background: rgba(41, 56, 33, 0.8);
 				color: #fff;
 			}
 
 	.dropotron {
 		list-style: none;
-		background: #6B7770;
+		background: #6a855b;
 		color: #fff;
 		border-radius: 6px;
 		line-height: 2.75em;
@@ -3361,7 +3361,7 @@ html {
 				top: 0;
 				width: 100%;
 				z-index: 10001;
-				background-color: rgba(21, 38, 23, 0.8);
+				background-color: rgba(41, 56, 33, 0.8);
 				background-image: url("overlay.png");
 			}
 
