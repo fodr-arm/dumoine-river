@@ -2401,7 +2401,9 @@ html {
 			}
 
 /* Contact */
-
+#socials{
+	text-align: center;
+}
 	ul.contact {
 		list-style: none;
 		padding-left: 0;
@@ -2418,6 +2420,7 @@ html {
 			margin: 0 0.25em 0 0.25em;
 			top: 0;
 			padding-left: 0;
+			text-align: center;
 		}
 
 			ul.contact li a {
@@ -2445,7 +2448,7 @@ html {
 				top: -5px;
 			}
 
-				ul.contact li:hover a.fa-facebook {
+				ul.contact li:hover a.fa-facebook-f {
 					background-color: #3C5A98;
 				}
 
@@ -2462,7 +2465,7 @@ html {
 				}
 
 				ul.contact li:hover a.fa-instagram {
-					background-color: #2E5E86;
+					background-color: #750e53;
 				}
 
 				ul.contact li:hover a.fa-google-plus {
@@ -2473,6 +2476,27 @@ html {
 				top: 0;
 			}
 
+			.logos{
+				padding: 0 6px;
+				float: left;
+				width: 24.9999%;
+				text-align: center;
+			}
+			.logogallery img{
+				max-width: 100%;
+				height: auto;
+			}
+			@media only screen and (max-width: 700px) {
+				.logos {
+				  width: 49.99999%;
+				  margin: 6px 0;
+				}
+			  }
+			  @media only screen and (max-width: 648px) {
+				.logos {
+				  width: 100%;
+				}
+			  }
 /* Special */
 
 	ul.special {
