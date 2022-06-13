@@ -469,7 +469,7 @@ label{
 }
 /*Popup styling */
 .mapboxgl-popup-close-button {
-	display: visible;
+	display: none;
 	color: rgb(53, 71, 53);
 	padding: 0 10px 10px 0;
 	margin:10px;
