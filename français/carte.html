@@ -40,7 +40,7 @@
     /*Popup styling */
 	.mapboxgl-popup-close-button {
 		display: visible;
-		color: #eee;
+		color: rgb(91, 114, 91);
 		padding-right: 15px;
 	}
 
@@ -214,6 +214,47 @@
   background: #00853e;
   border-radius: 0;
 }
+.alert{
+		background-color: #eee;
+		width:30%;
+		padding: 10px 15px;
+		position:absolute;
+		transform: translate(-50%, -50%);
+		top: 50%;
+		left: 50%;
+		border-radius: 8px;
+		border-color: #404040;
+	}
+	.alert h1{
+		padding:0;
+		font-weight: bold;
+	}
+	.alert button{
+		display: block;
+		margin: 0 0 20px auto ;
+		background-color: transparent;
+		font-size: 30px;
+		color: #37583d;
+		border: none;
+		outline: none;
+		cursor: pointer;
+	}
+	.alert p{
+		font-size: 14px;
+		text-align: justify;
+		margin:20px 0;
+	}
+	@media screen and (max-width:600px) {
+		.alert{
+			width:90%;
+		}
+		.alert h1 {
+			font-size: 12px;
+		}
+		.alert p{
+			font-size: smaller;
+		}
+	}
 </style>
 </head>
 <body>
@@ -221,7 +262,7 @@
 	<div class="panel">
 		<div class="info">
 			<div class='heading'>
-				<h1>Sentier Dumoine</h1>
+				<h1>Chemin de Portage Dumoine</h1>
 			</div>
 			<div class="subheading">
 				<h4>Comment utiliser cette carte</h4>
@@ -235,6 +276,12 @@
 	</div>
 	<!--The section to hold the map-->
 	<div id='map' class="map"></div>
+	<!-- This holds the map disclaimer when first loading the map -->
+	<div class="alert">
+		<button id="close">&times;</button>
+		<h1>Mise en garde</h1>
+		<p>This map is for informational purposes only and does not guarantee the accuracy of any feature locations on the map as it is likely that some errors exist. The creator, Friends of the Dumoine, does not warrant any part of the map or its features to be spatially or temporally accurate or fit for a particular use. Friends of the Dumoine River, its members and associated partners are not liable for any damage or injury sustained as a result of using any portion or reproduction of this map.</p>
+	</div> 
   <script>
 	/*Initializing a new map using access token and style url from fodr Mapbox account*/
     mapboxgl.accessToken = 'pk.eyJ1IjoiZm9kci1hcm0iLCJhIjoiY2wzZW9lZjA3MDJodjNsbDUxY3M2MmFkZSJ9.3imPfCVXmLM7dci1i0D8KA';
@@ -260,20 +307,21 @@
 		const targets = {
 			'campsites': 'Site de camp',
 			'kilometermarkers': 'Plaquette',
-			'foremanscabin': 'Attraction historique',
 			'scenic': 'Point de vue',
 			'rapids': 'Rapides',
 			'boatlaunch': "Rampe de mise à l'eau",
+			'directions': 'Directions de conduite',
+			'protected-area': 'Réserve Aquatique Dumoine'
 		};
 		/*Access the watergis mapbox gl legend plugin to add the legend of the selected targets to the map*/
 		/*Plugin source code available here: https://github.com/watergis/mapbox-gl-legend*/
 		legend = new watergis.MapboxLegendControl(targets, {
-			showDefault: true, 
+			showDefault: false, /*Collapse legend by default*/
 			showCheckbox: true, /*If this is set to false, users will not be able to toggle layers on and off from the legend*/
 			onlyRendered: false,
-			reverseOrder: false
+			reverseOrder: true
 		})
-		map.addControl(legend,'top-right');
+		map.addControl(legend,'top-left');
 	})
 
 
@@ -297,7 +345,7 @@
 				"LabelFR": "Camp  Po`nis",
 				"CampsiteLa": 1,
 				"Sequence": 1,
-				"Description": "Site de camp adapté pour plusieurs groupes.",
+				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est proche des rapides, soyez prudents</i>.",
         "KM": "Point de départ nord"
       }
 		},
@@ -318,7 +366,7 @@
 				"LabelFR": "Camp Bellevue",
 				"CampsiteLa": 2,
 				"Sequence": 2,
-				"Description": "Site de camp adapté pour plusieurs groupes.",
+				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est proche des rapides, soyez prudents</i>.",
         "KM": "Point de départ nord"
 			}
 		},
@@ -338,7 +386,7 @@
 				"LabelFR": "Camp Ankose",
 				"CampsiteLa": 3,
 				"Sequence": 3,
-				"Description": "Site de camp adapté pour plusieurs groupes.",
+				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
         "KM": "KM 1"
 			}
 		},
@@ -359,7 +407,7 @@
 				"LabelFR": "Camp des marques de bois",
 				"CampsiteLa": 4,
 				"Sequence": 4,
-				"Description": "Site de camp simple avec espace limité.",
+				"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité.",
         "KM": "KM 2"
 			}
 		},
@@ -379,7 +427,7 @@
 				"LabelFR": "Camp Lac Robsinson",
 				"CampsiteLa": "5A",
 				"Sequence": 5,
-				"Description": "Campsite designated for canoeists. Hikers should use Camp Robinson Lake B.",
+				"Description": "Site de camp simple pour les canoéistes. Les randonneurs dovons utiliser Camp Robinson Lake B. Toilette rustique et feu de camp en proximité.",
         "KM": "KM 4"
 			}
 		},
@@ -399,7 +447,7 @@
 				"LabelFR": "Camp Lac Robsinson",
 				"CampsiteLa": "5B",
 				"Sequence": 5,
-				"Description": "Primary campsite designated for hikers. Canoeists should use Camp Robinson Lake A.",
+				"Description": "Site de camp pour les randonneurs. Les canoéistes devons utiliser Camp Robinson Lake A. Toilette rustique et feu de camp en proximité.",
         "KM": "KM 4"
 			}
 		},
@@ -419,7 +467,7 @@
 				"LabelFR": "Camp C FODA",
 				"CampsiteLa": 6,
 				"Sequence": 6,
-				"Description": "Site de camp simple avec espace limité.",
+				"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité.",
         "KM": "KM 8"
 			}
 		},
@@ -439,7 +487,7 @@
 				"LabelFR": "Camp de l'Île du spectateur",
 				"CampsiteLa": 7,
 				"Sequence": 7,
-				"Description": "Site de camp simple avec espace limité.",
+				"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est proche des rapides, soyez prudents</i>.",
         "KM": "KM 9"
 			}
 		},
@@ -459,7 +507,7 @@
 				"LabelFR": "Camp du grand pin",
 				"CampsiteLa": 8,
 				"Sequence": 8,
-				"Description": "Site de camp adapté pour plusieurs groupes.",
+				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
         "KM": "KM 10"
 			}
 		},
@@ -480,7 +528,7 @@
 				"LabelFR": "Camp Esker",
 				"CampsiteLa": 9,
 				"Sequence": 9,
-				"Description": "Site de camp adapté pour plusieurs groupes.",
+				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
         "KM": "KM 10"
 			}
 		},
@@ -500,7 +548,7 @@
 				"LabelFR": "Camp du banc en bois équarri",
 				"CampsiteLa": 10,
 				"Sequence": 10,
-				"Description": "Site de camp adapté pour plusieurs groupes.",
+				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
         "KM": "KM 11"
 			}
 		},
@@ -521,7 +569,7 @@
 				"LabelFR": "Camp du cèdre",
 				"CampsiteLa": 11,
 				"Sequence": 11,
-				"Description": "Site de camp simple avec espace limité.",
+				"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité.",
         "KM": "KM 11"
 			}
 		},
@@ -537,7 +585,7 @@
 			
 			"properties": {
 				"CampsiteLa": 12,
-				"Description": "Site de camp adapté pour plusieurs groupes.",
+				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
 				"Feature": 1,
 				"LabelEN": "Camp Tea Time",
 				"LabelFR": "Camp de l'heure du thé",
@@ -563,7 +611,7 @@
 				"LabelFR": "Camp de la Ferme Potvin",
 				"CampsiteLa": 13,
 				"Sequence": 13,
-				"Description": "Site de camp simple avec espace limité.",
+				"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité.",
         "KM": "KM 12"
 			}
 		},
@@ -583,7 +631,7 @@
 				"LabelFR": "Camp des racines de pins",
 				"CampsiteLa": 14,
 				"Sequence": 14,
-				"Description": "Site de camp adapté pour plusieurs groupes.",
+				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
         "KM": "KM 13"
 			}
 		},
@@ -604,7 +652,7 @@
 				"LabelFR": "Camp des chutes Patton - A",
 				"CampsiteLa": "15A",
 				"Sequence": 15,
-				"Description": "Campsite designated for canoeists. Hikers should use Camp Patton Chute - B.",
+				"Description": "Site de camp simple pour les canoéistes. Les randonneurs dovons utiliser Camp Patton Chute - B.",
         "KM": "KM 14"
 			}
 		},
@@ -625,7 +673,7 @@
 				"LabelFR": "Camp des chutes Patton - B",
 				"CampsiteLa": "15B",
 				"Sequence": 15,
-				"Description": "Rudimentary campsite designated for hikers with limited space. Canoeists should use Camp Patton Chute - A.",
+				"Description": "Site de camp simple pour les randonneurs avec espace limité. Les canoéistes devons utiliser Camp Patton Chute - A. Toilette rustique et feu de camp en proximité.",
         "KM": "KM 14"
 			}
 		},
@@ -646,7 +694,7 @@
 				"LabelFR": "Camp Amik",
 				"CampsiteLa": 16,
 				"Sequence": 16,
-				"Description": "Site de camp adapté pour plusieurs groupes.",
+				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
         "KM": "KM 16"
 			}
 		},
@@ -666,7 +714,7 @@
 				"LabelFR": "Camp de la Ferme Bertrand",
 				"CampsiteLa": 17,
 				"Sequence": 17,
-				"Description": "Site de camp adapté pour plusieurs groupes.",
+				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez qu'il y a des canots disponible pour faciliter la traverse de la rivière Fildegrand</i>.",
         "KM": "KM 16"
 			}
 		},
@@ -687,7 +735,7 @@
 				"LabelFR": "Camp Fildegrand",
 				"CampsiteLa": 18,
 				"Sequence": 18,
-				"Description": "Site de camp adapté pour plusieurs groupes.",
+				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
         "KM": "KM 17"
 			}
 		},
@@ -707,7 +755,7 @@
 				"LabelFR": "Camp Trois Roches",
 				"CampsiteLa": 19,
 				"Sequence": 19,
-				"Description": "Site de camp adapté pour plusieurs groupes.",
+				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
         "KM": "KM 19"
 			}
 		},
@@ -728,7 +776,7 @@
 				"LabelFR": "Camp de la chaloupe",
 				"CampsiteLa": 20,
 				"Sequence": 20,
-				"Description": "Site de camp simple avec espace limité.",
+				"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité.",
         "KM": "KM 20"
 			}
 		},
@@ -749,7 +797,7 @@
 				"LabelFR": "Camp Mukwa Beweetig",
 				"CampsiteLa": 21,
 				"Sequence": 21,
-				"Description": "Site de camp adapté pour plusieurs groupes.",
+				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est accessible par bateaux motorisés et est proche des rapides, soyez prudents</i>.",
         "KM": "KM 21"
 			}
 		},
@@ -769,7 +817,7 @@
 				"LabelFR": "Camp du passage",
 				"CampsiteLa": 22,
 				"Sequence": 22,
-				"Description": "Site de camp adapté pour plusieurs groupes.",
+				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
         "KM": "KM 24"
 			}
 		},
@@ -790,7 +838,7 @@
 				"LabelFR": "Camp Rockcliffe",
 				"CampsiteLa": 23,
 				"Sequence": 23,
-				"Description": "Site de camp adapté pour plusieurs groupes.",
+				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est accessible par bateaux motorisés</i>.",
         "KM": "KM 25"
 			}
 		},
@@ -811,7 +859,7 @@
 				"LabelFR": "Camp Aygina-gwasing Sibi",
 				"CampsiteLa": 24,
 				"Sequence": 24,
-				"Description": "Site de camp adapté pour plusieurs groupes.",
+				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est accessible par bateaux motorisés</i>.",
         "KM": "Point de départ sud"
 			}
 		}
@@ -1074,23 +1122,7 @@
 		map.getCanvas().style.cursor = '';
 		popup.remove();
 	});
-	/**********************************/
-	/*Section for cabin popup*/
-	map.on('mouseenter', 'foremanscabin', (e) => {
-		map.getCanvas().style.cursor = 'pointer';
-		const coordinates = e.features[0].geometry.coordinates.slice();
-		const name = e.features[0].properties.LabelFR;
-
-		while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-		coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;}
-
-		popup.setLngLat(coordinates).setHTML(`<h4>${name}</h4>`).addTo(map);
-	});
 	
-	map.on('mouseleave', 'foremanscabin', () => {
-		map.getCanvas().style.cursor = '';
-		popup.remove();
-	});
 	/**********************************/
 	/*Section for historical areas popups*/
 	map.on('click', 'historicalareas', (e) => {
@@ -1099,7 +1131,7 @@
 		.setLngLat(e.lngLat)
 		/*Add content to the popup including a link to the historical page on the website to learn more about the significance of the area*/
 		.setHTML(`<h3>Zone d'importance historique</h3>`+
-		`<h4>${name}<br><a href="https://fodr-arm.github.io/dumoine-river/english/tote-road/trail-history.html" target="_blank"><i>En savoir plus</i></a></h4>`)
+		`<h4>${name}<br><a href="https://fodr-arm.github.io/dumoine-river/english/tote-road/trail-history.html#Dumoine" target="_blank"><i>En savoir plus</i></a></h4>`)
 		.addTo(map);
 	});
 	
@@ -1114,7 +1146,8 @@
 	/*Section for river crossing popup*/
 	map.on('mouseenter', 'rivercrossing', (e) => {
 		map.getCanvas().style.cursor = 'pointer';
-		popup.setLngLat(e.lngLat).setHTML(`<h3>Traversée de la rivière</h3><h4>Soyez prudent en traversant la rivière Fildegrand. Les niveaux d'eau peuvent varier et poser des risques.</h4>`).addTo(map);
+		popup.setLngLat(e.lngLat).setHTML(`<h3>Traversée de la rivière</h3><h4>Soyez prudent en traversant la rivière Fildegrand. Les niveaux d'eau peuvent varier et poser des risques.
+			<strong> Plusieurs canots sont sur les rives pour faciliter la traverse.</strong></h4>`).addTo(map);
 	});
 	map.on('mouseleave', 'rivercrossing', () => {
 		map.getCanvas().style.cursor = '';
@@ -1126,7 +1159,7 @@
 		map.getCanvas().style.cursor = 'pointer';
 		const type = e.features[0].properties.NameFR;
 		/*Add content to the popup including a link to the historical page on the website to learn more about the significance of that trail section*/
-		popup.setLngLat(e.lngLat).setHTML(`<h3>${type}</h3><h4>Cette section du sentier a une riche histoire! <br><a href="https://fodr-arm.github.io/dumoine-river/english/tote-road/trail-history.html" target="_blank"><i>En savoir plus</i></a></h4>`).addTo(map);
+		popup.setLngLat(e.lngLat).setHTML(`<h3>${type}</h3><h4>Cette section du sentier a une riche histoire! <br><a href="https://fodr-arm.github.io/dumoine-river/english/tote-road/trail-history.html#Dumoine" target="_blank"><i>En savoir plus</i></a></h4>`).addTo(map);
 
 	});
 	map.on('mouseenter', 'historictrails', () =>{
@@ -1134,6 +1167,31 @@
 	})
 	map.on('mouseleave', 'historictrails', () => {
 		map.getCanvas().style.cursor = '';
+	});
+	/**********************************/
+	/*Section for driving directions popup*/
+	map.on('click', 'directions', (e) => {
+		map.getCanvas().style.cursor = 'pointer';
+		const info = e.features[0].properties.DirectionsFR;
+		popup.setLngLat(e.lngLat).setHTML(`<h4>${info}</h4>`).addTo(map);
+
+	});
+	map.on('mouseenter', 'directions', () =>{
+		map.getCanvas().style.cursor = 'pointer';
+	})
+	map.on('mouseleave', 'directions', () => {
+		map.getCanvas().style.cursor = '';
+	});
+	// This is the popup browser alert that appears when you first load the map.
+	// It shows a disclaimer and users will have to click 'OK' before they enter the map.
+	// window.onload=function(){
+	// 	alert("This map is for informational purposes only and does not guarantee the accuracy of any feature locations on the map as it is extremely likely that some errors exist. The creator, Friends of the Dumoine, does not warrant any part of the map or its features to be spatially or temporally accurate or fit for a particular use. Friends of the Dumoine River, its members and associated partners are not liable for any damage or injury sustained as a result of using any portion or reproduction of this map.");
+	// };
+	window.onload=function(){
+		document.querySelector(".alert").style.display="block";	
+	};
+	document.querySelector("#close").addEventListener("click", function(){
+		document.querySelector(".alert").style.display="none";
 	});
   </script>
 </body>

@@ -42,7 +42,7 @@
 	/*Popup styling */
 	.mapboxgl-popup-close-button {
 		display: visible;
-		color: #eee;
+		color: rgb(91, 114, 91);
 		padding-right: 15px;
 	}
 
@@ -291,10 +291,11 @@
 	</div>
 	<!--The section to hold the map-->
 	<div id='map' class="map"></div>
+	<!-- This holds the map disclaimer when first loading the map -->
 	<div class="alert">
 		<button id="close">&times;</button>
 		<h1>Disclaimer</h1>
-		<p>This map is for informational purposes only and does not guarantee the accuracy of any feature locations on the map as it is extremely likely that some errors exist. The creator, Friends of the Dumoine, does not warrant any part of the map or its features to be spatially or temporally accurate or fit for a particular use. Friends of the Dumoine River, its members and associated partners are not liable for any damage or injury sustained as a result of using any portion or reproduction of this map.</p>
+		<p>This map is for informational purposes only and does not guarantee the accuracy of any feature locations on the map as it is likely that some errors exist. The creator, Friends of the Dumoine, does not warrant any part of the map or its features to be spatially or temporally accurate or fit for a particular use. Friends of the Dumoine River, its members and associated partners are not liable for any damage or injury sustained as a result of using any portion or reproduction of this map.</p>
 	</div>
 	<script>
 		// ***MAP SECTION***
@@ -336,7 +337,7 @@
 			/*Access the watergis mapbox gl legend plugin to add the legend of the selected targets to the map*/
 			/*Plugin source code available here: https://github.com/watergis/mapbox-gl-legend*/
 			map.addControl(new watergis.MapboxLegendControl(targets, {
-				showDefault: false, 
+				showDefault: false, /*Collapse legend by default*/
 				showCheckbox: true, /*If this is set to false, users will not be able to toggle layers on and off from the legend*/
 				onlyRendered: false,
 				reverseOrder: true
@@ -1204,12 +1205,11 @@
 		});
 
 		/**********************************/
-		/*Section for historical trails popup*/
+		/*Section for driving directions popup*/
 		map.on('click', 'directions', (e) => {
 			map.getCanvas().style.cursor = 'pointer';
 			const info = e.features[0].properties.Directions;
-			/*Add content to the popup including a link to the historical page on the website to learn more about the significance of that trail section*/
-			popup.setLngLat(e.lngLat).setHTML(`<p>${info}</p>`).addTo(map);
+			popup.setLngLat(e.lngLat).setHTML(`<h4>${info}</h4>`).addTo(map);
 
 		});
 		map.on('mouseenter', 'directions', () =>{
