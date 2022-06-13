@@ -2910,12 +2910,12 @@ html {
 			}
 
 			#nav li:hover a, #nav li:hover span {
-				background: #6A855B;
+				background: rgba(106,133,91, 0.8);
 				color: #fff;
 			}
 
 			#nav li.active a, #nav li.active span {
-				background: #6A855B;
+				background: rgba(106,133,91, 0.8);
 				color: #fff;
 			}
 
