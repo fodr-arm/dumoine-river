@@ -2221,7 +2221,7 @@ html {
 		font-weight: 700;
 		text-transform: uppercase;
 		text-decoration: none;
-		background: #b1ddab;
+		background: #7C9E6B;
 		color: #fff;
 		border: 0;
 		line-height: 1em;
@@ -2236,6 +2236,7 @@ html {
 		font-size: 1.25em;
 		padding: 0.85em 1.85em;
 		text-align: center;
+		margin: 1em 0 0 0;
 	}
 
 		input[type="button"]:hover,
@@ -2243,7 +2244,7 @@ html {
 		input[type="reset"]:hover,
 		button:hover,
 		.button:hover {
-			background: #c1edbb;
+			background: #D3DECE;
 		}
 
 		input[type="button"]:active,
@@ -2251,7 +2252,7 @@ html {
 		input[type="reset"]:active,
 		button:active,
 		.button:active {
-			background: #a1cd9b;
+			background: #5F7C50;
 		}
 
 		input[type="button"].alt,
@@ -2371,7 +2372,7 @@ html {
 				margin-top: 0;
 			} */
 			ul.divided li {
-				border-top: solid 1px #eee;
+				border-top: solid 1px #E9EEE7;
 				padding: 0.2em 0 0 0;
 				margin: 0.2em 0 0 0;
 			}
@@ -3100,7 +3101,7 @@ html {
 
 /* Footer */
 #footer-wrapper {
-	background-color: #d2ddd7;
+	background-color: #A9BD9E;
 	padding: 7em 0 1em 0;
 }
 
@@ -3130,7 +3131,7 @@ html {
 
 	#footer ul.divided li, #footer ul.menu li {
 		border-color: #444;
-		border-color: rgba(255, 255, 255, 0.075);
+		border-color: rgba(41, 56, 33, 0.15);
 	}
 
 	#footer ul.divided li a {
