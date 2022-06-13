@@ -57,7 +57,7 @@
                   </section>
 
                   <section>
-                    <h3 id="About">Trail description</h3>
+                    <h3>Trail description</h3>
                     <p>
                       The Dumoine tote road trail is unique in Canada as it combines hiking along a protected wild river, over historic Anishnabee 
                       portage trails and a follows a recreated loggers road built 150 years ago.You will be walking through beautiful old growth 
@@ -70,7 +70,7 @@
                     </p>
                     <button class='btn' onclick="window.open('../../Images/elevation.svg','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1200px, height=400px, top=25px left=120px'); return false;">Elevation Profile</button> 
                   </section>
-                  <a href="#" class="image featured"><img src="../../Images/campsite.jpeg"></a>
+                  <a href="#" class="image featured" id="About"><img src="../../Images/campsite.jpeg"></a>
                   <section>
                     <h3>How to use the Interactive Web Map</h3>
                     <p>
@@ -357,29 +357,29 @@
         <!-- Contact -->
         <section>
           <h2>Get in touch</h2>
-          <div style="border-radius: 5px; padding: 1px 3px; width: 100%;">
+          <div class="form">
             <form accept-charset="UTF-8" action="https://getform.io/f/62c95edf-ce3c-48d7-a422-cc7d535e0851" method="POST" enctype="multipart/form-data"  target="_blank" id="wpform">
               <div>
                 <label>Name</label>
                 <div>
-                  <input style="margin-top: 5px; background-color: #fff; height:35px; width:30vw;" type="text" name="first_name" placeholder="Enter your name" required="required">
+                  <input type="text" name="first_name" placeholder="Enter your name" required="required">
                 </div>
               </div>
               <br>
               <div>
                 <label>Email Address</label>
                 <div>
-                  <input style="margin-top: 5px;background-color: #fff; height:35px; width:30vw;" type="email" name="email" placeholder="Enter your email address" required="required">
+                  <input type="email" name="email" placeholder="Enter your email address" required="required">
                 </div>
               </div>
               <br>
               <div>
                 <label>Your Message</label>
                 <div>
-                  <textarea style="margin-top: 5px;background-color: #fff; height:50px; width:30vw;" type="text" name="message" placeholder="Enter your message" required="required"></textarea>
+                  <textarea type="text" name="message" placeholder="Enter your message" required="required"></textarea>
                 </div>
               </div>
-              <button style="font-size:14px; background-color:#b1ddab; color:rgb(69, 109, 69); font-weight:bold; padding:10px 35px; margin: 5px 0 0 0;" type="submit">SUBMIT</button>
+              <button type="submit">SUBMIT</button>
             </form>
           </div>
         </section>  

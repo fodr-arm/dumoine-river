@@ -2475,7 +2475,7 @@ html {
 			ul.contact li:active {
 				top: 0;
 			}
-
+/* Partner Logos in Footer */
 			.logos{
 				padding: 0 6px;
 				float: left;
@@ -2495,6 +2495,37 @@ html {
 			  @media only screen and (max-width: 648px) {
 				.logos {
 				  width: 100%;
+				}
+			  }
+			  /* Contact Us Form */
+			  .form {
+				border-radius: 5px; 
+				padding: 1px 3px; 
+				width: 100%;
+			  }
+			  .form input{
+				margin-top: 5px; 
+				background-color: #fff; 
+				height:35px; 
+				width:30vw;
+			  }
+			  .form textarea {
+				margin-top: 5px;
+				background-color: #fff; 
+				height:50px; 
+				width:30vw;
+			  }
+			  .form button {
+				font-size:14px; 
+				background-color:#b1ddab; 
+				color:rgb(69, 109, 69); 
+				font-weight:bold; 
+				padding:10px 35px; 
+				margin: 5px 0 0 0;
+			  }
+			  @media screen and (max-width: 736px){
+				.form button{
+					width: 30vw;
 				}
 			  }
 /* Special */
