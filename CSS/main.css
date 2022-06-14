@@ -122,7 +122,7 @@ html {
 	}
 
 	body {
-		background: #f2f5f3;
+		background: rgba(238, 227, 217, 0.25);
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -172,7 +172,7 @@ html {
 		}
 
 			h2.major span {
-				background: #fff;
+				background: #F9F5F1;
 				position: relative;
 				display: inline-block;
 				top: -0.775em;
@@ -375,9 +375,8 @@ html {
     margin-top: -6px;
 }
 .btn {
-	background-color: rgb(60, 146, 93);
 	border: none;
-	color: rgb(32, 32, 32);
+	color: #fff;
 	padding: 12px 30px;
 	cursor: pointer;
 	font-size: 20px;
@@ -428,23 +427,25 @@ html {
 	column-count:         1;
 	}
   }
-  /* Darker background on mouse-over */
+  /* Lighter background on mouse-over */
   .btn:hover {
-	background-color: rgb(32, 90, 54);
+	background-color: #D3DECE;
+	color: #101010;
   }
   .smallbtn {
-	background-color: rgb(60, 146, 93);
+	background-color: #7C9E6B;
 	border: none;
-	color: rgb(32, 32, 32);
+	color: #fff;
 	padding: 5px;
 	cursor: pointer;
 	font-size: 18px;
 	margin-bottom: 2px;
   }
   
-  /* Darker background on mouse-over */
+  /* Lighter background on mouse-over */
   .smallbtn:hover {
-	background-color: rgb(32, 90, 54);
+	background-color: #D3DECE;
+	color: #101010;
   }
   /* SECTION FOR WEB MAP */
   #map {
@@ -548,6 +549,10 @@ a {
 
 a:hover {
 	color: #101010;
+}
+
+a:active {
+	color: #fff;
 }
 
 /* The page is split between map and panel - the panel gets 1/5, map
@@ -2507,6 +2512,7 @@ border-radius: 0;
 		button:hover,
 		.button:hover {
 			background: #D3DECE;
+			color: #101010;
 		}
 
 		input[type="button"]:active,
@@ -2522,7 +2528,7 @@ border-radius: 0;
 		input[type="reset"].alt,
 		button.alt,
 		.button.alt {
-			background: #c1cac5;
+			background: #7C9E6B;
 		}
 
 			input[type="button"].alt:hover,
@@ -2530,7 +2536,7 @@ border-radius: 0;
 			input[type="reset"].alt:hover,
 			button.alt:hover,
 			.button.alt:hover {
-				background: #ccd5d0;
+				background: #D3DECE;
 			}
 
 			input[type="button"].alt:active,
@@ -2538,7 +2544,7 @@ border-radius: 0;
 			input[type="reset"].alt:active,
 			button.alt:active,
 			.button.alt:active {
-				background: #b1bab5;
+				background: #5F7C50;
 			}
 
 		input[type="button"].large,
@@ -2556,7 +2562,7 @@ border-radius: 0;
 		}
 
 			.wrapper.style3 {
-				background: #fff;
+				background: #F9F5F1;
 				color: inherit;
 				padding-top: 0;
 			}
@@ -2869,7 +2875,7 @@ border-radius: 0;
 		font-family: 'Open Sans Condensed', sans-serif;
 		font-weight: 700;
 		text-transform: uppercase;
-		color: #6b7770;
+		color: #425A35;
 	}
 
 	form input[type="text"],
@@ -3313,14 +3319,14 @@ border-radius: 0;
 /* Main */
 
 	#main {
-		background: #fff;
+		background: #F9F5F1;
 		border-top: solid 5px #A9BD9E;
 		border-top-width: 25px;
 		box-shadow: 5px 5px 10px #b7c7be;
 		padding: 2em 0 2em 0;
 	}
 	#main2 {
-		background: #fff;
+		background: #F9F5F1;
 		border-top: solid 5px #A9BD9E;
 		/* border-bottom: solid 5px #c1cac5; */
 		border-top-width: 35px;
@@ -3383,7 +3389,7 @@ border-radius: 0;
 	}
 
 	#footer a {
-		color: #436852;
+		color: #293821;
 		font-size: smaller;
 	}
 
