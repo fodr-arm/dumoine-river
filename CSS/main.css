@@ -181,6 +181,7 @@ html {
 
 	h3, h4 {
 		font-size: 1.25em;
+		margin-top: 2em;
 	}
 
 		h3.major {
@@ -193,7 +194,7 @@ html {
 		}
 
 			h3.major span {
-				background: #fff;
+				background: #F9F5F1;
 				position: relative;
 				display: inline-block;
 				top: -0.775em;
@@ -275,6 +276,10 @@ html {
 		padding:2%;
 		margin:0;
 		max-width: 80%;
+	  }
+	  #sunset{
+		display: flex;
+		justify-content: center;
 	  }
 	  .mySlides {display:none}
 .w3-left, .w3-right, .w3-badge {cursor:pointer}
