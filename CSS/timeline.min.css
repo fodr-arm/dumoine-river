@@ -1,3 +1,4 @@
+/* Styling for the interactive timeline on the trail-history page */
 .timeline {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -8,6 +9,9 @@
 .timeline :before {
     -webkit-box-sizing: inherit;
     box-sizing: inherit;
+}
+.timeline__content h3{
+    margin-top: 0;
 }
 .timeline:not(.timeline--horizontal):before {
     background-color: rgb(103, 155, 112);

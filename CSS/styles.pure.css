@@ -47,6 +47,7 @@ textarea {
 }
 html {
     scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 * {
     box-sizing: border-box;
@@ -54,34 +55,6 @@ html {
 body {
     background-color: #474e5d;
     font-family: Helvetica, sans-serif;
-}
-#nextbtn {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    z-index: 99;
-    font-size: 18px;
-    border: none;
-    outline: 0;
-    background-color: #7c9e6b;
-    color: #fff;
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 4px;
-}
-#nextbtn:hover {
-    background-color: #555;
-}
-@media screen and (max-width: 736px) {
-    #nextbtn {
-        right: 40%;
-        left: 40%;
-        width: 20%;
-    }
-}
-html {
-    box-sizing: border-box;
 }
 *,
 :after,
@@ -112,12 +85,7 @@ textarea {
     font-size: 13pt;
     line-height: 2em;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1,h2,h3,h4,h5,h6 {
     font-family: "Open Sans Condensed", sans-serif;
     font-weight: 700;
     text-transform: uppercase;
@@ -125,12 +93,7 @@ h6 {
     margin: 0 0 0.5em 0;
     line-height: 1.3;
 }
-h1 a,
-h2 a,
-h3 a,
-h4 a,
-h5 a,
-h6 a {
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a {
     text-decoration: none;
     color: inherit;
 }
@@ -196,14 +159,43 @@ p,
 ul {
     margin-bottom: 2em;
 }
-#sunset {
-    display: flex;
-    justify-content: center;
+
+/* Styling for the scroll-to-top button on the trail history page */
+#nextbtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: 0;
+    background-color: #7c9e6b;
+    color: #fff;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
 }
+#nextbtn:hover {
+    background-color: #555;
+}
+@media screen and (max-width: 736px) {
+    #nextbtn {
+        right: 40%;
+        left: 40%;
+        width: 20%;
+    }
+}
+/* End of scroll-to-top button styling */
+
+/* Styling for slideshow on homepage */
 .mySlides {
     display: none;
     border-radius: 8px;
 }
+/* SEnd of styling for slideshow on homepage */
+
+
 .w3-badge,
 .w3-left,
 .w3-right {
@@ -217,9 +209,7 @@ ul {
 .w3-content {
     margin-bottom: 2em;
 }
-.timeline__content h3{
-    margin-top: 0;
-}
+
 @-webkit-keyframes zoom {
     from {
         -webkit-transform: scale(0);
@@ -258,6 +248,29 @@ ul {
     cursor: pointer;
     font-size: 20px;
 }
+.btn:hover {
+    background-color: #d3dece;
+    color: #101010;
+}
+.smallbtn {
+    background-color: #7c9e6b;
+    border: none;
+    color: #fff;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+.smallbtn:hover {
+    background-color: #d3dece;
+    color: #101010;
+}
+/* Styling of 'Read more' buttons on trail-history page */
+#more {display: none;}
+#more2 {display: none;}
+/* END of styling for 'Read more' buttons */
+
+/* Styling for image gallery in FODR section of Partners page (About Us) */
 #photos {
     line-height: 0;
     -webkit-column-count: 3;
@@ -300,25 +313,9 @@ ul {
         column-count: 1;
     }
 }
-.btn:hover {
-    background-color: #d3dece;
-    color: #101010;
-}
-.smallbtn {
-    background-color: #7c9e6b;
-    border: none;
-    color: #fff;
-    padding: 5px;
-    cursor: pointer;
-    font-size: 18px;
-    margin-bottom: 2px;
-}
-#more {display: none;}
-#more2 {display: none;}
-.smallbtn:hover {
-    background-color: #d3dece;
-    color: #101010;
-}
+/*END of styling for image gallery in FODR section of Partners page (About Us) */
+/* ******************************* */
+/* Styling for web map*/
 #map {
     position: absolute;
     top: 0;
@@ -328,6 +325,7 @@ ul {
 label {
     color: #283d0b;
 }
+/*Legend styling*/
 .mapboxgl-legend-list {
     color: #213304;
 }
@@ -337,6 +335,7 @@ label {
 .mapboxgl-ctrl-group button{
 	margin:0;
 }
+/*Popup styling */
 .mapboxgl-popup-close-button {
     display: none;
     color: #354735;
@@ -373,11 +372,9 @@ label {
     box-sizing: border-box;
 }
 body {
-    font: 400 15px/22px;
-    margin: 0;
-    padding: 0;
     -webkit-font-smoothing: antialiased;
 }
+/* Fixing the font size of side panel header based on screen size */
 @media screen and (min-width: 601px) {
     h1 {
         font-size: 22px;
@@ -405,11 +402,16 @@ a:hover {
 a:active {
     color: #fff;
 }
+/* The page is split between map and panel - the panel gets 1/5, map
+gets 4/5 of the page. */
+
+/*The panel div holds both the top info header section and campsite listings */
 .panel {
     position: absolute;
     width: 20%;
     height: 100vh;
 }
+/* Set the info section to take up 25% of the side panel and when screen is smaller, make overflow scrollable */
 .info {
     position: sticky;
     height: 25%;
@@ -417,6 +419,7 @@ a:active {
     overflow: auto;
     border-bottom: #205a36 2px solid;
 }
+/* Set the sidebar listings to take up remaining 75% of side panel and enable scroll (overflow auto) */
 .sidebar {
     position: sticky;
     top: 0;
@@ -425,6 +428,7 @@ a:active {
     border-right: 1px solid rgba(0, 0, 0, 0.25);
     overflow: auto;
 }
+/* The map will take up the remaining 80% of the screen width */
 .map {
     position: absolute;
     left: 20%;
@@ -479,9 +483,9 @@ p {
     display: block;
     color: #205a36;
     font-weight: 700;
-    font-family: "Open Sans Condensed", sans-serif;
     font-size: larger;
 }
+/*adjusting the km marker subtitle style*/
 .listings .item .KM {
     display: block;
     color: #293821;
@@ -498,8 +502,9 @@ p {
 .listings .item.active {
     background-color: #f8f8f8;
 }
+/* Style the scrollbar */
 ::-webkit-scrollbar {
-    width: 3px;
+    width: 5px;
     height: 3px;
     border-left: 0;
     background: rgba(0, 0, 0, 0.1);
@@ -508,9 +513,10 @@ p {
     background: 0 0;
 }
 ::-webkit-scrollbar-thumb {
-    background: #293821;
+    background: #334729;
     border-radius: 0;
 }
+/* Style the disclaimer box that shows up on map load */
 .alert {
     background-color: #eee;
     width: 30%;
@@ -553,6 +559,10 @@ p {
         font-size: smaller;
     }
 }
+/* END of Styling for web map*/
+
+/* ************************ */
+/* Section/Article */
 article,
 section {
     margin: 1em;
@@ -1572,6 +1582,9 @@ ul.actions li {
 ul.actions li:first-child {
     margin-left: 0;
 }
+/* ************************* */
+/* Social Icon Links Styling */
+
 #socials {
     text-align: center;
 }
@@ -1626,6 +1639,9 @@ ul.contact li:hover a.fa-instagram {
 ul.contact li:active {
     top: 0;
 }
+/* End Socials Styling */
+/* ************************* */
+/* Styling partner logos in footer */
 .logos {
     padding: 0 6px;
     float: left;
@@ -1647,6 +1663,8 @@ ul.contact li:active {
         width: 100%;
     }
 }
+/* End Logos Styling */
+/* ************************* */
 ul.special {
     list-style: none;
     padding-left: 0;
