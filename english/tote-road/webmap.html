@@ -19,7 +19,7 @@
   <link href='https://watergis.github.io/mapbox-gl-legend/mapbox-gl-legend.css' rel='stylesheet' />
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.13.1/mapbox-gl.js'></script>
   <script src="https://watergis.github.io/mapbox-gl-legend/mapbox-gl-legend.js"></script>
-  <link rel="stylesheet" href="../../CSS/main.css"> 
+  <link rel="stylesheet" href="../../CSS/styles.pure.css"> 
   <style>
 	body {
 		margin: 0;
@@ -906,7 +906,7 @@
 			coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
 			}
 			// Populate the popup and set its coordinates based on the feature found.
-			popup.setLngLat(coordinates).setHTML(`<h3>${description}</h3>`+`<h4>${name}</h4>`).addTo(map);
+			popup.setLngLat(coordinates).setHTML(`<h4>${name}</h4>`).addTo(map);
 		});
 		
 		map.on('mouseleave', 'rapids', () => {

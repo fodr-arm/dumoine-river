@@ -1,49 +1,9 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic|Open+Sans+Condensed:700");
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,900");
-a,
-address,
-article,
-aside,
-b,
-big,
-body,
-center,
-code,
-details,
-div,
-footer,
-form,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-header,
-html,
-i,
-img,
-label,
-legend,
-li,
-mark,
-menu,
-nav,
-p,
-pre,
-q,
-s,
-section,
-small,
-span,
-strong,
-summary,
-th,
-time,
-ul,
-var,
-video {
+a,address,article,aside,b,big,body,center,code,details,div,footer,form,h1,h2,h3,h4,h5,h6,header,html,i,img,label,legend,li,mark,
+menu,nav,p,pre,q,s,section,small,span,strong,summary,th,time,ul,var,video 
+{
     margin: 0;
     padding: 0;
     border: 0;
@@ -51,14 +11,7 @@ video {
     font: inherit;
     vertical-align: baseline;
 }
-article,
-aside,
-details,
-footer,
-header,
-menu,
-nav,
-section {
+article,aside,details,footer,header,menu,nav,section {
     display: block;
 }
 body {
@@ -357,6 +310,8 @@ ul {
     font-size: 18px;
     margin-bottom: 2px;
 }
+#more {display: none;}
+#more2 {display: none;}
 .smallbtn:hover {
     background-color: #d3dece;
     color: #101010;
@@ -375,6 +330,9 @@ label {
 }
 .mapboxgl-legend-close-button {
     color: #213304;
+}
+.mapboxgl-ctrl-group button{
+	margin:0;
 }
 .mapboxgl-popup-close-button {
     display: none;
@@ -1464,7 +1422,7 @@ footer {
 }
 .image.right {
     float: right;
-    margin: 0 2em 2em 0;
+    margin: 0 0 2em 2em;
     max-width: 300px;
 }
 .image.col1 {
