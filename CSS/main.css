@@ -281,7 +281,10 @@ html {
 		display: flex;
 		justify-content: center;
 	  }
-	  .mySlides {display:none}
+	  .mySlides {
+		display:none;
+		border-radius: 8px;
+	}
 .w3-left, .w3-right, .w3-badge {cursor:pointer}
 .w3-badge {height:13px;width:13px;padding:0}
 .w3-content {
@@ -3021,6 +3024,10 @@ border-radius: 0;
 		line-height: 1em;
 	}
 
+	.box.post-summary img {
+		border-radius: 8px;
+	}
+
 	.box.page-content header {
 		margin: 0 0 2.5em 0;
 	}
@@ -3269,6 +3276,7 @@ border-radius: 0;
 		background-size: auto, auto, cover;
 		z-index: 1;
 		padding: 11em 0;
+		border-radius: 8px;
 	}
 
 		#banner .content {
