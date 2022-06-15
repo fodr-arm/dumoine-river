@@ -64,7 +64,7 @@ body {
     font-size: 18px;
     border: none;
     outline: 0;
-    background-color: #07360b;
+    background-color: #7c9e6b;
     color: #fff;
     cursor: pointer;
     padding: 15px;
@@ -216,6 +216,9 @@ ul {
 }
 .w3-content {
     margin-bottom: 2em;
+}
+.timeline__content h3{
+    margin-top: 0;
 }
 @-webkit-keyframes zoom {
     from {
