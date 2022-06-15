@@ -164,7 +164,7 @@ html {
 
 		h2.major {
 			position: relative;
-			border-top: solid 5px #e7eae8;
+			border-top: solid 5px #C2C7BC;
 			font-size: 1.65em;
 			text-align: center;
 			margin: 0 0 3em 0;
@@ -186,7 +186,7 @@ html {
 
 		h3.major {
 			position: relative;
-			border-top: solid 5px #e7eae8;
+			border-top: solid 5px #C2C7BC;
 			font-size: 1.65em;
 			text-align: center;
 			margin: 0 0 1em 0;
@@ -729,7 +729,7 @@ border-radius: 0;
 		font-family: 'Open Sans Condensed', sans-serif;
 		font-weight: 700;
 		text-transform: uppercase;
-		color: #c1cac5;
+		color: #88937E;
 	}
 
 	div.col2 {
@@ -3294,7 +3294,7 @@ border-radius: 0;
 				font-family: 'Open Sans Condensed', sans-serif;
 				font-weight: 700;
 				text-transform: uppercase;
-				color: #819b8a;
+				color: #9CAB98;
 				font-size: 1.35em;
 				margin: 0 0 1.25em 0;
 			}
