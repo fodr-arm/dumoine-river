@@ -1529,8 +1529,8 @@ input[type="submit"].large {
     padding-top: 0;
 }
 .wrapper.style1 {
-    margin-bottom: 0;
-    padding-bottom: 2em;
+    margin: 0;
+    padding: 0 0 2em 0;
 }
 ul {
     list-style: disc;
