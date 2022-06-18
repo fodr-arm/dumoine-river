@@ -11,14 +11,12 @@
   <!--Mapbox GL JS source code and stylesheet-->
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
-  <!-- Access Google Fonts for a custom font on the map -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tiro+Gurmukhi&display=swap" rel="stylesheet">
+  
   <!-- Plugin for interactive legend hosted on GitHub -->
   <link href='https://watergis.github.io/mapbox-gl-legend/mapbox-gl-legend.css' rel='stylesheet' />
-  <script src='https://api.mapbox.com/mapbox-gl-js/v1.13.1/mapbox-gl.js'></script>
+  <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v1.13.1/mapbox-gl.js'></script> -->
   <script src="https://watergis.github.io/mapbox-gl-legend/mapbox-gl-legend.js"></script>
+  <!-- Main css file -->
   <link rel="stylesheet" href="../../CSS/styles.pure.css"> 
   <style>
 	body {
@@ -59,7 +57,8 @@
 		mapboxgl.accessToken = 'pk.eyJ1IjoiZm9kci1hcm0iLCJhIjoiY2wzZW9lZjA3MDJodjNsbDUxY3M2MmFkZSJ9.3imPfCVXmLM7dci1i0D8KA';
 		const map = new mapboxgl.Map({
 		container: 'map', // Specify the container ID from html above
-		style: 'mapbox://styles/fodr-arm/cl3kbpzfl000014mivgau2d3x', // Specify which map style to use (in this case, the id is for 'English-V2' on the fodr account)
+		// Specify which map style to use (in this case, the id is for 'English-V2' on the fodr account)
+		style: 'mapbox://styles/fodr-arm/cl3kbpzfl000014mivgau2d3x', 
 		center: [ -77.79277517000992,  46.292], // Specify the starting position [lng, lat]
 		zoom: 11, // Specify the starting zoom and min and max zoom
 		minZoom:10,
@@ -977,9 +976,6 @@
 
 		// This is the popup browser alert that appears when you first load the map.
 		// It shows a disclaimer and users will have to click 'OK' before they enter the map.
-		// window.onload=function(){
-   		// 	alert("This map is for informational purposes only and does not guarantee the accuracy of any feature locations on the map as it is extremely likely that some errors exist. The creator, Friends of the Dumoine, does not warrant any part of the map or its features to be spatially or temporally accurate or fit for a particular use. Friends of the Dumoine River, its members and associated partners are not liable for any damage or injury sustained as a result of using any portion or reproduction of this map.");
-		// };
 		window.onload=function(){
 			document.querySelector(".alert").style.display="block";	
 		};
