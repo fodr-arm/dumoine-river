@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tiro+Gurmukhi&display=swap" rel="stylesheet"> 
   <link href='https://watergis.github.io/mapbox-gl-legend/mapbox-gl-legend.css' rel='stylesheet' />
-  <link rel="stylesheet" href="../CSS/styles.pure.css"> 
+  <link rel="stylesheet" href="../CSS/main.css"> 
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.13.1/mapbox-gl.js'></script>
   <script src="https://watergis.github.io/mapbox-gl-legend/mapbox-gl-legend.js"></script>
   <style>
@@ -35,7 +35,7 @@
 			<div class="subheading">
 				<h4>Comment utiliser cette carte</h4>
 				<p>Il s'agit d'une carte interactive: vous pouvez vous déplacer sur la carte, et survoler et cliquer sur les caractéristiques pour voir le sentier plus en détail.</p>
-				<p>Pour un tutoriel plus complet sur la façon d'utiliser cette carte, <a href="../english/tote-road/trail-information.html#Tutorial">cliquez ici.</a></p>
+				<p>Pour un tutoriel plus complet sur la façon d'utiliser cette carte, <a href="../en/tote-road/trail-information.html#Tutorial">cliquez ici.</a></p>
 			</div>
 		</div>
 		<div class='sidebar'>
@@ -899,7 +899,7 @@
 		.setLngLat(e.lngLat)
 		/*Add content to the popup including a link to the historical page on the website to learn more about the significance of the area*/
 		.setHTML(`<h3>Zone d'importance historique</h3>`+
-		`<h4>${name}<br><a href="https://fodr-arm.github.io/dumoine-river/english/tote-road/trail-history.html#Dumoine" target="_blank"><i>En savoir plus</i></a></h4>`)
+		`<h4>${name}<br><a href="https://fodr-arm.github.io/dumoine-river/en/tote-road/trail-history.html#Dumoine" target="_blank"><i>En savoir plus</i></a></h4>`)
 		.addTo(map);
 	});
 	
@@ -927,7 +927,7 @@
 		map.getCanvas().style.cursor = 'pointer';
 		const type = e.features[0].properties.NameFR;
 		/*Add content to the popup including a link to the historical page on the website to learn more about the significance of that trail section*/
-		popup.setLngLat(e.lngLat).setHTML(`<h3>${type}</h3><h4>Cette section du sentier a une riche histoire! <br><a href="https://fodr-arm.github.io/dumoine-river/english/tote-road/trail-history.html#Dumoine" target="_blank"><i>En savoir plus</i></a></h4>`).addTo(map);
+		popup.setLngLat(e.lngLat).setHTML(`<h3>${type}</h3><h4>Cette section du sentier a une riche histoire! <br><a href="https://fodr-arm.github.io/dumoine-river/en/tote-road/trail-history.html#Dumoine" target="_blank"><i>En savoir plus</i></a></h4>`).addTo(map);
 
 	});
 	map.on('mouseenter', 'historictrails', () =>{

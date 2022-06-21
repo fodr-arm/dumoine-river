@@ -17,7 +17,7 @@
   <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v1.13.1/mapbox-gl.js'></script> -->
   <script src="https://watergis.github.io/mapbox-gl-legend/mapbox-gl-legend.js"></script>
   <!-- Main css file -->
-  <link rel="stylesheet" href="../../CSS/styles.pure.css"> 
+  <link rel="stylesheet" href="../../CSS/main.css"> 
   <style>
 	body {
 		margin: 0;
@@ -921,7 +921,7 @@
 			.setLngLat(e.lngLat)
 			/*Add content to the popup including a link to the historical page on the website to learn more about the significance of the area*/
 			.setHTML(`<h3>Historically Significant Area</h3>`+
-			`<h4>${name}<br><a href="https://fodr-arm.github.io/dumoine-river/english/tote-road/trail-history#Dumoine.html" target="_blank"><i>Learn more</i></a></h4>`)
+			`<h4>${name}<br><a href="https://fodr-arm.github.io/dumoine-river/en/tote-road/trail-history#Dumoine.html" target="_blank"><i>Learn more</i></a></h4>`)
 			.addTo(map);
 		});
 		
@@ -949,7 +949,7 @@
 			map.getCanvas().style.cursor = 'pointer';
 			const type = e.features[0].properties.Type;
 			/*Add content to the popup including a link to the historical page on the website to learn more about the significance of that trail section*/
-			popup.setLngLat(e.lngLat).setHTML(`<h3>${type}</h3><h4>This section of the trail has a rich history! <br><a href="https://fodr-arm.github.io/dumoine-river/english/tote-road/trail-history.html" target="_blank"><i>Learn more</i></a></h4>`).addTo(map);
+			popup.setLngLat(e.lngLat).setHTML(`<h3>${type}</h3><h4>This section of the trail has a rich history! <br><a href="https://fodr-arm.github.io/dumoine-river/en/tote-road/trail-history.html" target="_blank"><i>Learn more</i></a></h4>`).addTo(map);
 
 		});
 		map.on('mouseenter', 'historictrails', () =>{
