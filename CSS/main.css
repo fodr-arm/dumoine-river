@@ -665,6 +665,46 @@ div.col2 {
 .box.shuttle {
     column-count: 2;
 }
+@media screen and (max-width: 1680px) {
+    .box.clubs {
+        column-count: 3;
+    }
+    .box.shuttle {
+        column-count: 2;
+    }
+}
+@media screen and (max-width: 1280px) {
+    .box.clubs {
+        column-count: 3;
+    }
+    .box.shuttle {
+        column-count: 2;
+    }
+}
+@media screen and (max-width: 980px) {
+    .box.clubs {
+        column-count: 1;
+    }
+    .box.shuttle {
+        column-count: 2;
+    }
+}
+@media screen and (max-width: 736px) {
+    .box.clubs {
+        column-count: 1;
+    }
+    .box.shuttle {
+        column-count: 1;
+    }
+}
+@media screen and (max-width: 360px) {
+    .box.clubs {
+        column-count: 1;
+    }
+    .box.shuttle {
+        column-count: 1;
+    }
+}
 .box.article-list article {
     border-bottom: solid 1px #dbdbdb;
     margin: 0 0 2.75em 0;
@@ -2283,10 +2323,10 @@ body {
         border-bottom-width: 10px;
     }
     #footer {
-        padding: 6em 0 6em 0;
+        padding: 6em 0 2em 0;
     }
     #footer-wrapper {
-        padding: 4.5em 0 4.5em 0;
+        padding: 4.5em 0 2em 0;
     }
 }
 @media screen and (max-width: 980px) {
