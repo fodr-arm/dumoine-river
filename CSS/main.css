@@ -108,8 +108,24 @@ h2.major {
     margin: 0 0 3em 0;
     top: 0.775em;
 }
+h2.major.home {
+    position: relative;
+    border-top: solid 5px rgb(41, 56, 33);
+    font-size: 1.65em;
+    text-align: center;
+    margin: 0 0 3em 0;
+    top: 0.775em;
+}
 h2.major span {
     background: #f9f5f1;
+    position: relative;
+    display: inline-block;
+    top: -0.775em;
+    padding: 0 1.25em 0 1.25em;
+}
+h2.major span.home {
+    background: rgb(41, 56, 33);
+    color: #fff;
     position: relative;
     display: inline-block;
     top: -0.775em;
@@ -134,6 +150,9 @@ h3.major span {
     display: inline-block;
     top: -0.775em;
     padding: 0 1.25em 0 1.25em;
+}
+h3.home {
+    color: #fff;
 }
 a {
     color: #006376;
@@ -653,6 +672,9 @@ div.col2 {
     width: 90em;
     margin-top: -9em;
 }
+    .container.home.partners {
+        color: #fff;
+    } 
 @media screen and (max-width: 1680px) {
     .container {
         width: 75em;
@@ -1528,6 +1550,10 @@ input[type="submit"].large {
     color: inherit;
     padding-top: 0;
 }
+.wrapper.style2 {
+    color: inherit;
+    padding-top: 0;
+}
 .wrapper.style1 {
     margin: 0;
     padding: 0 0 2em 0;
@@ -2110,6 +2136,13 @@ body {
     box-shadow: 5px 5px 10px #b7c7be;
     padding: 4em 0 6em 0;
     margin: 0;
+}
+#main3 {
+    background: rgba(41, 56, 33, 0.7);
+    border-top: solid 5px #a9bd9e;
+    border-top-width: 25px;
+    box-shadow: 5px 5px 10px #b7c7be;
+    padding: 2em 0 2em 0;
 }
 #main > :last-child {
     margin-bottom: 0;
