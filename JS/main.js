@@ -1,9 +1,24 @@
+// Scroll to top button functions
+//Get the button
+var mybutton = document.getElementById("nextbtn");
+// When the user scrolls down 1000px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+if (document.body.scrollTop > 700 || document.documentElement.scrollTop > 1000) {
+  mybutton.style.display = "block";
+} else {
+  mybutton.style.display = "none";
+}
+}
+function topFunction() {
+document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
+}
 /*
 	TXT by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
-
 (function($) {
 
 	var	$window = $(window),
