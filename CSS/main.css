@@ -2484,7 +2484,13 @@ body {
         line-height: 1.75em;
     }
 }
-@media screen and (max-width: 646px) {
+@media only screen and (max-width: 700px) {
+    #copyright {
+        margin-top: 20em;
+        padding: 3em 0 1em 0;
+    }
+}
+@media screen and (max-width: 648px) {
     #copyright {
         margin-top: 33em;
         padding: 3em 0 1em 0;
