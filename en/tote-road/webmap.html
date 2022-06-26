@@ -87,7 +87,8 @@
 				'rapids': 'Rapids',
 				'boatlaunch': 'Boat Launch',
 				'directions': 'Driving Route to Trailhead',
-				'protected-area': 'Dumoine Aquatic Reserve'
+				'protected-area': 'Dumoine Aquatic Reserve',
+				'info-parking': 'ZEC Dumoine Parking and Information'
 			};
 			/*Access the watergis mapbox gl legend plugin to add the legend of the selected targets to the map*/
 			/*Plugin source code available here: https://github.com/watergis/mapbox-gl-legend*/
@@ -945,12 +946,12 @@
 		});
 		/**********************************/
 		/*Section for northern parking lot/info booth popup*/
-		// map.on('mouseenter', 'rivercrossing', (e) => {
+		// map.on('mouseenter', 'info-parking', (e) => {
 		// 	map.getCanvas().style.cursor = 'pointer';
-		// 	popup.setLngLat(e.lngLat).setHTML(`<h3>River Crossing</h3><h4>Use caution when crossing the Fildegrand River. Water levels fluctuate and can become a hazard. 
-		// 		<strong>A few canoes have been left on either side of the river to help with crossing.</strong> Please leave them on the banks of the Fildegrand after you have crossed.</h4>`).addTo(map);
+		// 	const name = e.features[0].properties.Name;
+		// 	popup.setLngLat(e.lngLat).setHTML(`<h4>${name}</h4>`).addTo(map);
 		// });
-		// map.on('mouseleave', 'rivercrossing', () => {
+		// map.on('mouseleave', 'info-parking', () => {
 		// 	map.getCanvas().style.cursor = '';
 		// 	popup.remove();
 		// });

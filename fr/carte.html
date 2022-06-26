@@ -79,7 +79,8 @@
 			'rapids': 'Rapides',
 			'boatlaunch': "Rampe de mise à l'eau",
 			'directions': 'Directions de conduite',
-			'protected-area': 'Réserve Aquatique Dumoine'
+			'protected-area': 'Réserve Aquatique Dumoine',
+			'info-parking': 'Stationnement et Information ZEC Dumoine'
 		};
 		/*Access the watergis mapbox gl legend plugin to add the legend of the selected targets to the map*/
 		/*Plugin source code available here: https://github.com/watergis/mapbox-gl-legend*/
@@ -921,6 +922,17 @@
 		map.getCanvas().style.cursor = '';
 		popup.remove();
 	});
+	/**********************************/
+	/*Section for northern parking lot/info booth popup*/
+	// map.on('mouseenter', 'info-parking', (e) => {
+	// 	map.getCanvas().style.cursor = 'pointer';
+	// 	const name = e.features[0].properties.LabelFR;
+	// 	popup.setLngLat(e.lngLat).setHTML(`<h4>${name}</h4>`).addTo(map);
+	// });
+	// map.on('mouseleave', 'info-parking', () => {
+	// 	map.getCanvas().style.cursor = '';
+	// 	popup.remove();
+	// });
 	/**********************************/
 	/*Section for historical trails popup*/
 	map.on('click', 'historictrails', (e) => {
