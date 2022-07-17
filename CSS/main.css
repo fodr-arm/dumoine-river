@@ -2132,7 +2132,7 @@ body {
 }
 #banner .content {
     position: relative;
-    background-color: rgba(21, 28, 23, 0.85);
+    background-color: rgba(255, 255, 255, 0.85);
     background-image: url(overlay.png), url(https://fodr-arm.github.io/dumoine-river/Images/highlight.png);
     background-position: top left, center center;
     background-size: auto, 100% 250%;
@@ -2142,7 +2142,7 @@ body {
     padding: 4em 0 3.5em 0;
 }
 #banner .content h2 {
-    color: #fff;
+    color: rgb(21,28,23);
     font-size: 2.75em;
     margin: 0 0 0.5em 0;
 }
@@ -2151,7 +2151,7 @@ body {
     font-family: "Open Sans Condensed", sans-serif;
     font-weight: 700;
     text-transform: uppercase;
-    color: #9cab98;
+    color: #3c443a;
     font-size: 1.35em;
     margin: 0 0 1.25em 0;
 }
@@ -2160,18 +2160,18 @@ body {
     -webkit-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
     -ms-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
     transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    color: #b4b7b5;
+    color: #3c443a;
     background: 0 0 !important;
-    border: solid 4px #575d59;
-    border-color: rgba(87, 93, 89, 0.35);
+    border: solid 4px #3c443a;
+    border-color: rgba(60, 68, 58, 0.45);
     font-size: 1.5em;
 }
 #banner .content .button:hover {
-    color: #e4e7e5;
-    border-color: rgba(87, 93, 89, 0.75);
+    color: #000000;
+    border-color: rgba(0, 0, 0, 0.65);
 }
 #banner .content .button:active {
-    color: #fff;
+    color: rgb(21,28,23);
     border-color: #616763;
 }
 #main {
