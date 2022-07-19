@@ -290,6 +290,10 @@ ul {
     background-color: #d3dece;
     color: #101010;
 }
+.outfitter {
+    margin: 0;
+    margin-bottom: 5px;
+}
 /* Styling of 'Read more' buttons on trail-history page */
 #more {display: none;}
 #more2 {display: none;}
@@ -662,11 +666,26 @@ div.col2 {
 .box.clubs {
     column-count: 3;
 }
+.box.general {
+    column-count: 3;
+}
+.box.camps {
+    column-count: 3;
+}
 .box.shuttle {
     column-count: 2;
 }
+p .outfitter {
+    margin: 0;
+}
 @media screen and (max-width: 1680px) {
     .box.clubs {
+        column-count: 3;
+    }
+    .box.general {
+        column-count: 3;
+    }
+    .box.camps {
         column-count: 3;
     }
     .box.shuttle {
@@ -677,34 +696,37 @@ div.col2 {
     .box.clubs {
         column-count: 3;
     }
+    .box.general {
+        column-count: 3;
+    }
+    .box.camps {
+        column-count: 1;
+    }
+    .box.camps br {
+        display: none;
+    }
     .box.shuttle {
         column-count: 2;
     }
 }
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1065px) {
     .box.clubs {
         column-count: 1;
     }
-    .box.shuttle {
-        column-count: 2;
-    }
-}
-@media screen and (max-width: 736px) {
-    .box.clubs {
+    .box.general {
         column-count: 1;
     }
-    .box.shuttle {
-        column-count: 1;
+    .box.general br {
+        display: none;
     }
-}
-@media screen and (max-width: 360px) {
-    .box.clubs {
+    .box.camps {
         column-count: 1;
     }
     .box.shuttle {
         column-count: 1;
     }
 }
+
 .box.article-list article {
     border-bottom: solid 1px #dbdbdb;
     margin: 0 0 2.75em 0;
