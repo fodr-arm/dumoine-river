@@ -663,6 +663,7 @@ div.col2 {
     overflow: hidden;
     padding: 1em;
 }
+
 .box.clubs {
     column-count: 3;
 }
@@ -721,6 +722,27 @@ div.col2 {
     }
     .box.shuttle {
         column-count: 1;
+    }
+}
+
+@media screen and (max-width: 1680px) {
+    div .blaze {
+        margin-top: 5.25em;
+    }
+}
+@media screen and (max-width: 1280px) {
+    div .blaze {
+        margin-top: 7.25em;
+    }
+}
+@media screen and (max-width: 1220px) {
+    div .blaze {
+        margin-top: 5em;
+    }
+}
+@media screen and (max-width: 1123px) {
+    div .blaze {
+        margin-top: 0;
     }
 }
 
