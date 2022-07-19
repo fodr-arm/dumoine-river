@@ -2410,7 +2410,7 @@ body {
         margin: 0 0 2em 0;
     }
     h2.major span {
-        padding: 0;
+        padding: 0 1em 0 1em;
     }
     article,
     section {
