@@ -227,6 +227,9 @@
                             <a href="https://www.cehq.gouv.qc.ca/suivihydro/graphique.asp?NoStation=041902" target="_blank"> Dumoine River station</a>.
                           </p>
                         </section>
+                        <section class="box feature">
+                          <div id="water_levels_container"></div>
+                        </section>
                     </div>
 
                     <div class="col-6 col-12-small">
@@ -441,5 +444,11 @@
 <script src="../../JS/breakpoints.min.js"></script>
 <script src="../../JS/util.js"></script>
 <script src="../../JS/main.js"></script>
+<!-- Load React. -->
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+  <!-- Load our React component. -->
+ <script src="water_levels.js"></script>
 </body>
 </html>
