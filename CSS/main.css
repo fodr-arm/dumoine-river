@@ -53,17 +53,15 @@ html {
     box-sizing: border-box;
 }
 body {
-    background-color: #474e5d;
     font-family: Helvetica, sans-serif;
+    background: #EEE3D9;
 }
 *,
 :after,
 :before {
     box-sizing: inherit;
 }
-body {
-    background: rgba(238, 227, 217, 0.25);
-}
+
 body.is-preload *,
 body.is-preload :after,
 body.is-preload :before {
