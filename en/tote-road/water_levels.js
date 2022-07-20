@@ -7,12 +7,26 @@ class WaterLevels extends React.Component {
     super(props);
     this.state = { open: false };
   }
-
+  
   render() {
-    if (this.state.open) {
-      const url = 'https://www.cehq.gouv.qc.ca/Suivihydro/graphique.asp?NoStation=041902' 
-      fetchAsync(url);
-      return ('div', null, 'test')
+
+    var myHeaders = new Headers();
+    myHeaders.append("Cookie", "ASPSESSIONIDCWTSCTRB=JBFJFKBAKOPEAGBCPDDIPLCL");
+
+    var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+    
+
+    if (this.state.open) { 
+      fetch("https://www.cehq.gouv.qc.ca/Suivihydro/graphique.asp?NoStation=041902", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+
+      return ('div', null, '')
     }
 
     return e(
@@ -26,9 +40,3 @@ class WaterLevels extends React.Component {
 const domContainer = document.querySelector('#water_levels_container');
 const root = ReactDOM.createRoot(domContainer);
 root.render(e(WaterLevels));
-
-async function fetchAsync (url) {
-  let response = await fetch(url, {method: 'GET', mode: 'no-cors'});
-  let data = await response;
-  console.log(data);
-}
