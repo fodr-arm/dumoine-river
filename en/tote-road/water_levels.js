@@ -1,42 +1,49 @@
-'use strict';
+// 'use strict';
 
-const e = React.createElement;
+// const e = React.createElement;
 
-class WaterLevels extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { open: false };
-  }
+// class WaterLevels extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = { open: false };
+//   }
   
-  render() {
+//   render() {
 
-    var myHeaders = new Headers();
-    myHeaders.append("Cookie", "ASPSESSIONIDCWTSCTRB=JBFJFKBAKOPEAGBCPDDIPLCL");
+//     var resoibse= curl('https://www.cehq.gouv.qc.ca/Suivihydro/graphique.asp?NoStation=041902');
+//     console.log(resoibse);
 
-    var requestOptions = {
-      method: 'GET',
-      headers: myHeaders,
-      redirect: 'follow'
-    };
+//     var myHeaders = new Headers();
+//     myHeaders.append("Cookie", "ASPSESSIONIDCWTSCTRB=JBFJFKBAKOPEAGBCPDDIPLCL");
+//     myHeaders.append("Allow-Access-Control-Origin", "*")
     
 
-    if (this.state.open) { 
-      fetch("https://www.cehq.gouv.qc.ca/Suivihydro/graphique.asp?NoStation=041902", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
+//     var requestOptions = {
+//       method: 'GET',
+//       mode: 'cors',
+//       headers: myHeaders,
+//       redirect: 'follow',
+//       origin: 'null'
+//     };
+    
 
-      return ('div', null, '')
-    }
+//     if (this.state.open) { 
+//       fetch("https://www.cehq.gouv.qc.ca/Suivihydro/graphique.asp?NoStation=041902", requestOptions)
+//       .then(response => response.text())
+//       .then(result => console.log(result))
+//       .catch(error => console.log('error', error));
 
-    return e(
-      'button',
-      { onClick: () => this.setState({ open: true }) },
-      'View Live Water Levels'
-    );
-  }
-}
+//       return ('div', null, '')
+//     }
 
-const domContainer = document.querySelector('#water_levels_container');
-const root = ReactDOM.createRoot(domContainer);
-root.render(e(WaterLevels));
+//     return e(
+//       'button',
+//       { onClick: () => this.setState({ open: true }) },
+//       'View Live Water Levels'
+//     );
+//   }
+// }
+
+// const domContainer = document.querySelector('#water_levels_container');
+// const root = ReactDOM.createRoot(domContainer);
+// root.render(e(WaterLevels));
