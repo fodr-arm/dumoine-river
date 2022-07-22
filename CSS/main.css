@@ -2034,7 +2034,7 @@ form ::-moz-focus-inner {
 }
 #banner {
     position: relative;
-    background-image: url(https://fodr-arm.github.io/dumoine-river/Images/overlay.png), url(https://fodr-arm.github.io/dumoine-river/Images/overlay.png), url(https://fodr-arm.github.io/dumoine-river/Images/path.jpg);
+    background-image: url(https://fodr-arm.github.io/dumoine-river/Images/overlay.png), url(https://fodr-arm.github.io/dumoine-river/Images/overlay.png), url(https://fodr-arm.github.io/dumoine-river/Images/bridge-sharp.jpg);
     background-position: top left, top left, center center;
     background-repeat: repeat, repeat, no-repeat;
     background-size: auto, auto, cover;
