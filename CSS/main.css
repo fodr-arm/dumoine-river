@@ -671,6 +671,13 @@ div.col2 {
 .box.shuttle {
     column-count: 2;
 }
+/* Styling for trail blaze sign images */
+.signs {
+    padding: 0 6px;
+    float: left;
+    width: 24.9999%;
+    text-align: center;
+}
 
 .box.article-list article {
     border-bottom: solid 1px #dbdbdb;
@@ -2179,6 +2186,7 @@ form ::-moz-focus-inner {
     border-width: 2px;
     line-height: 1em;
 }
+
 /* Scaling for smaller screen widths */
 @media screen and (max-width: 1680px) {
     body,
@@ -2473,6 +2481,12 @@ form ::-moz-focus-inner {
     }
 }
 
+@media only screen and (max-width: 700px) {
+    .signs {
+        width: 49.99999%; 
+        margin: 6px 0;
+    }
+}
 @media screen and (max-width: 648px) {
     #copyright {
         margin-top: 33em;
