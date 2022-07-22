@@ -1626,7 +1626,8 @@ ul.contact li:active {
 .logos {
     padding: 0 6px;
     float: left;
-    width: 24.9999%;
+    width: 33.33333%; /* width adjusted for 3 logos*/
+    /* width: 24.9999%; This width is for 4 logos*/
     text-align: center;
 }
 .logogallery img {
@@ -1635,7 +1636,8 @@ ul.contact li:active {
 }
 @media only screen and (max-width: 700px) {
     .logos {
-        width: 49.99999%;
+        width: 33.33333%; /* width adjusted for 3 logos */
+        /* width: 49.99999%; This width is for 4 logos*/
         margin: 6px 0;
     }
     #copyright {
