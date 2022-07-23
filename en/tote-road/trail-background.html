@@ -15,7 +15,6 @@
 
 <body class="is-preload">
   <div id="page-wrapper">
-
     <nav id="nav">
       <ul>
         <li><a href="../home.html">Home</a></li>
@@ -81,11 +80,11 @@
                       In the event of an emergency, help may take a very long time to get to you. A beautiful backcountry presents challenges for evacuations. The Dumoine River 
                       is canoe access only and helicopters have limited areas to land. See below and on our oufitters page for more information.</p>
                   </div>
-                  <p class="outfitter"><a href="#evac" ><button class="btn">Evacuation Information</button></a> <a href="outfitters-and-resources.html" target="_blank"><button class="btn">Outfitters and Outdoor Resources</button></a></p>
+                  <p><a href="#evac" ><button class="btn outfitter">Evacuation Information</button></a> <a href="outfitters-and-resources.html" target="_blank"><button class="btn outfitter">Outfitters and Outdoor Resources</button></a></p>
                 </article>
 
                 <article class="box news">
-                  <div>
+                  <div id="CulturalHeritage">
                     <h3 class="major">
                       <span>Historic Sites & Artifacts:</span>
                     </h3>
@@ -113,15 +112,15 @@
                   </div>
                   <img class="image col1" src="../../Images/crossing.jpg" alt="Fildegrand River crossing - September water levels" />
                   <div>
-                    <p>
+                    <p class="outfitter">
                       At the approximate half-way point on the Dumoine Tote Road Trail, the path meets the Fildegrand River, the site of a historic farm and a bridge which has long 
                       since washed away. To continue to the rest of the trail, crossing this river is required and can be a fun, exciting feature of this backcountry trail. During the 
                       summer months, it is usually possible to ford the Fildegrand on foot, with water levels reaching waist height. In the spring months, or after heavy rains, the 
                       Fildegrand can swell and pose a significant challenge. Volunteers have made an effort to stash canoes (one on either side) to help in the event that the river 
                       is not fordable. Please use these only at your own risk, and do not underestimate the power of the Fildegrand when it is swollen. For advice on how to safely ford 
-                      a river, please click the button below.<br>
-                      <a href="https://www.youtube.com/watch?v=nlmWxsaG_Ns" target="_blank"><button class="btn">How to cross a river safely</button></a>
+                      a river, please click the button below.
                     </p>
+                    <p><a href="https://www.youtube.com/watch?v=nlmWxsaG_Ns" target="_blank"><button class="btn outfitter">How to cross a river safely</button></a></p>
                     <p>The Fildegrand crossing is shown here with low water levels - the photographer noted that the water ran at about knee height in this picture, taken on a fall hike.</p>
                   </div>
                   <div>
@@ -178,7 +177,7 @@
 
                 <article class="box news">
                   <div>
-                    <h3 class="major">
+                    <h3 class="major" id="Signs">
                       <span>Trail Blaze Signs:</span>
                     </h3>
                   </div>
@@ -215,10 +214,10 @@
                       </div>
                     </div>
                     
-                    <p>If you see a damaged sign or a spot that looks like it's missing a sign, please take a picture if you are able and send it along with an approximate location 
-                      (to the nearest kilometer marker or campsite) via email. You can do so by using the button below.<br>
-                      <button class="btn" onclick="location.href='mailto:dumoineriver@primus.ca';">Email the Friends of the Dumoine River</button>
+                    <p class="outfitter">If you see a damaged sign or a spot that looks like it's missing a sign, please take a picture if you are able and send it along with an approximate location 
+                      (to the nearest kilometer marker or campsite) via email. You can do so by using the button below.
                     </p>
+                      <button class="btn" onclick="location.href='mailto:dumoineriver@primus.ca';">Email the Friends of the Dumoine River</button>
                   </div>
                 </article>
 
@@ -267,15 +266,18 @@
           <section>
             <h2>About the trail</h2>
             <ul class="divided">
-              <li><a href="../../en/tote-road/trail-information.html#About">Trail description</a></li>
-              <li><a href="../../en/tote-road/trail-background.html#Expect">What to expect</a></li>
-              <li><a href="../../en/tote-road/trail-information.html#Directions">Getting there </a></li>
-              <li><a href="../../en/tote-road/trail-information.html#Access">Fees and other access</a></li>
-              <!-- <li><a href="../../en/tote-road/trail-background.html#Safety">Backcountry Safety tips</a></li> -->
-              <li><a href="../../en/tote-road/trail-information.html#Conditions">Trail conditions</a></li>
-              <li><a href="../../en/tote-road/trail-information.html#PDF">Downloadable PDF trail map</a></li>
-              <li><a href="../../en/tote-road/trail-information.html#Data">Downloadable GPS tracks</a></li>
-              <li><a href="../../en/tote-road/webmap.html">Interactive trail map</a></li>
+              <li><a href="../tote-road/trail-information.html#About">Trail description</a></li>
+              <li><a href="#Expect">What to expect</a></li>
+              <li><a href="#CulturalHeritage">Sites and artifacts</a></li>
+              <li><a href="#Safety">Backcountry safety tips</a></li>
+              <li><a href="#Signs">Trail markers</a></li>
+              <li><a href="#Canoe">Fildegrand River crossing</a></li>
+              <li><a href="../tote-road/trail-information.html#Directions">Getting there</a></li>
+              <li><a href="../tote-road/trail-information.html#Access">Fees and other access</a></li>
+              <li><a href="../tote-road/trail-information.html#Conditions">Trail conditions</a></li>
+              <li><a href="../tote-road/trail-information.html#PDF">Downloadable PDF trail map</a></li>
+              <li><a href="../tote-road/trail-information.html#Data">Downloadable GPS tracks</a></li>
+              <li><a href="../tote-road/webmap.html">Interactive trail map</a></li>
             </ul>
           </section>
       </div>
@@ -288,17 +290,20 @@
               <li><a href="../tote-road/trail-history.html#History">About the area</a></li>
               <li><a href="../tote-road/trail-history.html#Uses">Historical timeline</a></li>
               <li><a href="../home.html">About the initiative</a></li>
-              <li><a href="../tote-road/outfitters-and-resources.html#resources">Shuttles and other resources</a></li>
+              <li><a href="../tote-road/outfitters-and-resources.html#resources">Shuttles</a></li>
+              <li><a href="../tote-road/outfitters-and-resources.html#Books">Guidebooks and maps</a></li>
+              <li><a href="../tote-road/outfitters-and-resources.html#Guides">Guides and Clubs</a></li>
+              <li><a href="../tote-road/outfitters-and-resources.html#Lodging">Lodging and other resources</a></li>
             </ul>
           </section>
         <!-- Links -->
           <section>
             <h2>the partners</h2>
             <ul class="divided">
-              <!-- <li><a href="../../en/information/partners.html#WLFN">Wolf Lake First Nation</a></li> -->
-              <li><a href="../../en/information/partners.html#CPAWS">CPAWS-OV</a></li>
-              <li><a href="../../en/information/partners.html#ZEC">ZEC Dumoine</a></li>
-              <li><a href="../../en/information/partners.html#fodr">Friends of the Dumoine River</a></li>
+              <!-- <li><a href="../information/partners.html#WLFN">Wolf Lake First Nation</a></li> -->
+              <li><a href="../information/partners.html#CPAWS">CPAWS-OV</a></li>
+              <li><a href="../information/partners.html#ZEC">ZEC Dumoine</a></li>
+              <li><a href="../information/partners.html#fodr">Friends of the Dumoine River</a></li>
               <li><a href="../information/partners.html#support">How to support us</a></li>
             </ul>
           </section>
