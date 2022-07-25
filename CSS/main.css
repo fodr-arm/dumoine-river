@@ -215,8 +215,94 @@ ul {
     display: none;
     border-radius: 8px;
 }
-/* SEnd of styling for slideshow on homepage */
+/* End of styling for slideshow on homepage */
 
+/* Styling for figcaption elements */
+/* each image MUST have its own styling - trying to use the same generated errors, look into this */
+.index {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: rgb(185, 196, 174);
+    font-size: 12px;
+    line-height: 2em;
+    font-style: italic;
+    margin: auto;
+    padding: 0 10px;
+    text-align: right;
+}
+.homebanner {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 12px;
+    line-height: 2em;
+    font-style: italic;
+    margin: auto;
+    padding: 0 10px;
+    text-align: right;
+    border-radius: 0 0 8px 8px;
+}
+.backbanner {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 12px;
+    line-height: 2em;
+    font-style: italic;
+    margin: auto;
+    padding: 0 10px;
+    text-align: right;
+    border-radius: 0 0 8px 8px;
+}
+.infobanner {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 12px;
+    line-height: 2em;
+    font-style: italic;
+    margin: auto;
+    padding: 0 10px;
+    text-align: right;
+    border-radius: 0 0 8px 8px;
+}
+.outbanner {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 12px;
+    line-height: 2em;
+    font-style: italic;
+    margin: auto;
+    padding: 0 10px;
+    text-align: right;
+    border-radius: 0 0 8px 8px;
+}
+.histbanner {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 12px;
+    line-height: 2em;
+    font-style: italic;
+    margin: auto;
+    padding: 0 10px;
+    text-align: right;
+    border-radius: 0 0 8px 8px;
+}
+/* end of styling for figcaption elements*/
 
 .w3-badge,
 .w3-left,
