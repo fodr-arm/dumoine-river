@@ -218,6 +218,35 @@ ul {
 /* SEnd of styling for slideshow on homepage */
 
 
+.slideCaption {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: rgb(185, 196, 174);
+    font-size: 12px;
+    line-height: 2em;
+    font-style: italic;
+    margin: auto;
+    padding: 0 10px;
+    text-align: right;
+}
+
+.artCaption {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: rgb(185, 196, 174);
+    font-size: 12px;
+    line-height: 2em;
+    font-style: italic;
+    margin: auto;
+    padding: 0 10px;
+    text-align: right;
+}
+
+
 .w3-badge,
 .w3-left,
 .w3-right {
