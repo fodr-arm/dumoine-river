@@ -245,8 +245,10 @@ ul {
     padding: 0 10px;
     text-align: right;
     border-radius: 0 0 8px 8px;
+    opacity: 0.75;
 }
-.backbanner {
+/* this class used for span elements contained images' captions */
+.topbanner {
     position: absolute;
     bottom: 0px;
     width: 100%;
@@ -259,48 +261,7 @@ ul {
     padding: 0 10px;
     text-align: right;
     border-radius: 0 0 8px 8px;
-}
-.infobanner {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    font-size: 12px;
-    line-height: 2em;
-    font-style: italic;
-    margin: auto;
-    padding: 0 10px;
-    text-align: right;
-    border-radius: 0 0 8px 8px;
-}
-.outbanner {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    font-size: 12px;
-    line-height: 2em;
-    font-style: italic;
-    margin: auto;
-    padding: 0 10px;
-    text-align: right;
-    border-radius: 0 0 8px 8px;
-}
-.histbanner {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    font-size: 12px;
-    line-height: 2em;
-    font-style: italic;
-    margin: auto;
-    padding: 0 10px;
-    text-align: right;
-    border-radius: 0 0 8px 8px;
+    opacity: 0.75;
 }
 /* end of styling for figcaption elements*/
 
