@@ -218,7 +218,6 @@ ul {
 /* End of styling for slideshow on homepage */
 
 /* Styling for figcaption elements */
-/* each image MUST have its own styling - trying to use the same generated errors, look into this */
 .index {
     position: absolute;
     bottom: 0px;
@@ -277,6 +276,7 @@ ul {
     margin: auto;
     padding: 0 10px;
     text-align: right;
+    border-radius: 0 0 8px 8px;
 }
 
 .artCaption {
@@ -291,6 +291,7 @@ ul {
     margin: auto;
     padding: 0 10px;
     text-align: right;
+    border-radius: 0 0 8px 8px;
 }
 
 
