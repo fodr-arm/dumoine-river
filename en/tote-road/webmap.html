@@ -13,6 +13,7 @@
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
   
   <!-- Plugin for interactive legend hosted on GitHub -->
+  <!-- https://github.com/watergis/mapbox-gl-legend -->
   <link href='https://watergis.github.io/mapbox-gl-legend/mapbox-gl-legend.css' rel='stylesheet' />
   <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v1.13.1/mapbox-gl.js'></script> -->
   <script src="https://watergis.github.io/mapbox-gl-legend/mapbox-gl-legend.js"></script>
@@ -27,7 +28,8 @@
 </head>
 <body>
 	<!--Section to hold the information panel (on the left as styled in css^)-->
-	<div class="panel">
+	<div id="myPanel" class="panel">
+		<a href="javascript:void(0)" class = "closebtn" onclick="closeNav()">&times;</a>
 		<div class="info">
 			<div class='heading'>
 				<h1>Dumoine Tote Road Trail</h1>
@@ -50,6 +52,9 @@
 		<button id="close">&times;</button>
 		<h1>Disclaimer</h1>
 		<p>This map is for informational purposes only and does not guarantee the accuracy of any feature locations on the map as it is likely that some errors exist. The creator, Friends of the Dumoine River, does not warrant any part of the map or its features to be spatially or temporally accurate or fit for a particular use. Friends of the Dumoine River, its members and associated partners are not liable for any damage or injury sustained as a result of using any portion or reproduction of this map.</p>
+	</div>
+	<div class = "expand">
+		<button onclick = "openNav()">Open</button>
 	</div>
 	<script>
 		// ***MAP SECTION***
@@ -704,6 +709,14 @@
 		);
 		listing.classList.add('active');
 		});
+
+		function openNav() {
+			document.getElementById("myPanel").style.width = "250px";
+		}
+
+		function closeNav() {
+			document.getElementByID("myPanel").style.width = "0";
+		}
 
 		/** Function to add a listing for each site to the sidebar.**/
 		// YOU DO NOT NEED TO CHANGE ANYTHING IN HERE UNLESS YOU WANT TO SWITCH WHICH INFO GETS ADDED TO THE LISTINGS
