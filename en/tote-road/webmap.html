@@ -29,7 +29,7 @@
 <body>
 	<!--Section to hold the information panel (on the left as styled in css^)-->
 	<div id="myPanel" class="panel">
-		<a href="javascript:void(0)" class = "closebtn" onclick="closeNav()">&times;</a>
+		<button onclick = "closeNav()">Close</button>
 		<div class="info">
 			<div class='heading'>
 				<h1>Dumoine Tote Road Trail</h1>
@@ -53,8 +53,8 @@
 		<h1>Disclaimer</h1>
 		<p>This map is for informational purposes only and does not guarantee the accuracy of any feature locations on the map as it is likely that some errors exist. The creator, Friends of the Dumoine River, does not warrant any part of the map or its features to be spatially or temporally accurate or fit for a particular use. Friends of the Dumoine River, its members and associated partners are not liable for any damage or injury sustained as a result of using any portion or reproduction of this map.</p>
 	</div>
-	<div class = "expand">
-		<button onclick = "openNav()">Open</button>
+	<div id = "expand">
+		<button class = "panelOpenButton" onclick = "openNav()">></button>
 	</div>
 	<script>
 		// ***MAP SECTION***
@@ -710,12 +710,12 @@
 		listing.classList.add('active');
 		});
 
-		function openNav() {
-			document.getElementById("myPanel").style.width = "250px";
+		function closeNav() {
+			document.getElementById("myPanel").style.width = "0px";
 		}
 
-		function closeNav() {
-			document.getElementByID("myPanel").style.width = "0";
+		function openNav() {
+			document.getElementById("myPanel").style.width = "250px";
 		}
 
 		/** Function to add a listing for each site to the sidebar.**/
