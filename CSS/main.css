@@ -262,8 +262,6 @@ ul {
     border-radius: 0 0 8px 8px;
     opacity: 0.75;
 }
-/* end of styling for figcaption elements*/
-
 .slideCaption {
     position: absolute;
     bottom: 0px;
@@ -279,7 +277,6 @@ ul {
     border-radius: 0 0 8px 8px;
     opacity: 0.75;
 }
-
 .artCaption {
     position: absolute;
     bottom: 0px;
@@ -295,7 +292,7 @@ ul {
     border-radius: 0 0 8px 8px;
     opacity: 0.75;
 }
-
+/* end of styling for figcaption elements*/
 
 .w3-badge,
 .w3-left,
@@ -370,6 +367,16 @@ ul {
     margin: 0;
     margin-bottom: 5px;
 }
+
+/* Styling for email links on outfitters page */
+strong.mail {
+    color: #547c50;
+}
+strong.mail:hover {
+    color: #000000;
+}
+/* end of email link styling */
+
 /* Styling of 'Read more' buttons on trail-history page */
 #more {display: none;}
 #more2 {display: none;}
