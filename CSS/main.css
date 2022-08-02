@@ -218,7 +218,7 @@ ul {
 /* End of styling for slideshow on homepage */
 
 /* Styling for figcaption elements */
-.index {
+.indexCaption {
     position: absolute;
     bottom: 0px;
     width: 100%;
@@ -231,7 +231,7 @@ ul {
     padding: 0 10px;
     text-align: right;
 }
-.homebanner {
+.homebannerCaption {
     position: absolute;
     bottom: 0px;
     width: 100%;
@@ -247,7 +247,7 @@ ul {
     opacity: 0.75;
 }
 /* this class used for span elements contained images' captions */
-.topbanner {
+.bannerCaption {
     position: absolute;
     bottom: 0px;
     width: 100%;
@@ -269,7 +269,7 @@ ul {
     bottom: 0px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    color: rgb(185, 196, 174);
+    color: #fff;
     font-size: 12px;
     line-height: 2em;
     font-style: italic;
@@ -277,6 +277,7 @@ ul {
     padding: 0 10px;
     text-align: right;
     border-radius: 0 0 8px 8px;
+    opacity: 0.75;
 }
 
 .artCaption {
@@ -284,7 +285,7 @@ ul {
     bottom: 0px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    color: rgb(185, 196, 174);
+    color: #fff;
     font-size: 12px;
     line-height: 2em;
     font-style: italic;
@@ -292,6 +293,7 @@ ul {
     padding: 0 10px;
     text-align: right;
     border-radius: 0 0 8px 8px;
+    opacity: 0.75;
 }
 
 
