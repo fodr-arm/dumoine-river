@@ -102,7 +102,7 @@ h2 {
 }
 h2.major {
     position: relative;
-    border-top: solid 5px #c2c7bc;
+    border-top: solid 5px #C8D5C3;
     font-size: 1.65em;
     text-align: center;
     margin: 0 0 3em 0;
@@ -138,7 +138,7 @@ h4 {
 }
 h3.major {
     position: relative;
-    border-top: solid 5px #c2c7bc;
+    border-top: solid 5px #C8D5C3;
     font-size: 1.65em;
     text-align: center;
     margin: 0 0 1em 0;
