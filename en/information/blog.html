@@ -45,7 +45,7 @@
         <div class="row">
           <div class="col-3 col-12-medium">
             <!-- Sidebar -->
-            <div class="sidepanel Left">
+            <div class="sidepanel">
               <!-- Recent Posts -->
               <section>
                 <h2 class="major"><span>Recent Posts</span></h2>
@@ -120,19 +120,29 @@
                 <header>
                   <h2>News and Outreach</h2>
                   <p>The Dumoine Tote Road Trail in the Media</p>
-                  
                 </header>
 
                 <section>
                   <span class="image banner">
-                    <img src="dumoine-river/Images/pic05.jpg" alt="" />
-                    <figcaption class="bannerCaption">filler picture</figcaption>
+                    <img src="../../Images/dumoineslide-nov2008.jpg" alt="Entrance to Dumoine Slide - November 2008" />
+                    <figcaption class="bannerCaption">Entrance to the Dumoine slide</figcaption>
                   </span>
                   <p>
                     The Dumoine Tote Road Trail stays beautiful and safe to trek only by the actions of our volunteers and visitors.
                   </p>
                 </section>
                 <button onclick="topFunction()"id="nextbtn" title="Go to top"><i class="fa fa-angle-double-up"></i></i></button>
+              </article>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="content">
+              <article class="box page-content">
+
+                <header>
+                  <h2>Read about Us!</h2>
+                </header>
 
                 <article class="box news" id="Episode">
                   <div>
@@ -160,6 +170,52 @@
                     <p><i>Add a synopsis of the article here</i></p>
                     <p>To read this article and more, click the button below to take you to the Canada's History website.</p>
                     <a href="https://www.canadashistory.ca/explore/politics-law/algonquin-territory?fbclid=IwAR27nbG4qS5e9BTYle_c6M3FWOaxVJdPtuBdjGlmPV34zwdXKRc-7dr0IqU" target="_blank"><button class="btn">Algonquin Territory in the Ottawa Valley</button></a>
+                  </div>
+                </article>
+
+                <header>
+                  <h2>History and Adventures</h2>
+                </header>
+
+                <article class="box news" id="GrandeChute">
+                  <div>
+                    <h3 class="major"><span>Walking the Timber Slide Trail</span></h3>
+                    <h4><i>written by Wallace Schaber</i></h4>
+                    <ul class="meta">
+                      <li class="icon fa-clock">August 2022</li>
+                    </ul>
+                    <p><i>Add a synopsis of the article here</i></p>
+                    <p><span id="dots"><i>To read this article, click the button to reveal the full text.</i></span><span id="more">
+                      Insert article text here!</span></p>
+                    <button class="smallbtn" onclick="readMoreFunction()" id="readMore">Read more</button>
+                  </div>
+                </article>
+
+                <article class="box news" id="Meech">
+                  <div>
+                    <h3 class="major"><span>Stories from the Dumoine Tote Road: Charles Meech</span></h3>
+                    <h4><i>written by Wallace Schaber</i></h4>
+                    <ul class="meta">
+                      <li class="icon fa-clock">August 2022</li>
+                    </ul>
+                    <p><i>Add a synopsis of the article here</i></p>
+                    <p><span id="dots2"><i>To read this article, click the button to reveal the full text.</i></span><span id="more2">
+                      Insert article text here!</span></p>
+                    <button class="smallbtn" onclick="readMore2Function()" id="readMore2">Read more</button>
+                  </div>
+                </article>
+
+                <article class="box news" id="Stopping">
+                  <div>
+                    <h3 class="major"><span>Historical Sites along the Dumoine</span></h3>
+                    <h4><i>written by Wallace Schaber</i></h4>
+                    <ul class="meta">
+                      <li class="icon fa-clock">July 2022</li>
+                    </ul>
+                    <p><i>Add a synopsis of the article here</i></p>
+                    <p><span id="dots3"><i>To read this article, click the button to reveal the full text.</i></span><span id="more3">
+                      Insert article text here!</span></p>
+                    <button class="smallbtn" onclick="readMore3Function()" id="readMore3">Read more</button>
                   </div>
                 </article>
 
@@ -304,4 +360,51 @@
   <script src="../../JS/breakpoints.min.js"></script>
   <script src="../../JS/util.js"></script>
   <script src="../../JS/main.js"></script>
+  <script>
+    function readMoreFunction() {
+      var dots = document.getElementById("dots");
+      var moreText = document.getElementById("more");
+      var btnText = document.getElementById("readMore");
+    
+      if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read more"; 
+        moreText.style.display = "none";
+      } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Read less"; 
+        moreText.style.display = "inline";
+      }
+    }
+    function readMore2Function() {
+      var dots = document.getElementById("dots2");
+      var moreText = document.getElementById("more2");
+      var btnText = document.getElementById("readMore2");
+    
+      if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read more"; 
+        moreText.style.display = "none";
+      } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Read less"; 
+        moreText.style.display = "inline";
+      }
+    }
+    function readMore3Function() {
+      var dots = document.getElementById("dots3");
+      var moreText = document.getElementById("more3");
+      var btnText = document.getElementById("readMore3");
+    
+      if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read more"; 
+        moreText.style.display = "none";
+      } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Read less"; 
+        moreText.style.display = "inline";
+      }
+    }
+  </script>
 </body>
