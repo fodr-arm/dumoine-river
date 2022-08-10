@@ -424,6 +424,7 @@ ul {
     top: 0;
     bottom: 0;
     width: 100%;
+    transition: 0.5s;
 }
 label {
     color: #283d0b;
@@ -475,14 +476,13 @@ label {
     box-sizing: border-box;
 }
 
-.panelOpenButton {
-    position: fixed;
+#panelOpenButton {
     height: 100%;
-    position: top;
     margin: 0;
     padding: 0.75em;
-    /* background-color: grey; */
-    opacity: 0.5;
+    background-color: grey;
+    opacity: 0.75;
+    width: 10%;
 }
 
 
@@ -543,7 +543,6 @@ gets 4/5 of the page. */
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgb(94, 84, 233);
     overflow-x: hidden;
     padding-top: 60px;
     transition: 0.5s;
@@ -567,14 +566,12 @@ gets 4/5 of the page. */
     overflow: auto;
 } */
 /* The map will take up the remaining 80% of the screen width */
-.map {
+
+/* .map {
     position: absolute;
-    /* left: 20%; */
     width: 100%;
     height: 100%;
-    /* top: 0;
-    bottom: 0; */
-}
+} */
 
 #expand {
     height: 100%;
@@ -671,6 +668,12 @@ div.subheading-map p{
     background: #334729;
     border-radius: 0;
 }
+
+/* Style the overlay behind the alert */
+#parent {
+    pointer-events:none;
+}
+
 /* Style the disclaimer box that shows up on map load */
 .alert {
     background-color: #eee;

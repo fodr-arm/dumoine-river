@@ -27,10 +27,12 @@
 </style>
 </head>
 <body>
+	<div id="parent">
 	<!--Section to hold the information panel (on the left as styled in css^)-->
 	<div id="myPanel" class="panel">
-		<button onclick = "closeNav()">Close</button>
-		<div class="info">
+		<button class = "closeBtn" onclick = "closeNav()">Close</button>
+		
+		<div class="info">	
 			<div class='heading'>
 				<h1>Dumoine Tote Road Trail</h1>
 			</div>
@@ -40,21 +42,26 @@
 				<p>For a more complete tutorial on how to use this map, <strong><a href=trail-information.html#Tutorial target="_blank">click here.</a></strong></p>
 			</div>
 		</div>
+		
 		<!-- The sidebar div gets populated with listings using js below -->
 		<div class='sidebar'>
 			<div id='listings' class='listings'></div>
 		</div>
+
 	</div>
+
 	<!--The section to hold the map-->
 	<div id='map' class="map"></div>
-	<!-- This holds the map disclaimer when first loading the map -->
-	<div class="alert">
-		<button id="close">&times;</button>
-		<h1>Disclaimer</h1>
-		<p>This map is for informational purposes only and does not guarantee the accuracy of any feature locations on the map as it is likely that some errors exist. The creator, Friends of the Dumoine River, does not warrant any part of the map or its features to be spatially or temporally accurate or fit for a particular use. Friends of the Dumoine River, its members and associated partners are not liable for any damage or injury sustained as a result of using any portion or reproduction of this map.</p>
+
+		<div id = "expand">
+			<button id = "panelOpenButton" onclick = "openNav()">></button>
+		</div>
 	</div>
-	<div id = "expand">
-		<button class = "panelOpenButton" onclick = "openNav()">></button>
+		<!-- This holds the map disclaimer when first loading the map -->
+		<div class="alert">
+			<button id="close">&times;</button>
+			<h1>Disclaimer</h1>
+			<p>This map is for informational purposes only and does not guarantee the accuracy of any feature locations on the map as it is likely that some errors exist. The creator, Friends of the Dumoine River, does not warrant any part of the map or its features to be spatially or temporally accurate or fit for a particular use. Friends of the Dumoine River, its members and associated partners are not liable for any damage or injury sustained as a result of using any portion or reproduction of this map.</p>
 	</div>
 	<script>
 		// ***MAP SECTION***
@@ -712,10 +719,14 @@
 
 		function closeNav() {
 			document.getElementById("myPanel").style.width = "0px";
+			document.getElementById("map").style.marginLeft = "0px";
+			document.getElementById("panelOpenButton").style.opacity = "0.75";
 		}
 
 		function openNav() {
+			document.getElementById("panelOpenButton").style.opacity = "0";
 			document.getElementById("myPanel").style.width = "250px";
+			document.getElementById("map").style.marginLeft = "250px";
 		}
 
 		/** Function to add a listing for each site to the sidebar.**/
@@ -1006,6 +1017,7 @@
 		};
 		document.querySelector("#close").addEventListener("click", function(){
 			document.querySelector(".alert").style.display="none";
+			document.getElementById("parent").style.pointerEvents="inherit";
 		});
 	</script>
 </body>
