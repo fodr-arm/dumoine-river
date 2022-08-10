@@ -29,16 +29,18 @@
 <body>
 	<!--Section to hold the information panel (on the left as styled in css^)-->
 	<div id="myPanel" class="panel">
-		<button onclick = "closeNav()">Close</button>
+		<button id="closeNav" onclick = "closeNav()">Close</button>
 		<div class="info">
 			<div class='heading'>
-				<h1>Dumoine Tote Road Trail</h1>
+				<h1 id='map-info-heading'>Dumoine Tote Road Trail</h1>
 			</div>
+			<div class = 'divider'></div>
 			<div class="subheading-map">
 				<h4>How to use this map</h4>
 				<p>This is an interactive map: you can zoom and pan around the map, and hover and click on features to view the trail in more detail.</p>
 				<p>For a more complete tutorial on how to use this map, <strong><a href=trail-information.html#Tutorial target="_blank">click here.</a></strong></p>
 			</div>
+			<div class = 'divider'></div>
 		</div>
 		<!-- The sidebar div gets populated with listings using js below -->
 		<div class='sidebar'>

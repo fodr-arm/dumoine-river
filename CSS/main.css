@@ -477,11 +477,11 @@ label {
 
 .panelOpenButton {
     position: fixed;
+    width:5%;
     height: 100%;
     position: top;
     margin: 0;
     padding: 0.75em;
-    /* background-color: grey; */
     opacity: 0.5;
 }
 
@@ -536,6 +536,14 @@ gets 4/5 of the page. */
     height: 100vh;
 } */
 
+#closeNav {
+    /* background-color:rgb(41, 56, 33); */
+    margin-left: 100px;
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+}
+
 .panel {
     height: 100%;
     width: 0;
@@ -543,9 +551,9 @@ gets 4/5 of the page. */
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgb(94, 84, 233);
+    background-color: rgb(228, 242, 227);
     overflow-x: hidden;
-    padding-top: 60px;
+    /* padding-top: 60px; */
     transition: 0.5s;
 }
 
@@ -585,13 +593,18 @@ gets 4/5 of the page. */
     padding: 0;
 }
 
-/* .heading {
-    background: #293821;
+.heading {
+    /* background: #293821; */
     border-bottom: 1px solid #eee;
     height: max-content;
     line-height: 100px;
-    padding: 0 10px;
-} */
+    /* padding: 0 10px; */
+    font-size: larger;
+}
+
+#map-info-heading{
+ font-size: larger;   
+}
 
 /* .heading h1 {
     color: #f8f8f8;
@@ -622,15 +635,16 @@ div.subheading-map p{
     text-decoration: none;
     color: #205a36;
 } */
-.listings {
+/* .listings {
     height: 100%;
-}
-/* .listings .item {
+    padding-left: 5px;
+} */
+.listings .item {
     border-bottom: 1px solid #b0c4b5;
     padding: 10px;
     text-decoration: none;
     line-height: normal;
-} */
+}
 .listings .item:last-child {
     border-bottom: none;
 }
