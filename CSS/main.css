@@ -476,14 +476,27 @@ label {
     box-sizing: border-box;
 }
 
-.panelOpenButton {
+
+#panelOpenButton {
     position: fixed;
-    width:5%;
-/* #panelOpenButton {
+    width:3%;
     height: 100%;
     margin: 0;
-    padding: 0.75em; */
+    padding: 0.75em;
     opacity: 0.5;
+    transition: 0.5s;
+    background-color: #556c6c;
+    font-weight: 800;
+}
+
+.mapboxgl-ctrl-top-left{
+    transition: 0.5s;
+    margin-left: 58px;
+}
+
+.mapboxgl-ctrl-bottom-left {
+    transition: 0.5s;
+    margin-left: 58px;
 }
 
 
@@ -559,13 +572,13 @@ gets 4/5 of the page. */
 }
 
 /* Set the info section to take up 25% of the side panel and when screen is smaller, make overflow scrollable */
-/* .info {
-    position: sticky;
+.info {
+    /* position: sticky;
     height: 25%;
     width: 100%;
-    overflow: auto;
+    overflow: auto; */
     border-bottom: #205a36 2px solid;
-} */
+}
 /* Set the sidebar listings to take up remaining 75% of side panel and enable scroll (overflow auto) */
 /* .sidebar {
     position: sticky;
@@ -583,9 +596,14 @@ gets 4/5 of the page. */
     height: 100%;
 } */
 
+
+#consent {
+    border:#000000;
+    border: 1px;
+}
+
 #expand {
     height: 100%;
-    width: 30%;
     position: absolute;
     border-radius: 8px;
     border-color: #404040;
@@ -594,7 +612,7 @@ gets 4/5 of the page. */
 
 .heading {
     /* background: #293821; */
-    border-bottom: 1px solid #eee;
+    border-bottom: #205a36 2px solid;
     height: max-content;
     line-height: 100px;
     /* padding: 0 10px; */
@@ -609,7 +627,7 @@ gets 4/5 of the page. */
     color: #f8f8f8;
 } */
 
-/* div.subheading-map {
+div.subheading-map {
     margin-top: 3px;
     margin-bottom: 1px;
     padding: 5px;
@@ -633,11 +651,11 @@ div.subheading-map p{
 .subheading a:hover {
     text-decoration: none;
     color: #205a36;
-} */
-/* .listings {
+}
+.listings {
     height: 100%;
     padding-left: 5px;
-} */
+}
 .listings .item {
     border-bottom: 1px solid #b0c4b5;
     padding: 10px;
@@ -688,6 +706,7 @@ div.subheading-map p{
 /* Style the overlay behind the alert */
 #parent {
     pointer-events:none;
+    transition: 0.5s;
 }
 
 /* Style the disclaimer box that shows up on map load */
@@ -713,7 +732,7 @@ div.subheading-map p{
     background-color: transparent;
     font-size: 30px;
     color: #37583d;
-    border: none;
+    /* border: none; */
     outline: 0;
     cursor: pointer;
 }
