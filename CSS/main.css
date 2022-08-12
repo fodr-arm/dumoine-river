@@ -433,7 +433,8 @@ strong.mail:hover {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 80%;
+    width: 100%;
+    transition: 0.5s;
 }
 label {
     color: #283d0b;
@@ -485,6 +486,42 @@ label {
     box-sizing: border-box;
 }
 
+
+#panelOpenButton {
+    position: fixed;
+    width:3%;
+    height: 100%;
+    margin-top: 0;
+    margin-left: 275px;
+    padding: 0.75em;
+    opacity: 0.5;
+    transition: 0.5s;
+    background-color: #556c6c;
+    font-weight: 800;
+}
+
+.mapboxgl-ctrl-top-left{
+    transition: 0.5s;
+    margin-left: 333px;
+}
+
+.mapboxgl-ctrl-bottom-left {
+    transition: 0.5s;
+    margin-left: 333px;
+}
+
+
+/* height: 100%;
+width: 0;
+position: fixed;
+z-index: 1;
+top: 0;
+left: 0;
+background-color: rgb(94, 84, 233);
+overflow-x: hidden;
+padding-top: 60px;
+transition: 0.5s; */
+
 /* Fixing the font size of side panel header based on screen size */
 @media screen and (min-width: 601px) {
     h1 {
@@ -517,47 +554,89 @@ a:active {
 gets 4/5 of the page. */
 
 /*The panel div holds both the top info header section and campsite listings */
-.panel {
+
+/* .panel {
     position: absolute;
     width: 20%;
     height: 100vh;
+} */
+
+#closeNav {
+    /* background-color:rgb(41, 56, 33); */
+    margin-left: 100px;
+    width: 50%;
+    text-align: center;
+    padding: 10px;
 }
+
+.panel {
+    height: 100%;
+    width: 275px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(228, 242, 227);
+    overflow-x: hidden;
+    /* padding-top: 60px; */
+    transition: 0.5s;
+}
+
 /* Set the info section to take up 25% of the side panel and when screen is smaller, make overflow scrollable */
 .info {
-    position: sticky;
+    /* position: sticky;
     height: 25%;
     width: 100%;
-    overflow: auto;
+    overflow: auto; */
     border-bottom: #205a36 2px solid;
 }
 /* Set the sidebar listings to take up remaining 75% of side panel and enable scroll (overflow auto) */
-.sidebar {
+/* .sidebar {
     position: sticky;
     top: 0;
     left: 0;
     height: 75%;
     border-right: 1px solid rgba(0, 0, 0, 0.25);
     overflow: auto;
-}
+} */
 /* The map will take up the remaining 80% of the screen width */
-.map {
+
+/* .map {
     position: absolute;
-    left: 20%;
-    width: 80%;
+    width: 100%;
     height: 100%;
-    top: 0;
-    bottom: 0;
+} */
+
+
+#consent {
+    border:#000000;
+    border: 1px;
 }
+
+#expand {
+    height: 100%;
+    position: absolute;
+    border-radius: 8px;
+    border-color: #404040;
+    padding: 0;
+}
+
 .heading {
-    background: #293821;
-    border-bottom: 1px solid #eee;
+    /* background: #293821; */
+    border-bottom: #205a36 2px solid;
     height: max-content;
     line-height: 100px;
-    padding: 0 10px;
+    /* padding: 0 10px; */
+    font-size: larger;
 }
-.heading h1 {
+
+#map-info-heading{
+ font-size: larger;   
+}
+
+/* .heading h1 {
     color: #f8f8f8;
-}
+} */
 
 div.subheading-map {
     margin-top: 3px;
@@ -586,6 +665,7 @@ div.subheading-map p{
 }
 .listings {
     height: 100%;
+    padding-left: 5px;
 }
 .listings .item {
     border-bottom: 1px solid #b0c4b5;
@@ -633,6 +713,13 @@ div.subheading-map p{
     background: #334729;
     border-radius: 0;
 }
+
+/* Style the overlay behind the alert */
+#parent {
+    pointer-events:none;
+    transition: 0.5s;
+}
+
 /* Style the disclaimer box that shows up on map load */
 .alert {
     background-color: #eee;
@@ -656,7 +743,7 @@ div.subheading-map p{
     background-color: transparent;
     font-size: 30px;
     color: #37583d;
-    border: none;
+    /* border: none; */
     outline: 0;
     cursor: pointer;
 }
