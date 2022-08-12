@@ -15,7 +15,7 @@
   <!-- Plugin for interactive legend hosted on GitHub -->
   <!-- https://github.com/watergis/mapbox-gl-legend -->
   <link href='https://watergis.github.io/mapbox-gl-legend/mapbox-gl-legend.css' rel='stylesheet' />
-  <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v1.13.1/mapbox-gl.js'></script> -->
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.13.1/mapbox-gl.js'></script>
   <script src="https://watergis.github.io/mapbox-gl-legend/mapbox-gl-legend.js"></script>
   <!-- Main css file -->
   <link rel="stylesheet" href="../../CSS/main.css"> 
@@ -107,12 +107,12 @@
 			};
 			/*Access the watergis mapbox gl legend plugin to add the legend of the selected targets to the map*/
 			/*Plugin source code available here: https://github.com/watergis/mapbox-gl-legend*/
-			// map.addControl(new watergis.MapboxLegendControl(targets, {
-			// 	showDefault: false, /*Collapse legend by default*/
-			// 	showCheckbox: true, /*If this is set to false, users will not be able to toggle layers on and off from the legend*/
-			// 	onlyRendered: false,
-			// 	reverseOrder: true
-			// }), 'top-left');
+			map.addControl(new MapboxLegendControl(targets, {
+				showDefault: false, /*Collapse legend by default*/
+				showCheckbox: true, /*If this is set to false, users will not be able to toggle layers on and off from the legend*/
+				onlyRendered: false,
+				reverseOrder: true
+			}), 'top-left');
 		})
 
 		// *** CAMPSITE DATA FOR SIDEBAR LISTINGS SECTION ***
