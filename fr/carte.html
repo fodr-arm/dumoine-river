@@ -14,8 +14,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tiro+Gurmukhi&display=swap" rel="stylesheet"> 
-  <link href='https://watergis.github.io/mapbox-gl-legend/mapbox-gl-legend.css' rel='stylesheet' />
   <link rel="stylesheet" href="../CSS/main.css"> 
+  <link href='https://watergis.github.io/mapbox-gl-legend/mapbox-gl-legend.css' rel='stylesheet' />
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.13.1/mapbox-gl.js'></script>
   <script src="https://watergis.github.io/mapbox-gl-legend/mapbox-gl-legend.js"></script>
   <style>
@@ -26,17 +26,20 @@
 </style>
 </head>
 <body>
+	<div id="parent">
 	<!--Section to hold the information panel (on the left as styled in css^)-->
-	<div class="panel">
+	<div id="myPanel" class="panel">
 		<div class="info">
 			<div class='heading'>
-				<h1>Chemin de Portage Dumoine</h1>
+				<h1 id='map-info-heading'>Chemin de Portage Dumoine</h1>
 			</div>
+			<div class = 'divider'></div>
 			<div class="subheading-map">
 				<h4>Comment utiliser cette carte</h4>
 				<p>Il s'agit d'une carte interactive: vous pouvez vous déplacer sur la carte, et survoler et cliquer sur les caractéristiques pour voir le sentier plus en détail.</p>
 				<p>Pour un tutoriel plus complet sur la façon d'utiliser cette carte, <strong><a href="../en/tote-road/trail-information.html#Tutorial">cliquez ici.</a></strong></p>
 			</div>
+			<div class = 'divider'></div>
 		</div>
 		<div class='sidebar'>
 			<div id='listings' class='listings'></div>
@@ -44,13 +47,19 @@
 	</div>
 	<!--The section to hold the map-->
 	<div id='map' class="map"></div>
+	<div id = "expand">
+		<button id = "panelOpenButton" onclick = "openNav()"><</button>
+	</div>
+</div>
 	<!-- This holds the map disclaimer when first loading the map -->
 	<div class="alert">
-		<button id="close">&times;</button>
+		<!-- <button id="close">&times;</button> -->
 		<h1>Mise en garde</h1>
 		<p>This map is for informational purposes only and does not guarantee the accuracy of any feature locations on the map as it is likely that some errors exist. The creator, Friends of the Dumoine, does not warrant any part of the map or its features to be spatially or temporally accurate or fit for a particular use. Friends of the Dumoine River, its members and associated partners are not liable for any damage or injury sustained as a result of using any portion or reproduction of this map.</p>
+		<button id="consent">Je comprend</button>
 	</div> 
   <script>
+	var open = true;
 	/*Initializing a new map using access token and style url from fodr Mapbox account*/
     mapboxgl.accessToken = 'pk.eyJ1IjoiZm9kci1hcm0iLCJhIjoiY2wzZW9lZjA3MDJodjNsbDUxY3M2MmFkZSJ9.3imPfCVXmLM7dci1i0D8KA';
     const map = new mapboxgl.Map({
@@ -84,7 +93,7 @@
 		};
 		/*Access the watergis mapbox gl legend plugin to add the legend of the selected targets to the map*/
 		/*Plugin source code available here: https://github.com/watergis/mapbox-gl-legend*/
-		legend = new watergis.MapboxLegendControl(targets, {
+		legend = new MapboxLegendControl(targets, {
 			showDefault: false, /*Collapse legend by default*/
 			showCheckbox: true, /*If this is set to false, users will not be able to toggle layers on and off from the legend*/
 			onlyRendered: false,
@@ -696,6 +705,40 @@
 	listing.classList.add('active');
 	});
 
+
+	function closeNav() {
+			document.getElementById("myPanel").style.width = "0px";
+			// document.getElementById("parent").style.marginLeft = "0px";
+			document.getElementById("panelOpenButton").innerHTML = ">";
+			// document.getElementById("panelOpenButton").style.marginLeft = "0px"
+			open = false;
+		}
+
+		function openNav() {
+			if (open === false) {
+			// document.getElementById("panelOpenButton").style.opacity = "0";
+			document.getElementById("myPanel").style.width = "275px";
+			document.getElementById("panelOpenButton").style.marginLeft = "275px";
+			var tl = document.getElementsByClassName("mapboxgl-ctrl-top-left");
+			tl[0].style.marginLeft = '333px';
+			var tb = document.getElementsByClassName("mapboxgl-ctrl-bottom-left");
+			tb[0].style.marginLeft = '333px';
+			// document.getElementById("parent").style.marginLeft = "250px";
+			document.getElementById("panelOpenButton").innerHTML = "<";
+			open = true;
+			} else {
+			document.getElementById("myPanel").style.width = "0px";
+			document.getElementById("panelOpenButton").style.marginLeft = "0px"
+			var tl = document.getElementsByClassName("mapboxgl-ctrl-top-left");
+			tl[0].style.marginLeft = '58px';
+			var tb = document.getElementsByClassName("mapboxgl-ctrl-bottom-left");
+			tb[0].style.marginLeft = '58px';
+			// document.getElementById("parent").style.marginLeft = "0px";
+			document.getElementById("panelOpenButton").innerHTML = ">";
+			open = false;
+			}
+		}
+
 	/** Function to add a listing for each site to the sidebar.**/
 	function buildLocationList(sites) {
 		for (const site of sites.features) {
@@ -970,9 +1013,10 @@
 	window.onload=function(){
 		document.querySelector(".alert").style.display="block";	
 	};
-	document.querySelector("#close").addEventListener("click", function(){
-		document.querySelector(".alert").style.display="none";
-	});
+	document.querySelector("#consent").addEventListener("click", function(){
+			document.querySelector(".alert").style.display="none";
+			document.getElementById("parent").style.pointerEvents="inherit";
+		});
   </script>
 </body>
 </html>
