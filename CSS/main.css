@@ -2,8 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic|Open+Sans+Condensed:700");
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,900");
 a,address,article,aside,b,big,body,center,code,details,div,footer,form,h1,h2,h3,h4,h5,h6,header,html,i,img,label,legend,li,mark,
-menu,nav,p,pre,q,s,section,small,span,strong,summary,th,time,ul,var,video 
-{
+menu,nav,p,pre,q,s,section,small,span,strong,summary,th,time,ul,var,video {
     margin: 0;
     padding: 0;
     border: 0;
@@ -498,6 +497,7 @@ label {
     transition: 0.5s;
     background-color: #556c6c;
     font-weight: 800;
+    border-radius: 0 8px 8px 0;
 }
 
 .mapboxgl-ctrl-top-left{
@@ -616,7 +616,7 @@ gets 4/5 of the page. */
 #expand {
     height: 100%;
     position: absolute;
-    border-radius: 8px;
+    border-radius: 0 8px 8px 0;
     border-color: #404040;
     padding: 0;
 }
@@ -631,7 +631,7 @@ gets 4/5 of the page. */
 }
 
 #map-info-heading{
- font-size: larger;   
+    font-size: larger;   
 }
 
 /* .heading h1 {
