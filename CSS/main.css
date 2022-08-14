@@ -291,6 +291,21 @@ ul {
     border-radius: 0 0 8px 8px;
     opacity: 0.75;
 }
+.intextCaption {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 12px;
+    line-height: 2em;
+    font-style: italic;
+    margin: auto;
+    padding: 0 10px;
+    text-align: right;
+    border-radius: 0 0 8px 8px;
+    opacity: 0.75;
+}
 /* end of styling for figcaption elements*/
 
 .w3-badge,
@@ -875,6 +890,12 @@ div.col2 {
     border-bottom: 0;
     margin-bottom: 0;
     padding-bottom: 0;
+}
+.blog {
+    margin: 0;
+    background-color: #FEFAF6;
+    padding: 20px;
+    box-shadow: 0 0 10px 5px #FAEDCD;
 }
 .container {
     margin: 0 auto;
