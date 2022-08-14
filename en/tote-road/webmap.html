@@ -58,13 +58,14 @@
 			<button id = "panelOpenButton" onclick = "openNav()"><</button>
 		</div>
 	</div>
-		<!-- This holds the map disclaimer when first loading the map -->
+	<!-- This holds the map disclaimer when first loading the map -->
+		<div class="overlay"></div>
 		<div class="alert">
 			<!-- <button id="close">&times;</button> -->
 			<h1>Disclaimer</h1>
 			<p>This map is for informational purposes only and does not guarantee the accuracy of any feature locations on the map as it is likely that some errors exist. The creator, Friends of the Dumoine River, does not warrant any part of the map or its features to be spatially or temporally accurate or fit for a particular use. Friends of the Dumoine River, its members and associated partners are not liable for any damage or injury sustained as a result of using any portion or reproduction of this map.</p>
 			<button id='consent'>I understand</button>
-	</div>
+		</div>
 	<script>
 		var open = true;
 		// ***MAP SECTION***
@@ -1041,6 +1042,14 @@
 		};
 		document.querySelector("#consent").addEventListener("click", function(){
 			document.querySelector(".alert").style.display="none";
+			document.getElementById("parent").style.pointerEvents="inherit";
+		});
+
+		window.onload=function(){
+			document.querySelector(".overlay").style.display="block";	
+		};
+		document.querySelector("#consent").addEventListener("click", function(){
+			document.querySelector(".overlay").style.display="none";
 			document.getElementById("parent").style.pointerEvents="inherit";
 		});
 	</script>

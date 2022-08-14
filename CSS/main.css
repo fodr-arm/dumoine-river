@@ -721,6 +721,17 @@ div.subheading-map p{
 }
 
 /* Style the disclaimer box that shows up on map load */
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.7);
+    z-index: 1;
+    size: 1903px, 955px;
+}
+
 .alert {
     background-color: #eee;
     width: 30%;
@@ -731,6 +742,7 @@ div.subheading-map p{
     left: 50%;
     border-radius: 8px;
     border-color: #404040;
+    z-index: 2;
 }
 .alert h1 {
     padding: 0;
@@ -752,7 +764,7 @@ div.subheading-map p{
     text-align: justify;
     margin: 20px 0;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .alert {
         width: 90%;
     }

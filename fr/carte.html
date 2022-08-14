@@ -52,6 +52,7 @@
 	</div>
 </div>
 	<!-- This holds the map disclaimer when first loading the map -->
+	<div class="overlay"></div>
 	<div class="alert">
 		<!-- <button id="close">&times;</button> -->
 		<h1>Mise en garde</h1>
@@ -1015,6 +1016,14 @@
 	};
 	document.querySelector("#consent").addEventListener("click", function(){
 			document.querySelector(".alert").style.display="none";
+			document.getElementById("parent").style.pointerEvents="inherit";
+		});
+
+		window.onload=function(){
+			document.querySelector(".overlay").style.display="block";	
+		};
+		document.querySelector("#consent").addEventListener("click", function(){
+			document.querySelector(".overlay").style.display="none";
 			document.getElementById("parent").style.pointerEvents="inherit";
 		});
   </script>
