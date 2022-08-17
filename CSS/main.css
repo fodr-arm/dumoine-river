@@ -395,6 +395,7 @@ strong.mail:hover {
 #more {display: none;}
 #more2 {display: none;}
 #more3 {display: none;}
+#more4 {display: none;}
 /* END of styling for 'Read more' buttons */
 
 /* Styling for image gallery in FODR section of Partners page (About Us) */
@@ -893,9 +894,8 @@ div.col2 {
 }
 .blog {
     margin: 0;
-    background-color: #FEFAF6;
     padding: 20px;
-    box-shadow: 0 0 10px 5px #FAEDCD;
+    border: 5px dotted #37583d;
 }
 .container {
     margin: 0 auto;

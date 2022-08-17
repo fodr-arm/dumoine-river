@@ -74,14 +74,14 @@
               <section>
                 <h2 class="major"><span>Our Articles</span></h2>
                 <ul class="divided">
-                  <!-- <li>
+                  <li>
                     <article class="box post-summary">
-                      <h3><a href="#">Grande Chute article</a></h3>
+                      <h3><a href="#Mason">Tribute to Bill Mason</a></h3>
                       <ul class="meta">
                         <li class="icon fa-clock">July 2022</li>
                       </ul>
                     </article>
-                  </li> -->
+                  </li>
                   <li>
                     <article class="box post-summary">
                       <h3><a href="#Timberslide">The Timberslide Trail</a></h3>
@@ -183,16 +183,61 @@
                   <h2>History and Adventures</h2>
                 </header>
 
+                <article class="box news" id="Mason">
+                  <div>
+                    <h3 class="major"><span>Bill Mason and the Dumoine</span></h3>
+                    <h4><i>written by Wallace Schaber</i></h4>
+                    <ul class="meta">
+                      <li class="icon fa-clock">July 2022</li>
+                    </ul>
+                    <p><i>Add a synopsis of the article here</i></p>
+                    <p><span id="dots4"><i>To read this article, click the button to reveal the full text.</i></span></p>
+                    <span id="more4">
+                      <section class="box article-list blog">
+                        <header>
+                          <h2>A TRIBUTE TO BILL MASON</h2>
+                        </header>
+                        <p>Bill Mason always sketched and/or painted while he canoed through his favourite wilderness areas including the Dumoine Valley. He would always distinguish, 
+                          in terms of gear and selection of canoe partners, between a slow trip to paint and a whitewater expedition for exploration. I was fortunate enough to paddle 
+                          with him on several whitewater trips including his first Dumoine trip in 1974. </p>
+                        <span class="image left">
+                          <img src="../../Images/art3.jpg" alt="Dumoine Rock in Light and Shade, a painting by Bill Mason" />
+                          <figcaption class="intextCaption">Dumoine Rock in Light and Shade by Bill Mason</figcaption>
+                        </span>
+                        <p>He returned to the Dumoine watershed several times but only painted one scene he specifically titled <strong>DUMOINE ROCK IN LIGHT AND SHADE</strong>. I 
+                          believe this is the rock on the west shore of the first major rapid below Lac Benoit.</p>
+                        <p>Bill was an amazing blend of talent and energy. Aside from his dedication to painting, film and canoeing he was a tireless defender of wilderness 
+                          conservation and a motivator of people to get them out into the wilderness safely. His theory was: 
+                          <strong>"<i>If you can get people to fall in love with wild places they will defend (with their voice, money and vote) its preservation</i>"</strong>.
+                          I believe this as well, that the creation of the website SENTIER-DUMOINE.CA is another step in that direction. 
+                        <p>Bill was a dedicated Friend of Rivers. We formed Friends of Dumoine twenty eight years after his death but I know he would have been a strong voice in 
+                          support of our goals of conservation and interpretation of the Dumoine Valley and getting more self propelled users travelling its water, snow and land 
+                          trails respectably.</p>
+                        <span class="image right">
+                          <img src="../../Images/art.jpg" alt="Self Portrait on the Petawawa River, a painting by Bill Mason" />
+                          <figcaption class="intextCaption">Self Portrait on the Petawawa River by Bill Mason</figcaption>
+                        </span>
+                        <p>This next painting is a self portrait Bill did of himself running The Natch on the Petawawa River in his beloved Red Chestnut Prospector. This timeless 
+                          picture is exactly how I remember Bill; skilled, enthusiastic, adventurous, a link between the past and the future and an artist that could capture the 
+                          essence of the canoe and moving water.</p>
+                        <p>For more information on Bill and his art and films visit the website below.</p> 
+                        <p><a href="https://www.redcanoes.ca/" target="_blank"><button class="btn outfitter">Learn about the Mason family</button></a></p>
+                      </section>
+                    </span>
+                    <button class="smallbtn" onclick="readMore4Function()" id="readMore4">Read more</button>
+                  </div>
+                </article>
+
                 <article class="box news" id="Timberslide">
                   <div>
                     <h3 class="major"><span>Walking the Timber Slide Trail</span></h3>
                     <h4><i>written by Wallace Schaber, Friends of Dumoine</i></h4>
                     <ul class="meta">
-                      <li class="icon fa-clock">August 2022</li>
+                      <li class="icon fa-clock">July 2022</li>
                     </ul>
                     <p><i>Add a synopsis of the article here</i></p>
-                    <p><span id="dots"><i>To read this article, click the button to reveal the full text.</i></span></p>
-                    <span id="more">
+                    <p><span id="dots3"><i>To read this article, click the button to reveal the full text.</i></span></p>
+                    <span id="more3">
                       <section class="box article-list blog">
                         <header>
                           <h2>PART ONE: Dumoine Hiking Trail Historic Highlights</h2>
@@ -363,7 +408,7 @@
                           river portage trail created eons ago by the Anishinabeg families that lived here and other first nation traders on their way to and from the Kichi Sibi.</i></p>
                       </section>
                     </span>
-                    <button class="smallbtn" onclick="readMoreFunction()" id="readMore">Read more</button>
+                    <button class="smallbtn" onclick="readMore3Function()" id="readMore3">Read more</button>
                   </div>
                 </article>
 
@@ -391,8 +436,8 @@
                       <li class="icon fa-clock">July 2022</li>
                     </ul>
                     <p><i>Add a synopsis of the article here</i></p>
-                    <p><span id="dots3"><i>To read this article, click the button to reveal the full text.</i></span></p>
-                    <span id="more3">
+                    <p><span id="dots"><i>To read this article, click the button to reveal the full text.</i></span></p>
+                    <span id="more">
                       <section class="box article-list blog">
                         <h2 id="Uses">Historical sites along the Dumoine</h2>
                         <article class="box excerpt">
@@ -512,7 +557,7 @@
                         </article>
                       </section>
                     </span>
-                    <button class="smallbtn" onclick="readMore3Function()" id="readMore3">Read more</button>
+                    <button class="smallbtn" onclick="readMoreFunction()" id="readMore">Read more</button>
                   </div>
                 </article>
 
@@ -692,6 +737,21 @@
       var dots = document.getElementById("dots3");
       var moreText = document.getElementById("more3");
       var btnText = document.getElementById("readMore3");
+    
+      if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read more"; 
+        moreText.style.display = "none";
+      } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Read less"; 
+        moreText.style.display = "inline";
+      }
+    }
+    function readMore4Function() {
+      var dots = document.getElementById("dots4");
+      var moreText = document.getElementById("more4");
+      var btnText = document.getElementById("readMore4");
     
       if (dots.style.display === "none") {
         dots.style.display = "inline";
