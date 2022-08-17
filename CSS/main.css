@@ -1637,6 +1637,11 @@ footer {
     max-width: 275px;
     box-shadow: 1px 1px 4px #708074;
 }
+.image.blogpost {
+    float: left;
+    margin: 0 2em 2em 0;
+    max-width: 350px;
+}
 .image.banner {
     display: block;
     margin: 0 0 2em 0;
