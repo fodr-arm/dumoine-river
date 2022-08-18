@@ -306,6 +306,22 @@ ul {
     border-radius: 0 0 8px 8px;
     opacity: 0.75;
 }
+/* opacity changed for this style to account for black&white/greyscale images */
+.historicCaption {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 12px;
+    line-height: 2em;
+    font-style: italic;
+    margin: auto;
+    padding: 0 10px;
+    text-align: right;
+    border-radius: 0 0 8px 8px;
+    opacity: 0.9;
+}
 /* end of styling for figcaption elements*/
 
 .w3-badge,
@@ -874,7 +890,7 @@ div.col2 {
 .box.shuttle {
     column-count: 2;
 }
-/* Styling for trail blaze sign images */
+/* trail blaze sign images */
 .signs {
     padding: 0 6px;
     float: left;
@@ -896,6 +912,11 @@ div.col2 {
     margin: 0;
     padding: 20px;
     border: 5px dotted #37583d;
+}
+.section2 {
+    border-top: solid 1px #dbdbdb;
+    margin: 2.75em 0 0 0;
+    padding: 2.75em 0 0 0;
 }
 .container {
     margin: 0 auto;
