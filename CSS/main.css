@@ -176,6 +176,12 @@ hr {
     border-top: solid 2px #e7eae8;
     margin: 0 0 3em 0;
 }
+hr.meech {
+    border: 0;
+    border-top: solid 2px #e7eae8;
+    margin: 0;
+    padding: 0;
+}
 p,
 ul {
     margin-bottom: 2em;
