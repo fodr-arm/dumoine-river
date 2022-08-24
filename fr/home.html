@@ -247,21 +247,21 @@
                   <div>
                     <label>Nom</label>
                     <div>
-                      <input type="text" name="first_name" placeholder="Entrez votre nom" required="required">
+                      <input type="text" name="first_name" placeholder="Entrez votre nom" required="required" oninvalid="this.setCustomValidity('Veuillez entrez votre nom')" oninput="this.setCustomValidity(' ')">
                     </div>
                   </div>
                   <br>
                   <div>
                     <label>Courriel</label>
                     <div>
-                      <input type="email" name="email" placeholder="Entrez votre courriel" required="required">
+                      <input type="email" name="email" placeholder="Entrez votre courriel" required="required" oninvalid="this.setCustomValidity('Veuillez entrez votre courriel')" oninput="this.setCustomValidity(' ')">
                     </div>
                   </div>
                   <br>
                   <div>
                     <label>Votre message</label>
                     <div>
-                      <textarea type="text" name="message" placeholder="Entrez votre message" required="required"></textarea>
+                      <textarea type="text" name="message" placeholder="Entrez votre message" required="required" oninvalid="this.setCustomValidity('Veuillez entrez votre message')" oninput="this.setCustomValidity(' ')"></textarea>
                     </div>
                   </div>
                   <button type="submit">SOUMETTRE</button>
