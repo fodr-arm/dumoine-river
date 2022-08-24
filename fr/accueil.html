@@ -102,7 +102,7 @@
               <div>
                 <label>Nom</label>
                 <div>
-                  <input type="text" name="first_name" placeholder="Entrez votre nom" required="required">
+                  <input type="text" name="first_name" placeholder="Entrez votre nom" required="required" oninvalid="this.setCustomValidity('Veuillez entrez votre nom')" oninput="this.setCustomValidity(' ')">
                 </div>
               </div>
               <br>
