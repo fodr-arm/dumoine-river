@@ -11,9 +11,9 @@
 
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tiro+Gurmukhi&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Gurmukhi&display=swap" rel="stylesheet">  -->
   <link rel="stylesheet" href="../CSS/main.css"> 
   <link href='https://watergis.github.io/mapbox-gl-legend/mapbox-gl-legend.css' rel='stylesheet' />
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.13.1/mapbox-gl.js'></script>
@@ -45,6 +45,7 @@
 			<div id='listings' class='listings'></div>
 		</div>
 	</div>
+
 	<!--The section to hold the map-->
 	<div id='map' class="map"></div>
 	<div id = "expand">
@@ -61,26 +62,33 @@
 	</div> 
   <script>
 	var open = true;
+	// ***MAP SECTION***
 	/*Initializing a new map using access token and style url from fodr Mapbox account*/
     mapboxgl.accessToken = 'pk.eyJ1IjoiZm9kci1hcm0iLCJhIjoiY2wzZW9lZjA3MDJodjNsbDUxY3M2MmFkZSJ9.3imPfCVXmLM7dci1i0D8KA';
     const map = new mapboxgl.Map({
-      container: 'map', // Specify the container ID
-      style: 'mapbox://styles/fodr-arm/cl3t8suq2003s14p0c7ybvay1', // Specify which map style to use
-      center: [ -77.79277517000992,  46.292], // Specify the starting position [lng, lat]
-	  zoom: 11, // Specify the starting zoom and min and max zoom
-      minZoom:10,
-      maxZoom: 15
+        container: 'map', // Specify the container ID
+		// Specify which map style to use
+        style: 'mapbox://styles/fodr-arm/cl3t8suq2003s14p0c7ybvay1', 
+        center: [ -77.79277517000992,  46.292], // Specify the starting position [lng, lat]
+	    zoom: 11, // Specify the starting zoom and min and max zoom
+        minZoom:10,
+        maxZoom: 15
     });
+
+	// ***NAVIGATION AND SCALE BAR SECTION***
 	/*Add zoom controls and north arrow to map (navigation control)*/
     map.addControl(new mapboxgl.NavigationControl());
     /*Define and add metric scale bar to map*/
     const scale = new mapboxgl.ScaleControl({
-      maxWidth: 200,
-      unit: 'metric',
+        maxWidth: 200,
+        unit: 'metric',
     });
     map.addControl(scale);
+
+	// ***LEGEND SECTION***
 	/*Access chosen layers from the Mapbox style to include in a toggable legend*/
 	/*The names on the left should be spelled exactly as they appear in the Mapbox Studio style layer*/
+	// The names on the right are how they will appear in the legend
     map.on('load', function() {
 		const targets = {
 			'campsites': 'Site de camp',
@@ -103,8 +111,9 @@
 		map.addControl(legend,'top-left');
 	})
 
-
+	// *** CAMPSITE DATA FOR SIDEBAR LISTINGS SECTION ***
 	/*Create a new variable to store the JSON data for the campsites that will appear in the info side panel*/
+	//For the info panel and popups, the 3 properties being used are: LabelFR, Description and KM
     const sites ={
 	"type": "FeatureCollection",
 	"features": [
@@ -731,7 +740,6 @@
 	);
 	listing.classList.add('active');
 	});
-
 
 	function closeNav() {
 			document.getElementById("myPanel").style.width = "0px";
