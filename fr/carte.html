@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Allison Talsma, Carol Buckingham, Kira-Marie Lazda">
   <meta name="description" content="Interactive trail web map page - French">
-  <meta name="keywords" content="Outdoors, Recreation, History, Camping">
   <link rel="icon" href="../Images/logow.png">
 
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
@@ -500,7 +499,7 @@
 				"TagFR": "Camp Amik",
 				"CampsiteLa": 16,
 				"Sequence": 16,
-				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez qu'il y a des canots disponible pour faciliter la traverse de la rivière Fildegrand.</i>",
+				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez qu'il y a des canots disponible pour faciliter la traverse de la rivière Fildegrand.<br> <a href=https://fodr-arm.github.io/dumoine-river/fr/chemin/contexte#crossing_instr>Cliquez ici pour des instructions de traversée plus spécifiques</a></i>",
         "KM": "KM 16"
 			}
 		},
@@ -521,7 +520,7 @@
 				"TagFR": "Camp Bertrands",
 				"CampsiteLa": 17,
 				"Sequence": 17,
-				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez qu'il y a des canots disponible pour faciliter la traverse de la rivière Fildegrand.</i>",
+				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez qu'il y a des canots disponible pour faciliter la traverse de la rivière Fildegrand.<br> <a href=https://fodr-arm.github.io/dumoine-river/fr/chemin/contexte#crossing_instr>Cliquez ici pour des instructions de traversée plus spécifiques</a></i>",
         "KM": "KM 16"
 			}
 		},
@@ -994,7 +993,7 @@
 	map.on('mouseenter', 'rivercrossing', (e) => {
 		map.getCanvas().style.cursor = 'pointer';
 		popup.setLngLat(e.lngLat).setHTML(`<h3>Traversée de la rivière</h3><h4>Soyez prudent en traversant la rivière Fildegrand. Les niveaux d'eau peuvent varier et poser des risques.
-			<strong> Plusieurs canots sont sur les rives pour faciliter la traverse.</strong></h4>`).addTo(map);
+			<strong> Plusieurs canots sont sur les rives pour faciliter la traverse.</strong>  <br> <a href=https://fodr-arm.github.io/dumoine-river/fr/chemin/contexte#crossing_instr>Cliquez ici pour des instructions de traversée plus spécifiques</a></i></h4>`).addTo(map);
 	});
 	// map.on('click', "rivercrossing", (e) => {
 	// 	map.getCanvas().style.cursor = 'pointer';
