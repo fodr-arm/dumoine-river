@@ -36,7 +36,7 @@
 			<div class="subheading-map">
 				<h4>Comment utiliser cette carte</h4>
 				<p>Il s'agit d'une carte interactive: vous pouvez vous déplacer sur la carte, et survoler et cliquer sur les caractéristiques pour voir le sentier plus en détail.</p>
-				<p>Pour un tutoriel plus complet sur la façon d'utiliser cette carte, <strong><a href="../en/tote-road/trail-information.html#Tutorial">cliquez ici.</a></strong></p>
+				<p>Pour un tutoriel plus complet sur la façon d'utiliser cette carte, <strong><a href="../chemin/informations#Tutorial">cliquez ici.</a></strong></p>
 			</div>
 			<div class = 'divider'></div>
 		</div>
@@ -993,7 +993,7 @@
 	map.on('mouseenter', 'rivercrossing', (e) => {
 		map.getCanvas().style.cursor = 'pointer';
 		popup.setLngLat(e.lngLat).setHTML(`<h3>Traversée de la rivière</h3><h4>Soyez prudent en traversant la rivière Fildegrand. Les niveaux d'eau peuvent varier et poser des risques.
-			<strong> Plusieurs canots sont sur les rives pour faciliter la traverse.</strong>  <br> <a href=https://fodr-arm.github.io/dumoine-river/fr/chemin/contexte#crossing_instr>Cliquez ici pour des instructions de traversée plus spécifiques</a></i></h4>`).addTo(map);
+			<strong> Plusieurs canots sont sur les rives pour faciliter la traverse.</strong>  <br> <i><a href=https://fodr-arm.github.io/dumoine-river/fr/chemin/contexte#crossing_instr>Cliquez ici pour des instructions de traversée plus spécifiques</a></i></h4>`).addTo(map);
 	});
 	// map.on('click', "rivercrossing", (e) => {
 	// 	map.getCanvas().style.cursor = 'pointer';
