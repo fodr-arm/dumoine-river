@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Allison Talsma, Carol Buckingham, Kira-Marie Lazda">
   <meta name="description" content="Interactive trail web map page - English">
-  <meta name="keywords" content="Outdoors, Recreation, History, Camping">
   <link rel="icon" href="../../Images/logow.png">
   <!--Mapbox GL JS source code and stylesheet-->
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
@@ -39,24 +38,21 @@
 			<div class="subheading-map">
 				<h4>How to use this map</h4>
 				<p>This is an interactive map: you can zoom and pan around the map, and hover and click on features to view the trail in more detail.</p>
-				<p>For a more complete tutorial on how to use this map, <strong><a href=trail-information.html#Tutorial target="_blank">click here.</a></strong></p>
+				<p>For a more complete tutorial on how to use this map, <strong><a href=trail-information#Tutorial target="_blank">click here.</a></strong></p>
 			</div>
 			<div class = 'divider'></div>
 		</div>
-		
 		<!-- The sidebar div gets populated with listings using js below -->
 		<div class='sidebar'>
 			<div id='listings' class='listings'></div>
 		</div>
-
 	</div>
 
 	<!--The section to hold the map-->
 	<div id='map' class="map"></div>
-
-		<div id = "expand">
-			<button id = "panelOpenButton" onclick = "openNav()"><</button>
-		</div>
+	<div id = "expand">
+		<button id = "panelOpenButton" onclick = "openNav()"><</button>
+	</div>
 	</div>
 	<!-- This holds the map disclaimer when first loading the map -->
 		<div class="overlay"></div>
@@ -524,7 +520,7 @@
 					"TagFR": "Camp Amik",
 					"CampsiteLa": 16,
 					"Sequence": 16,
-					"Description": "Primary campsite with enough space for four tents. Fire pit on site and thunderbox nearby. <i>Note: There are canoes available near the campsite to help cross the Fildegrand River.</i>",
+					"Description": "Primary campsite with enough space for four tents. Fire pit on site and thunderbox nearby. <i> Note: There are canoes available near the campsite to help cross the Fildegrand River.<br> <a href=https://fodr-arm.github.io/dumoine-river/en/tote-road/trail-background#crossing_instr>Click here for more specific crossing instructions<a/></i>",
 					"KM": "KM 16"
 				}
 			},
@@ -546,7 +542,7 @@
 					"TagFR": "Camp Bertrands",
 					"CampsiteLa": 17,
 					"Sequence": 17,
-					"Description": "Primary campsite with enough space for four tents. Fire pit on site and thunderbox nearby.<i>Note: There are canoes available near the campsite to help cross the Fildegrand River.</i>",
+					"Description": "Primary campsite with enough space for four tents. Fire pit on site and thunderbox nearby.<i> Note: There are canoes available near the campsite to help cross the Fildegrand River.<br> <a href=https://fodr-arm.github.io/dumoine-river/en/tote-road/trail-background#crossing_instr>Click here for more specific crossing instructions<a/></i>",
 					"KM": "KM 16"
 				}
 			},
@@ -1023,7 +1019,7 @@
 			.setLngLat(e.lngLat)
 			/*Add content to the popup including a link to the historical page on the website to learn more about the significance of the area*/
 			.setHTML(`<h3>Historically Significant Area</h3>`+
-			`<h4>${name}<br><a href="https://fodr-arm.github.io/dumoine-river/en/tote-road/trail-history#Dumoine.html" target="_blank"><i>Learn more</i></a></h4>`)
+			`<h4>${name}<br><a href="https://fodr-arm.github.io/dumoine-river/en/tote-road/trail-history#Dumoine" target="_blank"><i>Learn more</i></a></h4>`)
 			.addTo(map);
 		});
 		
@@ -1063,7 +1059,7 @@
 			map.getCanvas().style.cursor = 'pointer';
 			const type = e.features[0].properties.Type;
 			/*Add content to the popup including a link to the historical page on the website to learn more about the significance of that trail section*/
-			popup.setLngLat(e.lngLat).setHTML(`<h3>${type}</h3><h4>This section of the trail has a rich history! <br><a href="https://fodr-arm.github.io/dumoine-river/en/tote-road/trail-history.html" target="_blank"><i>Learn more</i></a></h4>`).addTo(map);
+			popup.setLngLat(e.lngLat).setHTML(`<h3>${type}</h3><h4>This section of the trail has a rich history! <br><a href="https://fodr-arm.github.io/dumoine-river/en/tote-road/trail-history" target="_blank"><i>Learn more</i></a></h4>`).addTo(map);
 
 		});
 		map.on('mouseenter', 'historictrails', () =>{
