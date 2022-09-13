@@ -789,7 +789,7 @@ div.subheading-map p{
 .alert button {
     display: block;
     margin: 0 0 10px auto;
-    padding: 0;
+    padding: 4px 4px 5px 6px;
     background-color: transparent;
     font-size: 30px;
     color: #37583d;
