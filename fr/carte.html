@@ -28,6 +28,7 @@
 	<div id="parent">
 	<!--Section to hold the information panel (on the left as styled in css^)-->
 	<div id="myPanel" class="panel">
+
 		<div class="info">
 			<div class='heading'>
 				<h1 id='map-info-heading'>Chemin de Portage Dumoine</h1>
@@ -40,6 +41,7 @@
 			</div>
 			<div class = 'divider'></div>
 		</div>
+
 		<div class='sidebar'>
 			<div id='listings' class='listings'></div>
 		</div>
@@ -50,7 +52,7 @@
 	<div id = "expand">
 		<button id = "panelOpenButton" onclick = "openNav()"><</button>
 	</div>
-</div>
+	</div>
 	<!-- This holds the map disclaimer when first loading the map -->
 	<div class="overlay"></div>
 	<div class="alert">
@@ -59,1011 +61,1011 @@
 		<p>Cette carte est présentée à titre d'information seulement et ne garantit pas l'exactitude de l'emplacement des éléments sur la carte, car il est probable que certaines erreurs existent. Le créateur, les Amis de la rivière Dumoine, ne garantit pas qu'une partie de la carte ou de ses caractéristiques est exacte dans l'espace ou dans le temps ou qu'elle convient à un usage particulier. Les Amis de la rivière Dumoine, ses membres et ses partenaires associés ne sont pas responsables des dommages ou des blessures subis à la suite de l'utilisation de toute partie ou reproduction de cette carte.</p>
 		<button id="consent">Je comprend</button>
 	</div> 
-  <script>
-	var open = true;
-	// ***MAP SECTION***
-	/*Initializing a new map using access token and style url from fodr Mapbox account*/
-    mapboxgl.accessToken = 'pk.eyJ1IjoiZm9kci1hcm0iLCJhIjoiY2wzZW9lZjA3MDJodjNsbDUxY3M2MmFkZSJ9.3imPfCVXmLM7dci1i0D8KA';
-    const map = new mapboxgl.Map({
-        container: 'map', // Specify the container ID
-		// Specify which map style to use
-        style: 'mapbox://styles/fodr-arm/cl3t8suq2003s14p0c7ybvay1', 
-        center: [ -77.79277517000992,  46.292], // Specify the starting position [lng, lat]
-	    zoom: 11, // Specify the starting zoom and min and max zoom
-        minZoom:10,
-        maxZoom: 15
-    });
+    <script>
+		var open = true;
+		// ***MAP SECTION***
+		/*Initializing a new map using access token and style url from fodr Mapbox account*/
+		mapboxgl.accessToken = 'pk.eyJ1IjoiZm9kci1hcm0iLCJhIjoiY2wzZW9lZjA3MDJodjNsbDUxY3M2MmFkZSJ9.3imPfCVXmLM7dci1i0D8KA';
+		const map = new mapboxgl.Map({
+			container: 'map', // Specify the container ID
+			// Specify which map style to use
+			style: 'mapbox://styles/fodr-arm/cl3t8suq2003s14p0c7ybvay1', 
+			center: [ -77.79277517000992,  46.292], // Specify the starting position [lng, lat]
+			zoom: 11, // Specify the starting zoom and min and max zoom
+			minZoom:10,
+			maxZoom: 15
+		});
 
-	// ***NAVIGATION AND SCALE BAR SECTION***
-	/*Add zoom controls and north arrow to map (navigation control)*/
-    map.addControl(new mapboxgl.NavigationControl());
-    /*Define and add metric scale bar to map*/
-    const scale = new mapboxgl.ScaleControl({
-        maxWidth: 200,
-        unit: 'metric',
-    });
-    map.addControl(scale);
+		// ***NAVIGATION AND SCALE BAR SECTION***
+		/*Add zoom controls and north arrow to map (navigation control)*/
+		map.addControl(new mapboxgl.NavigationControl());
+		/*Define and add metric scale bar to map*/
+		const scale = new mapboxgl.ScaleControl({
+			maxWidth: 200,
+			unit: 'metric',
+		});
+		map.addControl(scale);
 
-	// ***LEGEND SECTION***
-	/*Access chosen layers from the Mapbox style to include in a toggable legend*/
-	/*The names on the left should be spelled exactly as they appear in the Mapbox Studio style layer*/
-	// The names on the right are how they will appear in the legend
-    map.on('load', function() {
-		const targets = {
-			'campsites': 'Site de camp',
-			'kilometermarkers': 'Plaquette',
-			'scenic': 'Point de vue',
-			'rapids': 'Rapides',
-			'boatlaunch': "Rampe de mise à l'eau",
-			'directions': 'Directions de conduite',
-			'protected-area': 'Réserve Aquatique Dumoine',
-			'info-parking': 'Stationnement et Information ZEC Dumoine'
-		};
-		/*Access the watergis mapbox gl legend plugin to add the legend of the selected targets to the map*/
-		/*Plugin source code available here: https://github.com/watergis/mapbox-gl-legend*/
-		legend = new MapboxLegendControl(targets, {
-			showDefault: false, /*Collapse legend by default*/
-			showCheckbox: true, /*If this is set to false, users will not be able to toggle layers on and off from the legend*/
-			onlyRendered: false,
-			reverseOrder: true
+		// ***LEGEND SECTION***
+		/*Access chosen layers from the Mapbox style to include in a toggable legend*/
+		/*The names on the left should be spelled exactly as they appear in the Mapbox Studio style layer*/
+		// The names on the right are how they will appear in the legend
+		map.on('load', function() {
+			const targets = {
+				'campsitesequenced': 'Site de camp',
+				'kilometermarkers': 'Plaquette',
+				'scenic': 'Point de vue',
+				'rapids': 'Rapides',
+				'boatlaunch': "Rampe de mise à l'eau",
+				'directions': 'Directions de conduite',
+				'protected-area': 'Réserve Aquatique Dumoine',
+				'info-parking': 'Stationnement et Information ZEC Dumoine'
+			};
+			/*Access the watergis mapbox gl legend plugin to add the legend of the selected targets to the map*/
+			/*Plugin source code available here: https://github.com/watergis/mapbox-gl-legend*/
+			legend = new MapboxLegendControl(targets, {
+				showDefault: false, /*Collapse legend by default*/
+				showCheckbox: true, /*If this is set to false, users will not be able to toggle layers on and off from the legend*/
+				onlyRendered: false,
+				reverseOrder: true
+			})
+			map.addControl(legend,'top-left');
 		})
-		map.addControl(legend,'top-left');
-	})
 
-	// *** CAMPSITE DATA FOR SIDEBAR LISTINGS SECTION ***
-	/*Create a new variable to store the JSON data for the campsites that will appear in the info side panel*/
-	//For the info panel and popups, the 3 properties being used are: LabelFR, Description and KM
-    const sites ={
-	"type": "FeatureCollection",
-	"features": [
-        {
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.771514,
-      			46.378116
-				]
+		// *** CAMPSITE DATA FOR SIDEBAR LISTINGS SECTION ***
+		/*Create a new variable to store the JSON data for the campsites that will appear in the info side panel*/
+		//For the info panel and popups, the 3 properties being used are: LabelFR, Description and KM
+		const sites ={
+		"type": "FeatureCollection",
+		"features": [
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.771605,
+					46.377839,
+					]
+				},
+				"properties": {
+					"Name": "Camp  Po`nis",
+					"LabelEN": "Camp Ponens",
+					"Feature": 0,
+					"LabelFR": "Camp Ponens",
+					"TagFR": "Camp Ponens",
+					"CampsiteLa": 1,
+					"Sequence": 1,
+					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est proche des rapides, soyez prudents</i>.",
+					"KM": "Point de départ nord"
+		}
 			},
-			"properties": {
-				"Name": "Camp  Po`nis",
-				"LabelEN": "Camp Ponens",
-				"Feature": 0,
-				"LabelFR": "Camp Ponens",
-				"TagFR": "Camp Ponens",
-				"CampsiteLa": 1,
-				"Sequence": 1,
-				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est proche des rapides, soyez prudents</i>.",
-        "KM": "Point de départ nord"
-      }
-		},
-        {
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.772875,
-      46.377671,
-      -0.000054
-				]
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.773055,
+					46.375833,
+					-0.000054
+					]
+				},
+				"properties": {
+					"Name": "Camp  Bellevue",
+					"LabelEN": "Camp Bellevue",
+					"Feature": 0,
+					"LabelFR": "Camp Bellevue",
+					"TagFR": "Camp Bellevue",
+					"CampsiteLa": 2,
+					"Sequence": 2,
+					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est proche des rapides, soyez prudents</i>.",
+					"KM": "Point de départ nord"
+				}
 			},
-			"properties": {
-				"Name": "Camp  Bellevue",
-				"LabelEN": "Camp Bellevue",
-				"Feature": 0,
-				"LabelFR": "Camp Bellevue",
-				"TagFR": "Camp Bellevue",
-				"CampsiteLa": 2,
-				"Sequence": 2,
-				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est proche des rapides, soyez prudents</i>.",
-        "KM": "Point de départ nord"
-			}
-		},
-		{
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.776485,
-      46.37254
-				]
-			},
-			"properties": {
-				"Name": "Camp Timber Brands",
-				"LabelEN": "Camp Ankose",
-				"Feature": 0,
-				"LabelFR": "Camp Ankose",
-				"TagFR": "Camp Ankose",
-				"CampsiteLa": 3,
-				"Sequence": 3,
-				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
-        "KM": "KM 1"
-			}
-		},
-		
-        {
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.783747,
-      46.370427
-				]
-			},
-			"properties": {
-				"Name": "Campsite",
-				"LabelEN": "Camp Marque de Bois",
-				"Feature": 1,
-				"LabelFR": "Camp Marque de Bois",
-				"TagFR": "Camp Marque de Bois",
-				"CampsiteLa": 4,
-				"Sequence": 4,
-				"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité.",
-        "KM": "KM 2"
-			}
-		},
-    {
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.805636,
-      46.363995
-				]
-			},
-			"properties": {
-				"Name": "Boat Launch/ Campsite",
-				"LabelEN": "Camp Robinson - A",
-				"Feature": 0,
-				"LabelFR": "Camp Robinson - A",
-				"TagFR": "Camp Robinson - A",
-				"CampsiteLa": "5A",
-				"Sequence": 5,
-				"Description": "Site de camp simple pour les canoéistes. Les randonneurs dovons utiliser Camp Robinson - B. Toilette rustique et feu de camp en proximité.",
-        "KM": "KM 4"
-			}
-		},
-        {
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.805836,
-      46.362253
-				]
-			},
-			"properties": {
-				"Name": "Hiking/Campsite",
-				"LabelEN": "Camp Robinson - B",
-				"Feature": 0,
-				"LabelFR": "Camp Robinson - B",
-				"TagFR": "Camp Robinson - B",
-				"CampsiteLa": "5B",
-				"Sequence": 5,
-				"Description": "Site de camp pour les randonneurs. Les canoéistes devons utiliser Camp Robinson - A. Toilette rustique et feu de camp en proximité.",
-        "KM": "KM 4"
-			}
-		},
-        {
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.813559,
-      46.350956
-				]
-			},
-			"properties": {
-				"Name": "Campsite 1 (Dumoine)",
-				"LabelEN": "Camp C FODA",
-				"Feature": 1,
-				"LabelFR": "Camp C FODA",
-				"TagFR": "Camp C FODA",
-				"CampsiteLa": 6,
-				"Sequence": 6,
-				"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité.",
-        "KM": "KM 8"
-			}
-		},
-        {
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.816907,
-      46.34314
-				]
-			},
-			"properties": {
-				"Name": "Group Campsite And Portage Start",
-				"LabelEN": "Camp l'Île Spectateur",
-				"Feature": 1,
-				"LabelFR": "Camp l'Île Spectateur",
-				"TagFR": "Camp l'Île Spectateur",
-				"CampsiteLa": 7,
-				"Sequence": 7,
-				"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est proche des rapides, soyez prudents</i>.",
-        "KM": "KM 9"
-			}
-		},
-		{
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.820013,
-      46.338352
-				]
-			},
-			"properties": {
-				"Name": "Campsite 3 (waters Edge)",
-				"LabelEN": "Camp Grande Pin",
-				"Feature": 0,
-				"LabelFR": "Camp Grande Pin",
-				"TagFR": "Camp Grande Pin",
-				"CampsiteLa": 8,
-				"Sequence": 8,
-				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
-        "KM": "KM 10"
-			}
-		},
-        {
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.821121,
-      46.338343,
-      -0.000054
-				]
-			},
-			"properties": {
-				"Name": "Campsite",
-				"LabelEN": "Camp Esker",
-				"Feature": 0,
-				"LabelFR": "Camp Esker",
-				"TagFR": "Camp Esker",
-				"CampsiteLa": 9,
-				"Sequence": 9,
-				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
-        "KM": "KM 10"
-			}
-		},
-        {
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.824761,
-      46.336496
-				]
-			},
-			"properties": {
-				"Name": "Red point Campsite",
-				"LabelEN": "Camp Bois Carré",
-				"Feature": 0,
-				"LabelFR": "Camp Bois Carré",
-				"TagFR": "Camp Bois Carré",
-				"CampsiteLa": 10,
-				"Sequence": 10,
-				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
-        "KM": "KM 11"
-			}
-		},
-        {
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.825366,
-      46.336199,
-      -0.000054
-				]
-			},
-			"properties": {
-				"Name": "Potential Camp 2",
-				"LabelEN": "Camp Cèdre",
-				"Feature": 1,
-				"LabelFR": "Camp Cèdre",
-				"TagFR": "Camp Cèdre",
-				"CampsiteLa": 11,
-				"Sequence": 11,
-				"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité.",
-        "KM": "KM 11"
-			}
-		},
-		{
-			"type": "Feature",
-			"geometry": {
-				"coordinates": [
-				-77.827687,
-      46.32881
-				],
-				"type": "Point"
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.776250,
+					46.372388
+					]
+				},
+				"properties": {
+					"Name": "Camp Everything is Connected",
+					"LabelEN": "Camp Ankose",
+					"Feature": 0,
+					"LabelFR": "Camp Ankose",
+					"TagFR": "Camp Ankose",
+					"CampsiteLa": 3,
+					"Sequence": 3,
+					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
+					"KM": "KM 1"
+				}
 			},
 			
-			"properties": {
-				"CampsiteLa": 12,
-				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
-				"Feature": 1,
-				"LabelEN": "Camp l'Heure du Thé",
-				"LabelFR": "Camp l'Heure du Thé",
-				"TagFR": "Camp l'Heure du Thé",
-				"Name": "",
-				"Sequence": 12,
-				"KM": "KM 12"
-			}
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.783511,
+					46.370501
+					]
+				},
+				"properties": {
+					"Name": "Camp Timber Brands",
+					"LabelEN": "Camp Marque de Bois",
+					"Feature": 1,
+					"LabelFR": "Camp Marque de Bois",
+					"TagFR": "Camp Marque de Bois",
+					"CampsiteLa": 4,
+					"Sequence": 4,
+					"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité.",
+			"KM": "KM 2"
+				}
 			},
-        {
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.825986,
-      46.325339,
-      -0.000054
-				]
-			},
-			"properties": {
-				"Name": "New Camp (pot in Farm)",
-				"LabelEN": "Camp Potvins",
-				"Feature": 1,
-				"LabelFR": "Camp Potvins",
-				"TagFR": "Camp Potvins",
-				"CampsiteLa": 13,
-				"Sequence": 13,
-				"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité.",
-        "KM": "KM 12"
-			}
-		},
-        {
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.829814,
-      46.321236
-				]
-			},
-			"properties": {
-				"Name": "Pine Roots",
-				"LabelEN": "Camp Racinnes de Pins",
-				"Feature": 0,
-				"LabelFR": "Camp Racinnes de Pins",
-				"TagFR": "Camp Racinnes de Pins",
-				"CampsiteLa": 14,
-				"Sequence": 14,
-				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
-        "KM": "KM 13"
-			}
-		},
 		{
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.839496,
-      46.31377,
-      -0.000054
-				]
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.805350,
+					46.364637
+					]
+				},
+				"properties": {
+					"Name": "Boat Launch/ Camp Robinson Lake A",
+					"LabelEN": "Camp Robinson - A",
+					"Feature": 0,
+					"LabelFR": "Camp Robinson - A",
+					"TagFR": "Camp Robinson - A",
+					"CampsiteLa": "5A",
+					"Sequence": 5,
+					"Description": "Site de camp simple pour les canoéistes. Les randonneurs dovons utiliser Camp Robinson - B. Toilette rustique et feu de camp en proximité.",
+			"KM": "KM 4"
+				}
 			},
-			"properties": {
-				"Name": "Patent Chute Campsite Canoeist",
-				"LabelEN": "Camp Pattons Chute - A",
-				"Feature": 0,
-				"LabelFR": "Camp Pattons Chute - A",
-				"TagFR": "Camp Pattons Chute - A",
-				"CampsiteLa": "15A",
-				"Sequence": 15,
-				"Description": "Site de camp simple pour les canoéistes. Les randonneurs dovons utiliser Camp Pattons Chute - B.",
-        "KM": "KM 14"
-			}
-		},
-        {
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.839309,
-      46.313,
-      -0.000054
-				]
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.806388,
+					46.363916
+					]
+				},
+				"properties": {
+					"Name": "Hiking/ Camp Robinson Lake B",
+					"LabelEN": "Camp Robinson - B",
+					"Feature": 0,
+					"LabelFR": "Camp Robinson - B",
+					"TagFR": "Camp Robinson - B",
+					"CampsiteLa": "5B",
+					"Sequence": 5,
+					"Description": "Site de camp pour les randonneurs. Les canoéistes devons utiliser Camp Robinson - A. Toilette rustique et feu de camp en proximité.",
+			"KM": "KM 4"
+				}
 			},
-			"properties": {
-				"Name": "Patent Chute Campsite Hiking",
-				"LabelEN": "Camp Pattons Chute - B",
-				"Feature": 1,
-				"LabelFR": "Camp Pattons Chute - B",
-				"TagFR": "Camp Pattons Chute - B",
-				"CampsiteLa": "15B",
-				"Sequence": 15,
-				"Description": "Site de camp simple pour les randonneurs avec espace limité. Les canoéistes devons utiliser Camp Pattons Chute - A. Toilette rustique et feu de camp en proximité.",
-        "KM": "KM 14"
-			}
-		},
-		{
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.848474,
-      46.296146,
-      -0.000054
-				]
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.813416,
+					46.350638
+					]
+				},
+				"properties": {
+					"Name": "Camp C FODA",
+					"LabelEN": "Camp C FODA",
+					"Feature": 1,
+					"LabelFR": "Camp C FODA",
+					"TagFR": "Camp C FODA",
+					"CampsiteLa": 6,
+					"Sequence": 6,
+					"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité.",
+			"KM": "KM 8"
+				}
 			},
-			"properties": {
-				"Name": "? Camp Amik",
-				"LabelEN": "Camp Amik",
-				"Feature": 0,
-				"LabelFR": "Camp Amik",
-				"TagFR": "Camp Amik",
-				"CampsiteLa": 16,
-				"Sequence": 16,
-				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez qu'il y a des canots disponible pour faciliter la traverse de la rivière Fildegrand.<br> <a href=https://fodr-arm.github.io/dumoine-river/fr/chemin/contexte#crossing_instr>Cliquez ici pour des instructions de traversée plus spécifiques</a></i>",
-        "KM": "KM 16"
-			}
-		},
-        {
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.849526,
-      46.294554
-				]
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.815812,
+					46.344447
+					]
+				},
+				"properties": {
+					"Name": "Camp Spectator Island",
+					"LabelEN": "Camp l'Île Spectateur",
+					"Feature": 1,
+					"LabelFR": "Camp l'Île Spectateur",
+					"TagFR": "Camp l'Île Spectateur",
+					"CampsiteLa": 7,
+					"Sequence": 7,
+					"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est proche des rapides, soyez prudents</i>.",
+			"KM": "KM 9"
+				}
 			},
-			"properties": {
-				"Name": "? Camp Bertrands Ferme",
-				"LabelEN": "Camp Bertrands",
-				"Feature": 0,
-				"LabelFR": "Camp Bertrands",
-				"TagFR": "Camp Bertrands",
-				"CampsiteLa": 17,
-				"Sequence": 17,
-				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez qu'il y a des canots disponible pour faciliter la traverse de la rivière Fildegrand.<br> <a href=https://fodr-arm.github.io/dumoine-river/fr/chemin/contexte#crossing_instr>Cliquez ici pour des instructions de traversée plus spécifiques</a></i>",
-        "KM": "KM 16"
-			}
-		},
-        {
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.843667,
-      46.291637,
-      -0.000054
-				]
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.820000,
+					46.338277
+					]
+				},
+				"properties": {
+					"Name": "Camp Big Pine",
+					"LabelEN": "Camp Grande Pin",
+					"Feature": 0,
+					"LabelFR": "Camp Grande Pin",
+					"TagFR": "Camp Grande Pin",
+					"CampsiteLa": 8,
+					"Sequence": 8,
+					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
+			"KM": "KM 10"
+				}
 			},
-			"properties": {
-				"Name": "? Camp Fildegrand",
-				"LabelEN": "Camp Fildegrand",
-				"Feature": 0,
-				"LabelFR": "Camp Fildegrand",
-				"TagFR": "Camp Fildegrand",
-				"CampsiteLa": 18,
-				"Sequence": 18,
-				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
-        "KM": "KM 17"
-			}
-		},
-		{
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.854008,
-      46.27517
-				]
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.820833,
+					46.338334,
+					-0.000054
+					]
+				},
+				"properties": {
+					"Name": "Camp Esker",
+					"LabelEN": "Camp Esker",
+					"Feature": 0,
+					"LabelFR": "Camp Esker",
+					"TagFR": "Camp Esker",
+					"CampsiteLa": 9,
+					"Sequence": 9,
+					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
+			"KM": "KM 10"
+				}
 			},
-			"properties": {
-				"Name": "? Camp Trois Roche",
-				"LabelEN": "Camp Trois Roches",
-				"Feature": 0,
-				"LabelFR": "Camp Trois Roches",
-				"TagFR": "Camp Trois Roches",
-				"CampsiteLa": 19,
-				"Sequence": 19,
-				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
-        "KM": "KM 19"
-			}
-		},
-        {
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.855145,
-      46.26513,
-      -0.000054
-				]
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.824899,
+					46.336330
+					]
+				},
+				"properties": {
+					"Name": "Camp Square Timber Bench",
+					"LabelEN": "Camp Bois Carré",
+					"Feature": 0,
+					"LabelFR": "Camp Bois Carré",
+					"TagFR": "Camp Bois Carré",
+					"CampsiteLa": 10,
+					"Sequence": 10,
+					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
+			"KM": "KM 11"
+				}
 			},
-			"properties": {
-				"Name": "Campsite",
-				"LabelEN": "Camp Bateau de Drave",
-				"Feature": 1,
-				"LabelFR": "Camp Bateau de Drave",
-				"TagFR": "Camp Bateau de Drave",
-				"CampsiteLa": 20,
-				"Sequence": 20,
-				"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est proche des rapides, soyez prudents</i>",
-        "KM": "KM 20"
-			}
-		},
-        {
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.851409,
-      46.260491,
-      -0.000054
-				]
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.825381,
+					46.336119,
+					-0.000054
+					]
+				},
+				"properties": {
+					"Name": "Camp Cedar",
+					"LabelEN": "Camp Cèdre",
+					"Feature": 1,
+					"LabelFR": "Camp Cèdre",
+					"TagFR": "Camp Cèdre",
+					"CampsiteLa": 11,
+					"Sequence": 11,
+					"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité.",
+			"KM": "KM 11"
+				}
 			},
-			"properties": {
-				"Name": "Campsite - Ryan’s Chutes",
-				"LabelEN": "Camp Mukwa Beweetig",
-				"Feature": 0,
-				"LabelFR": "Camp Mukwa Beweetig",
-				"TagFR": "Camp Mukwa Beweetig",
-				"CampsiteLa": 21,
-				"Sequence": 21,
-				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est accessible par bateaux motorisés et est proche des rapides, soyez prudents</i>.",
-        "KM": "KM 21"
-			}
-		},
-        {
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.858221,
-      46.238828
-				]
+			{
+				"type": "Feature",
+				"geometry": {
+					"coordinates": [
+					-77.827736,
+					46.329056
+					],
+					"type": "Point"
+				},
+				
+				"properties": {
+					"Name": "Tea time Camp",
+					"LabelEN": "Camp l'Heure du Thé",
+					"Feature": 1,
+					"LabelFR": "Camp l'Heure du Thé",
+					"TagFR": "Camp l'Heure du Thé",
+					"CampsiteLa": 12,
+					"Sequence": 12,
+					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
+					"KM": "KM 12"
+				}
+				},
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.826111,
+					46.325361,
+					-0.000054
+					]
+				},
+				"properties": {
+					"Name": "Potvin Stopping Place camp",
+					"LabelEN": "Camp Potvins",
+					"Feature": 1,
+					"LabelFR": "Camp Potvins",
+					"TagFR": "Camp Potvins",
+					"CampsiteLa": 13,
+					"Sequence": 13,
+					"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité.",
+			"KM": "KM 12"
+				}
 			},
-			"properties": {
-				"Name": null,
-				"LabelEN": "Camp Entrée",
-				"Feature": 0,
-				"LabelFR": "Camp Entrée",
-				"TagFR": "Camp Entrée <br> <i> Ce site est encore en développement</i>",
-				"CampsiteLa": 22,
-				"Sequence": 22,
-				"Description": "Site de camp rudimentaire adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est encore en cours de développement et est une véritable expérience de l'arrière-pays</i>.",
-        "KM": "KM 24"
-			}
-		},
-        {
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.855893,
-      46.228705,
-      -0.000054
-				]
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.833350,
+					46.319150
+					]
+				},
+				"properties": {
+					"Name": "Camp Pine Roots",
+					"LabelEN": "Camp Racinnes de Pins",
+					"Feature": 0,
+					"LabelFR": "Camp Racinnes de Pins",
+					"TagFR": "Camp Racinnes de Pins",
+					"CampsiteLa": 14,
+					"Sequence": 14,
+					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
+			"KM": "KM 13"
+				}
 			},
-			"properties": {
-				"Name": null,
-				"LabelEN": "Camp Rockcliffe",
-				"Feature": 0,
-				"LabelFR": "Camp Rockcliffe",
-				"TagFR": "Camp Rockcliffe",
-				"CampsiteLa": 23,
-				"Sequence": 23,
-				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est accessible par bateaux motorisés</i>.",
-        "KM": "KM 25"
-			}
-		},
-		{
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-				-77.85319,
-      46.216692,
-      -0.000054
-				]
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.839194,
+					46.311944,
+					-0.000054
+					]
+				},
+				"properties": {
+					"Name": "Patton Chute Campsite Canoeist",
+					"LabelEN": "Camp Pattons Chute - A",
+					"Feature": 0,
+					"LabelFR": "Camp Pattons Chute - A",
+					"TagFR": "Camp Pattons Chute - A",
+					"CampsiteLa": "15A",
+					"Sequence": 15,
+					"Description": "Site de camp simple pour les canoéistes. Les randonneurs dovons utiliser Camp Pattons Chute - B.",
+			"KM": "KM 14"
+				}
 			},
-			"properties": {
-				"Name": "Primary campsite",
-				"LabelEN": "Camp Aygina-gwasing Sibi",
-				"Feature": 0,
-				"LabelFR": "Camp Aygina-gwasing Sibi",
-				"TagFR": "Camp Aygina-gwasing Sibi",
-				"CampsiteLa": 24,
-				"Sequence": 24,
-				"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est accessible par bateaux motorisés</i>.",
-        "KM": "Point de départ sud"
-			}
-		}
-	]
-}
-    
-	/* Assign a unique id to each site. You'll use this `id` later to associate each point on the map with a listing in the sidebar.*/
-	sites.features.forEach((site, i) => {
-        site.properties.id = i;
-      });
-	/*Wait until the map loads to make changes to the map.*/
-	map.on('load', () => {
-	/* Add the data to your map as a layer */
-		map.addLayer({
-			'id': 'locations',
-			'type': 'circle',
-			paint: {
-			'circle-opacity': 0,
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.839305,
+					46.312722,
+					-0.000054
+					]
+				},
+				"properties": {
+					"Name": "Patent Chute Campsite Hiking",
+					"LabelEN": "Camp Pattons Chute - B",
+					"Feature": 1,
+					"LabelFR": "Camp Pattons Chute - B",
+					"TagFR": "Camp Pattons Chute - B",
+					"CampsiteLa": "15B",
+					"Sequence": 15,
+					"Description": "Site de camp simple pour les randonneurs avec espace limité. Les canoéistes devons utiliser Camp Pattons Chute - A. Toilette rustique et feu de camp en proximité.",
+			"KM": "KM 14"
+				}
 			},
-			/* Add the previously defined GeoJSON source (sites) containing place coordinates and information. */
-			'source': {
-			'type': 'geojson',
-			'data': sites
-		}
-		});
-		/*Add things to the page by calling the function (defined below):
-		* - The location listings on the side of the page*/
-		buildLocationList(sites);
-	});
-
-	/**
-	 * Listen to the map and when it is clicked, do three things:
-	 * 1. Query the map to determine if a feature in the
-	 *    "locations" layer exists at that point.
-	 * 2. If yes, then:
-	 *   a. Fly to the point
-	 *   b. Close all other popups and display popup for clicked site
-	 *   c. Highlight listing in sidebar (and remove highlight for all other listings)
-	 **/
-	map.on('click', (event) => {
-		/* Query the map to determine if a feature in the "locations" layer exists at that point. */
-		const features = map.queryRenderedFeatures(event.point, {
-		layers: ['locations']
-	});
-
-	/* If it does not exist, return */
-	if (!features.length) return;
-	/*If it does exist, access the feature*/
-	const clickedPoint = features[0];
-
-	/* Fly to the point by calling the flyTosite function*/
-	flyTosite(clickedPoint);
-
-	/* Close all other popups and display popup for clicked site by calling the createPopUp function */
-	createPopUp(clickedPoint);
-
-	/* Highlight listing in sidebar (and remove highlight for all other listings) */
-	const activeItem = document.getElementsByClassName('active');
-	if (activeItem[0]) {
-		activeItem[0].classList.remove('active');
-	}
-	const listing = document.getElementById(
-		`listing-${clickedPoint.properties.id}`
-	);
-	listing.classList.add('active');
-	});
-
-	function closeNav() {
-			document.getElementById("myPanel").style.width = "0px";
-			// document.getElementById("parent").style.marginLeft = "0px";
-			document.getElementById("panelOpenButton").innerHTML = ">";
-			// document.getElementById("panelOpenButton").style.marginLeft = "0px"
-			open = false;
-		}
-
-		function openNav() {
-			if (open === false) {
-			// document.getElementById("panelOpenButton").style.opacity = "0";
-			document.getElementById("myPanel").style.width = "275px";
-			document.getElementById("panelOpenButton").style.marginLeft = "275px";
-			var tl = document.getElementsByClassName("mapboxgl-ctrl-top-left");
-			tl[0].style.marginLeft = '333px';
-			var tb = document.getElementsByClassName("mapboxgl-ctrl-bottom-left");
-			tb[0].style.marginLeft = '333px';
-			// document.getElementById("parent").style.marginLeft = "250px";
-			document.getElementById("panelOpenButton").innerHTML = "<";
-			open = true;
-			} else {
-			document.getElementById("myPanel").style.width = "0px";
-			document.getElementById("panelOpenButton").style.marginLeft = "0px"
-			var tl = document.getElementsByClassName("mapboxgl-ctrl-top-left");
-			tl[0].style.marginLeft = '58px';
-			var tb = document.getElementsByClassName("mapboxgl-ctrl-bottom-left");
-			tb[0].style.marginLeft = '58px';
-			// document.getElementById("parent").style.marginLeft = "0px";
-			document.getElementById("panelOpenButton").innerHTML = ">";
-			open = false;
-			}
-		}
-
-	/** Function to add a listing for each site to the sidebar.**/
-	function buildLocationList(sites) {
-		for (const site of sites.features) {
-			/* Add a new listing section to the sidebar. */
-			const listings = document.getElementById('listings');
-			const listing = listings.appendChild(document.createElement('div'));
-			/* Assign a unique `id` to the listing. */
-			listing.id = `listing-${site.properties.id}`;
-			/* Assign the `item` class to each listing for styling. */
-			listing.className = 'item';
-
-			/* Add the link to the individual listing created above. */
-			const link = listing.appendChild(document.createElement('a'));
-			link.href = '#';
-			link.className = 'Campsite';
-			link.id = `link-${site.properties.id}`;
-			/*Use the campsite's english label (LabelEN) as the clickable option in the side panel*/
-			link.innerHTML = `${site.properties.LabelFR}`;
-
-			/*Add details to the individual listing. */
-			/*Include the nearest kilometer marker as a subtitle for each campsite*/
-			const km = listing.appendChild(document.createElement('div'));
-			km.className = "KM";
-			km.innerHTML = `Plaquette la plus proche: ${site.properties.KM}`;
-			/*Include the campsite's description*/
-			const details = listing.appendChild(document.createElement('div'));
-			details.innerHTML = `${site.properties.Description}`;
-			/**
-			 * Listen to the element and when it is clicked, do four things:
-			 * 1. Update the `currentFeature` to the site associated with the clicked link
-			 * 2. Fly to the point
-			 * 3. Close all other popups and display popup for clicked site
-			 * 4. Highlight listing in sidebar (and remove highlight for all other listings)
-			 **/
-			link.addEventListener('click', function () {
-			for (const feature of sites.features) {
-				if (this.id === `link-${feature.properties.id}`) {
-				flyTosite(feature);
-				createPopUp(feature);
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.846446,
+					46.2970183,
+					-0.000054
+					]
+				},
+				"properties": {
+					"Name": "Camp Amik",
+					"LabelEN": "Camp Amik",
+					"Feature": 0,
+					"LabelFR": "Camp Amik",
+					"TagFR": "Camp Amik",
+					"CampsiteLa": 16,
+					"Sequence": 16,
+					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez qu'il y a des canots disponible pour faciliter la traverse de la rivière Fildegrand.<br> <a href=https://fodr-arm.github.io/dumoine-river/fr/chemin/contexte#crossing_instr>Cliquez ici pour des instructions de traversée plus spécifiques</a></i>",
+			"KM": "KM 16"
+				}
+			},
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.850555,
+					46.296944
+					]
+				},
+				"properties": {
+					"Name": "Bertrand Stopping Place Camp",
+					"LabelEN": "Camp Bertrands",
+					"Feature": 0,
+					"LabelFR": "Camp Bertrands",
+					"TagFR": "Camp Bertrands",
+					"CampsiteLa": 17,
+					"Sequence": 17,
+					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez qu'il y a des canots disponible pour faciliter la traverse de la rivière Fildegrand.<br> <a href=https://fodr-arm.github.io/dumoine-river/fr/chemin/contexte#crossing_instr>Cliquez ici pour des instructions de traversée plus spécifiques</a></i>",
+			"KM": "KM 16"
+				}
+			},
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.842222,
+					46.291250,
+					-0.000054
+					]
+				},
+				"properties": {
+					"Name": "Camp Fildegrand",
+					"LabelEN": "Camp Fildegrand",
+					"Feature": 0,
+					"LabelFR": "Camp Fildegrand",
+					"TagFR": "Camp Fildegrand",
+					"CampsiteLa": 18,
+					"Sequence": 18,
+					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
+			"KM": "KM 17"
+				}
+			},
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.852916,
+					46.274027
+					]
+				},
+				"properties": {
+					"Name": "Camp Trois Roche / Three Rocks",
+					"LabelEN": "Camp Trois Roches",
+					"Feature": 0,
+					"LabelFR": "Camp Trois Roches",
+					"TagFR": "Camp Trois Roches",
+					"CampsiteLa": 19,
+					"Sequence": 19,
+					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
+			"KM": "KM 19"
+				}
+			},
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.855165,
+					46.265184,
+					-0.000054
+					]
+				},
+				"properties": {
+					"Name": "Pointer Boat Camp",
+					"LabelEN": "Camp Bateau de Drave",
+					"Feature": 1,
+					"LabelFR": "Camp Bateau de Drave",
+					"TagFR": "Camp Bateau de Drave",
+					"CampsiteLa": 20,
+					"Sequence": 20,
+					"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est proche des rapides, soyez prudents</i>",
+			"KM": "KM 20"
+				}
+			},
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.851458,
+					46.260645,
+					-0.000054
+					]
+				},
+				"properties": {
+					"Name": "Camp Bear Rapids - Ryan’s Chutes",
+					"LabelEN": "Camp Mukwa Beweetig",
+					"Feature": 0,
+					"LabelFR": "Camp Mukwa Beweetig",
+					"TagFR": "Camp Mukwa Beweetig",
+					"CampsiteLa": 21,
+					"Sequence": 21,
+					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est accessible par bateaux motorisés et est proche des rapides, soyez prudents</i>.",
+			"KM": "KM 21"
+				}
+			},
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.849888,
+					46.250194
+					]
+				},
+				"properties": {
+					"Name": "Camp Inlet",
+					"LabelEN": "Camp Entrée",
+					"Feature": 0,
+					"LabelFR": "Camp Entrée",
+					"TagFR": "Camp Entrée <br> <i> Ce site est encore en développement</i>",
+					"CampsiteLa": 22,
+					"Sequence": 22,
+					"Description": "Site de camp rudimentaire adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est encore en cours de développement et est une véritable expérience de l'arrière-pays</i>.",
+			"KM": "KM 24"
+				}
+			},
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.855942,
+					46.229561,
+					-0.000054
+					]
+				},
+				"properties": {
+					"Name": null,
+					"LabelEN": "Camp Rockcliffe",
+					"Feature": 0,
+					"LabelFR": "Camp Rockcliffe",
+					"TagFR": "Camp Rockcliffe",
+					"CampsiteLa": 23,
+					"Sequence": 23,
+					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est accessible par bateaux motorisés</i>.",
+			"KM": "KM 25"
+				}
+			},
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+					-77.853648,
+					46.216243,
+					-0.000054
+					]
+				},
+				"properties": {
+					"Name": "Camp Aygina-gwasind Sibi",
+					"LabelEN": "Camp Aygina-gwasing Sibi",
+					"Feature": 0,
+					"LabelFR": "Camp Aygina-gwasing Sibi",
+					"TagFR": "Camp Aygina-gwasing Sibi",
+					"CampsiteLa": 24,
+					"Sequence": 24,
+					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est accessible par bateaux motorisés</i>.",
+			"KM": "Point de départ sud"
 				}
 			}
-			const activeItem = document.getElementsByClassName('active');
-			if (activeItem[0]) {
-				activeItem[0].classList.remove('active');
+		]
+	}
+		
+		/* Assign a unique id to each site. You'll use this `id` later to associate each point on the map with a listing in the sidebar.*/
+		sites.features.forEach((site, i) => {
+			site.properties.id = i;
+		});
+		/*Wait until the map loads to make changes to the map.*/
+		map.on('load', () => {
+		/* Add the data to your map as a layer */
+			map.addLayer({
+				'id': 'locations',
+				'type': 'circle',
+				paint: {
+				'circle-opacity': 0,
+				},
+				/* Add the previously defined GeoJSON source (sites) containing place coordinates and information. */
+				'source': {
+				'type': 'geojson',
+				'data': sites
 			}
-			this.parentNode.classList.add('active');
 			});
-		}
-	}
-
-	/**Use Mapbox GL JS's `flyTo` to move the camera smoothly at a given center point.**/
-	function flyTosite(currentFeature) {
-	map.flyTo({
-		center: currentFeature.geometry.coordinates,
-		zoom: 13.5 /*Set the zoom level after flying to the selected point*/
-	});
-	}
-
-	/*** Create a Mapbox GL JS `Popup`.**/
-	/*If a popup is already opened, close it before opening another one*/
-	function createPopUp(currentFeature) {
-	const popUps = document.getElementsByClassName('mapboxgl-popup');
-	if (popUps[0]) popUps[0].remove();
-
-	const popup = new mapboxgl.Popup({ closeOnClick: true })
-		.setLngLat(currentFeature.geometry.coordinates)
-		/*Set the content of the popup to be the english label for the campsite*/
-		.setHTML(`<h4>${currentFeature.properties.TagFR}</h4>`)
-		.addTo(map);
-	}
-	/*Create a global popup that can be used outside of any functions for the hover popups*/
-	const popup = new mapboxgl.Popup({
-      closeButton: false,
-      closeOnClick: true
-    });
-	/**********************************/
-	/*Section for campsite hover popups*/
-    
-	/* Add an event listener that runs when a user hovers over the map element.*/
-    map.on('mouseenter', 'campsites', (e) => {
-		// Change the cursor style as a UI indicator.
-		map.getCanvas().style.cursor = 'pointer';
-		
-		// Copy coordinates array.
-		const coordinates = e.features[0].geometry.coordinates.slice();
-		// Access the feature's label
-		const name = e.features[0].properties.TagFR;
-		
-		// Ensure that if the map is zoomed out such that multiple
-		// copies of the feature are visible, the popup appears
-		// over the copy being pointed to.
-		while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-		coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-		}
-		
-		// Populate the popup with the name and set its coordinates based on the feature found.
-		popup.setLngLat(coordinates).setHTML(`<h4>${name}</h4>`).addTo(map);
-    });
-
-    /* Add an event listener that runs when a user leaves the map element.*/
-    map.on('mouseleave', 'campsites', () => {
-		//Change the cursor back to the hand grab
-		map.getCanvas().style.cursor = '';
-		//Remove the popup
-		popup.remove();
-    });
-
-	/**********************************/
-	/*Section for scenic points popups*/
-	map.on('mouseenter', 'scenic', (e) => {
-		// Change the cursor style as a UI indicator.
-		map.getCanvas().style.cursor = 'pointer';
-	
-		// Copy coordinates array.
-		const coordinates = e.features[0].geometry.coordinates.slice();
-		// Access the feature's label
-		const name = e.features[0].properties.LabelFR;
-		
-		// Ensure that if the map is zoomed out such that multiple
-		// copies of the feature are visible, the popup appears
-		// over the copy being pointed to.
-		while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-		coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-		}
-		
-		// Populate the popup with the name and set its coordinates based on the feature found.
-		popup.setLngLat(coordinates).setHTML(`<h4>${name}</h4>`).addTo(map);
-	});
-
-	/* Add an event listener that runs when a user leaves the map element.*/
-	map.on('mouseleave', 'scenic', () => {
-		//Change the cursor back to the hand grab
-		map.getCanvas().style.cursor = '';
-		//Remove the popup
-		popup.remove();
-	});
-
-	/**********************************/
-	/*Section for side trail popups*/
-	map.on('mouseenter', 'sidetrails-buffer', (e) => {
-		// Change the cursor style as a UI indicator.
-		map.getCanvas().style.cursor = 'pointer';
-		// Copy coordinates array.
-		const coordinates = e.lngLat;
-		// Access the line's description
-		const desc = e.features[0].properties.DescFR;
-		// Populate the popup with the name and set its coordinates based on the feature found.
-		popup.setLngLat(coordinates).setHTML(`<h4>${desc}</h4>`).addTo(map);
-	});
-	map.on('mouseleave', 'sidetrails-buffer', () => {
-		map.getCanvas().style.cursor = '';
-		popup.remove();
-	});
-
-	/**********************************/
-	/*Section for boat launch popups*/
-	map.on('mouseenter', 'boatlaunch', (e) => {
-		// Change the cursor style as a UI indicator.
-		map.getCanvas().style.cursor = 'pointer';
-		
-		const coordinates = e.features[0].geometry.coordinates.slice();
-		const name = e.features[0].properties.LabelFR;
-		const description = e.features[0].properties.DescFR;
-		
-		while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-		coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-		}
-		// Populate the popup and set its coordinates based on the feature found.
-		popup.setLngLat(coordinates).setHTML(`<h3>${name}</h3>`+`<h4>${description}</h4>`).addTo(map);
-	});
-	
-	map.on('mouseleave', 'boatlaunch', () => {
-		map.getCanvas().style.cursor = '';
-		popup.remove();
-	});
-
-	/**********************************/
-	/*Section for rapids popups*/
-	map.on('mouseenter', 'rapids', (e) => {
-		// Change the cursor style as a UI indicator.
-		map.getCanvas().style.cursor = 'pointer';
-		
-		const coordinates = e.features[0].geometry.coordinates.slice();
-		const name = e.features[0].properties.LabelFR;		
-		while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-		coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-		}
-		// Populate the popup and set its coordinates based on the feature found.
-		popup.setLngLat(coordinates).setHTML(`<h4>${name}</h4>`).addTo(map);
-	});
-	
-	map.on('mouseleave', 'rapids', () => {
-		map.getCanvas().style.cursor = '';
-		popup.remove();
-	});
-	
-	/**********************************/
-	/*Section for historical areas popups*/
-	map.on('click', 'historicalareas', (e) => {
-		const name = e.features[0].properties.NameFR;
-		popup
-		.setLngLat(e.lngLat)
-		/*Add content to the popup including a link to the historical page on the website to learn more about the significance of the area*/
-		.setHTML(`<h3>Zone d'importance historique</h3>`+
-		`<h4>${name}<br><a href="https://fodr-arm.github.io/dumoine-river/en/tote-road/trail-history.html#Dumoine" target="_blank"><i>En savoir plus</i></a></h4>`)
-		.addTo(map);
-	});
-	
-	map.on('mouseenter', 'historicalareas', () => {
-		map.getCanvas().style.cursor = 'pointer';
-	});
-	
-	map.on('mouseleave', 'historicalareas', () => {
-		map.getCanvas().style.cursor = '';
-	});
-	/**********************************/
-	/*Section for river crossing popup*/
-	map.on('mouseenter', 'rivercrossing', (e) => {
-		map.getCanvas().style.cursor = 'pointer';
-		popup.setLngLat(e.lngLat).setHTML(`<h3>Traversée de la rivière</h3><h4>Soyez prudent en traversant la rivière Fildegrand. Les niveaux d'eau peuvent varier et poser des risques.
-			<strong> Plusieurs canots sont sur les rives pour faciliter la traverse.</strong>  <br> <i><a href=https://fodr-arm.github.io/dumoine-river/fr/chemin/contexte#crossing_instr>Cliquez ici pour des instructions de traversée plus spécifiques</a></i></h4>`).addTo(map);
-	});
-	// map.on('click', "rivercrossing", (e) => {
-	// 	map.getCanvas().style.cursor = 'pointer';
-	// 	popup.setLngLat(e.lngLat).setHTML(`<h3>Traversée de la rivière</h3><h4>Soyez prudent en traversant la rivière Fildegrand. Les niveaux d'eau peuvent varier et poser des risques.
-	// 		<strong> Plusieurs canots sont sur les rives pour faciliter la traverse.</strong></h4>`).addTo(map);
-	// })
-	// map.on('mouseleave', 'rivercrossing', () => {
-	// 	map.getCanvas().style.cursor = '';
-	// 	popup.remove();
-	// });
-	/**********************************/
-	/*Section for northern parking lot/info booth popup*/
-	// map.on('mouseenter', 'info-parking', (e) => {
-	// 	map.getCanvas().style.cursor = 'pointer';
-	// 	const name = e.features[0].properties.LabelFR;
-	// 	popup.setLngLat(e.lngLat).setHTML(`<h4>${name}</h4>`).addTo(map);
-	// });
-	// map.on('mouseleave', 'info-parking', () => {
-	// 	map.getCanvas().style.cursor = '';
-	// 	popup.remove();
-	// });
-	/**********************************/
-	/*Section for historical trails popup*/
-	map.on('click', 'historictrails', (e) => {
-		map.getCanvas().style.cursor = 'pointer';
-		const type = e.features[0].properties.NameFR;
-		/*Add content to the popup including a link to the historical page on the website to learn more about the significance of that trail section*/
-		popup.setLngLat(e.lngLat).setHTML(`<h3>${type}</h3><h4>Cette section du sentier a une riche histoire! <br><a href="https://fodr-arm.github.io/dumoine-river/en/tote-road/trail-history.html#Dumoine" target="_blank"><i>En savoir plus</i></a></h4>`).addTo(map);
-
-	});
-	map.on('mouseenter', 'historictrails', () =>{
-		map.getCanvas().style.cursor = 'pointer';
-	})
-	map.on('mouseleave', 'historictrails', () => {
-		map.getCanvas().style.cursor = '';
-	});
-	/**********************************/
-	/*Section for driving directions popup*/
-	map.on('click', 'directions', (e) => {
-		map.getCanvas().style.cursor = 'pointer';
-		const info = e.features[0].properties.DirectionsFR;
-		popup.setLngLat(e.lngLat).setHTML(`<h4>${info}</h4>`).addTo(map);
-
-	});
-	map.on('mouseenter', 'directions', () =>{
-		map.getCanvas().style.cursor = 'pointer';
-	})
-	map.on('mouseleave', 'directions', () => {
-		map.getCanvas().style.cursor = '';
-	});
-	// This is the popup browser alert that appears when you first load the map.
-	// It shows a disclaimer and users will have to click 'OK' before they enter the map.
-	// window.onload=function(){
-	// 	alert("This map is for informational purposes only and does not guarantee the accuracy of any feature locations on the map as it is extremely likely that some errors exist. The creator, Friends of the Dumoine, does not warrant any part of the map or its features to be spatially or temporally accurate or fit for a particular use. Friends of the Dumoine River, its members and associated partners are not liable for any damage or injury sustained as a result of using any portion or reproduction of this map.");
-	// };
-	window.onload=function(){
-		document.querySelector(".alert").style.display="block";	
-	};
-	document.querySelector("#consent").addEventListener("click", function(){
-			document.querySelector(".alert").style.display="none";
-			document.getElementById("parent").style.pointerEvents="inherit";
+			/*Add things to the page by calling the function (defined below):
+			* - The location listings on the side of the page*/
+			buildLocationList(sites);
 		});
 
+		/**
+		 * Listen to the map and when it is clicked, do three things:
+		 * 1. Query the map to determine if a feature in the
+		 *    "locations" layer exists at that point.
+		 * 2. If yes, then:
+		 *   a. Fly to the point
+		 *   b. Close all other popups and display popup for clicked site
+		 *   c. Highlight listing in sidebar (and remove highlight for all other listings)
+		 **/
+		map.on('click', (event) => {
+			/* Query the map to determine if a feature in the "locations" layer exists at that point. */
+			const features = map.queryRenderedFeatures(event.point, {
+			layers: ['locations']
+		});
+
+		/* If it does not exist, return */
+		if (!features.length) return;
+		/*If it does exist, access the feature*/
+		const clickedPoint = features[0];
+
+		/* Fly to the point by calling the flyTosite function*/
+		flyTosite(clickedPoint);
+
+		/* Close all other popups and display popup for clicked site by calling the createPopUp function */
+		createPopUp(clickedPoint);
+
+		/* Highlight listing in sidebar (and remove highlight for all other listings) */
+		const activeItem = document.getElementsByClassName('active');
+		if (activeItem[0]) {
+			activeItem[0].classList.remove('active');
+		}
+		const listing = document.getElementById(
+			`listing-${clickedPoint.properties.id}`
+		);
+		listing.classList.add('active');
+		});
+
+		function closeNav() {
+				document.getElementById("myPanel").style.width = "0px";
+				// document.getElementById("parent").style.marginLeft = "0px";
+				document.getElementById("panelOpenButton").innerHTML = ">";
+				// document.getElementById("panelOpenButton").style.marginLeft = "0px"
+				open = false;
+			}
+
+			function openNav() {
+				if (open === false) {
+				// document.getElementById("panelOpenButton").style.opacity = "0";
+				document.getElementById("myPanel").style.width = "275px";
+				document.getElementById("panelOpenButton").style.marginLeft = "275px";
+				var tl = document.getElementsByClassName("mapboxgl-ctrl-top-left");
+				tl[0].style.marginLeft = '333px';
+				var tb = document.getElementsByClassName("mapboxgl-ctrl-bottom-left");
+				tb[0].style.marginLeft = '333px';
+				// document.getElementById("parent").style.marginLeft = "250px";
+				document.getElementById("panelOpenButton").innerHTML = "<";
+				open = true;
+				} else {
+				document.getElementById("myPanel").style.width = "0px";
+				document.getElementById("panelOpenButton").style.marginLeft = "0px"
+				var tl = document.getElementsByClassName("mapboxgl-ctrl-top-left");
+				tl[0].style.marginLeft = '58px';
+				var tb = document.getElementsByClassName("mapboxgl-ctrl-bottom-left");
+				tb[0].style.marginLeft = '58px';
+				// document.getElementById("parent").style.marginLeft = "0px";
+				document.getElementById("panelOpenButton").innerHTML = ">";
+				open = false;
+				}
+			}
+
+		/** Function to add a listing for each site to the sidebar.**/
+		function buildLocationList(sites) {
+			for (const site of sites.features) {
+				/* Add a new listing section to the sidebar. */
+				const listings = document.getElementById('listings');
+				const listing = listings.appendChild(document.createElement('div'));
+				/* Assign a unique `id` to the listing. */
+				listing.id = `listing-${site.properties.id}`;
+				/* Assign the `item` class to each listing for styling. */
+				listing.className = 'item';
+
+				/* Add the link to the individual listing created above. */
+				const link = listing.appendChild(document.createElement('a'));
+				link.href = '#';
+				link.className = 'Campsite';
+				link.id = `link-${site.properties.id}`;
+				/*Use the campsite's english label (LabelEN) as the clickable option in the side panel*/
+				link.innerHTML = `${site.properties.LabelFR}`;
+
+				/*Add details to the individual listing. */
+				/*Include the nearest kilometer marker as a subtitle for each campsite*/
+				const km = listing.appendChild(document.createElement('div'));
+				km.className = "KM";
+				km.innerHTML = `Plaquette la plus proche: ${site.properties.KM}`;
+				/*Include the campsite's description*/
+				const details = listing.appendChild(document.createElement('div'));
+				details.innerHTML = `${site.properties.Description}`;
+				/**
+				 * Listen to the element and when it is clicked, do four things:
+				 * 1. Update the `currentFeature` to the site associated with the clicked link
+				 * 2. Fly to the point
+				 * 3. Close all other popups and display popup for clicked site
+				 * 4. Highlight listing in sidebar (and remove highlight for all other listings)
+				 **/
+				link.addEventListener('click', function () {
+				for (const feature of sites.features) {
+					if (this.id === `link-${feature.properties.id}`) {
+					flyTosite(feature);
+					createPopUp(feature);
+					}
+				}
+				const activeItem = document.getElementsByClassName('active');
+				if (activeItem[0]) {
+					activeItem[0].classList.remove('active');
+				}
+				this.parentNode.classList.add('active');
+				});
+			}
+		}
+
+		/**Use Mapbox GL JS's `flyTo` to move the camera smoothly at a given center point.**/
+		function flyTosite(currentFeature) {
+		map.flyTo({
+			center: currentFeature.geometry.coordinates,
+			zoom: 13.5 /*Set the zoom level after flying to the selected point*/
+		});
+		}
+
+		/*** Create a Mapbox GL JS `Popup`.**/
+		/*If a popup is already opened, close it before opening another one*/
+		function createPopUp(currentFeature) {
+		const popUps = document.getElementsByClassName('mapboxgl-popup');
+		if (popUps[0]) popUps[0].remove();
+
+		const popup = new mapboxgl.Popup({ closeOnClick: true })
+			.setLngLat(currentFeature.geometry.coordinates)
+			/*Set the content of the popup to be the english label for the campsite*/
+			.setHTML(`<h4>${currentFeature.properties.TagFR}</h4>`)
+			.addTo(map);
+		}
+		/*Create a global popup that can be used outside of any functions for the hover popups*/
+		const popup = new mapboxgl.Popup({
+		closeButton: false,
+		closeOnClick: true
+		});
+		/**********************************/
+		/*Section for campsite hover popups*/
+		
+		/* Add an event listener that runs when a user hovers over the map element.*/
+		map.on('mouseenter', 'campsitesequenced', (e) => {
+			// Change the cursor style as a UI indicator.
+			map.getCanvas().style.cursor = 'pointer';
+			
+			// Copy coordinates array.
+			const coordinates = e.features[0].geometry.coordinates.slice();
+			// Access the feature's label
+			const name = e.features[0].properties.TagFR;
+			
+			// Ensure that if the map is zoomed out such that multiple
+			// copies of the feature are visible, the popup appears
+			// over the copy being pointed to.
+			while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+			coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+			}
+			
+			// Populate the popup with the name and set its coordinates based on the feature found.
+			popup.setLngLat(coordinates).setHTML(`<h4>${name}</h4>`).addTo(map);
+		});
+
+		/* Add an event listener that runs when a user leaves the map element.*/
+		map.on('mouseleave', 'campsitesequenced', () => {
+			//Change the cursor back to the hand grab
+			map.getCanvas().style.cursor = '';
+			//Remove the popup
+			popup.remove();
+		});
+
+		/**********************************/
+		/*Section for scenic points popups*/
+		map.on('mouseenter', 'scenic', (e) => {
+			// Change the cursor style as a UI indicator.
+			map.getCanvas().style.cursor = 'pointer';
+		
+			// Copy coordinates array.
+			const coordinates = e.features[0].geometry.coordinates.slice();
+			// Access the feature's label
+			const name = e.features[0].properties.LabelFR;
+			
+			// Ensure that if the map is zoomed out such that multiple
+			// copies of the feature are visible, the popup appears
+			// over the copy being pointed to.
+			while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+			coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+			}
+			
+			// Populate the popup with the name and set its coordinates based on the feature found.
+			popup.setLngLat(coordinates).setHTML(`<h4>${name}</h4>`).addTo(map);
+		});
+
+		/* Add an event listener that runs when a user leaves the map element.*/
+		map.on('mouseleave', 'scenic', () => {
+			//Change the cursor back to the hand grab
+			map.getCanvas().style.cursor = '';
+			//Remove the popup
+			popup.remove();
+		});
+
+		/**********************************/
+		/*Section for side trail popups*/
+		map.on('mouseenter', 'sidetrails-buffer', (e) => {
+			// Change the cursor style as a UI indicator.
+			map.getCanvas().style.cursor = 'pointer';
+			// Copy coordinates array.
+			const coordinates = e.lngLat;
+			// Access the line's description
+			const desc = e.features[0].properties.DescFR;
+			// Populate the popup with the name and set its coordinates based on the feature found.
+			popup.setLngLat(coordinates).setHTML(`<h4>${desc}</h4>`).addTo(map);
+		});
+		map.on('mouseleave', 'sidetrails-buffer', () => {
+			map.getCanvas().style.cursor = '';
+			popup.remove();
+		});
+
+		/**********************************/
+		/*Section for boat launch popups*/
+		map.on('mouseenter', 'boatlaunch', (e) => {
+			// Change the cursor style as a UI indicator.
+			map.getCanvas().style.cursor = 'pointer';
+			
+			const coordinates = e.features[0].geometry.coordinates.slice();
+			const name = e.features[0].properties.LabelFR;
+			const description = e.features[0].properties.DescFR;
+			
+			while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+			coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+			}
+			// Populate the popup and set its coordinates based on the feature found.
+			popup.setLngLat(coordinates).setHTML(`<h3>${name}</h3>`+`<h4>${description}</h4>`).addTo(map);
+		});
+		
+		map.on('mouseleave', 'boatlaunch', () => {
+			map.getCanvas().style.cursor = '';
+			popup.remove();
+		});
+
+		/**********************************/
+		/*Section for rapids popups*/
+		map.on('mouseenter', 'rapids', (e) => {
+			// Change the cursor style as a UI indicator.
+			map.getCanvas().style.cursor = 'pointer';
+			
+			const coordinates = e.features[0].geometry.coordinates.slice();
+			const name = e.features[0].properties.LabelFR;		
+			while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+			coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+			}
+			// Populate the popup and set its coordinates based on the feature found.
+			popup.setLngLat(coordinates).setHTML(`<h4>${name}</h4>`).addTo(map);
+		});
+		
+		map.on('mouseleave', 'rapids', () => {
+			map.getCanvas().style.cursor = '';
+			popup.remove();
+		});
+		
+		/**********************************/
+		/*Section for historical areas popups*/
+		map.on('click', 'historicalareas', (e) => {
+			const name = e.features[0].properties.NameFR;
+			popup
+			.setLngLat(e.lngLat)
+			/*Add content to the popup including a link to the historical page on the website to learn more about the significance of the area*/
+			.setHTML(`<h3>Zone d'importance historique</h3>`+
+			`<h4>${name}<br><a href="https://fodr-arm.github.io/dumoine-river/en/tote-road/trail-history.html#Dumoine" target="_blank"><i>En savoir plus</i></a></h4>`)
+			.addTo(map);
+		});
+		
+		map.on('mouseenter', 'historicalareas', () => {
+			map.getCanvas().style.cursor = 'pointer';
+		});
+		
+		map.on('mouseleave', 'historicalareas', () => {
+			map.getCanvas().style.cursor = '';
+		});
+		/**********************************/
+		/*Section for river crossing popup*/
+		map.on('mouseenter', 'rivercrossing', (e) => {
+			map.getCanvas().style.cursor = 'pointer';
+			popup.setLngLat(e.lngLat).setHTML(`<h3>Traversée de la rivière</h3><h4>Soyez prudent en traversant la rivière Fildegrand. Les niveaux d'eau peuvent varier et poser des risques.
+				<strong> Plusieurs canots sont sur les rives pour faciliter la traverse.</strong>  <br> <i><a href=https://fodr-arm.github.io/dumoine-river/fr/chemin/contexte#crossing_instr>Cliquez ici pour des instructions de traversée plus spécifiques</a></i></h4>`).addTo(map);
+		});
+		// map.on('click', "rivercrossing", (e) => {
+		// 	map.getCanvas().style.cursor = 'pointer';
+		// 	popup.setLngLat(e.lngLat).setHTML(`<h3>Traversée de la rivière</h3><h4>Soyez prudent en traversant la rivière Fildegrand. Les niveaux d'eau peuvent varier et poser des risques.
+		// 		<strong> Plusieurs canots sont sur les rives pour faciliter la traverse.</strong></h4>`).addTo(map);
+		// })
+		// map.on('mouseleave', 'rivercrossing', () => {
+		// 	map.getCanvas().style.cursor = '';
+		// 	popup.remove();
+		// });
+		/**********************************/
+		/*Section for northern parking lot/info booth popup*/
+		// map.on('mouseenter', 'info-parking', (e) => {
+		// 	map.getCanvas().style.cursor = 'pointer';
+		// 	const name = e.features[0].properties.LabelFR;
+		// 	popup.setLngLat(e.lngLat).setHTML(`<h4>${name}</h4>`).addTo(map);
+		// });
+		// map.on('mouseleave', 'info-parking', () => {
+		// 	map.getCanvas().style.cursor = '';
+		// 	popup.remove();
+		// });
+		/**********************************/
+		/*Section for historical trails popup*/
+		map.on('click', 'historictrails', (e) => {
+			map.getCanvas().style.cursor = 'pointer';
+			const type = e.features[0].properties.NameFR;
+			/*Add content to the popup including a link to the historical page on the website to learn more about the significance of that trail section*/
+			popup.setLngLat(e.lngLat).setHTML(`<h3>${type}</h3><h4>Cette section du sentier a une riche histoire! <br><a href="https://fodr-arm.github.io/dumoine-river/en/tote-road/trail-history.html#Dumoine" target="_blank"><i>En savoir plus</i></a></h4>`).addTo(map);
+
+		});
+		map.on('mouseenter', 'historictrails', () =>{
+			map.getCanvas().style.cursor = 'pointer';
+		})
+		map.on('mouseleave', 'historictrails', () => {
+			map.getCanvas().style.cursor = '';
+		});
+		/**********************************/
+		/*Section for driving directions popup*/
+		map.on('click', 'directions', (e) => {
+			map.getCanvas().style.cursor = 'pointer';
+			const info = e.features[0].properties.DirectionsFR;
+			popup.setLngLat(e.lngLat).setHTML(`<h4>${info}</h4>`).addTo(map);
+
+		});
+		map.on('mouseenter', 'directions', () =>{
+			map.getCanvas().style.cursor = 'pointer';
+		})
+		map.on('mouseleave', 'directions', () => {
+			map.getCanvas().style.cursor = '';
+		});
+		// This is the popup browser alert that appears when you first load the map.
+		// It shows a disclaimer and users will have to click 'OK' before they enter the map.
+		// window.onload=function(){
+		// 	alert("This map is for informational purposes only and does not guarantee the accuracy of any feature locations on the map as it is extremely likely that some errors exist. The creator, Friends of the Dumoine, does not warrant any part of the map or its features to be spatially or temporally accurate or fit for a particular use. Friends of the Dumoine River, its members and associated partners are not liable for any damage or injury sustained as a result of using any portion or reproduction of this map.");
+		// };
 		window.onload=function(){
-			document.querySelector(".overlay").style.display="block";	
+			document.querySelector(".alert").style.display="block";	
 		};
 		document.querySelector("#consent").addEventListener("click", function(){
-			document.querySelector(".overlay").style.display="none";
-			document.getElementById("parent").style.pointerEvents="inherit";
-		});
+				document.querySelector(".alert").style.display="none";
+				document.getElementById("parent").style.pointerEvents="inherit";
+			});
+
+			window.onload=function(){
+				document.querySelector(".overlay").style.display="block";	
+			};
+			document.querySelector("#consent").addEventListener("click", function(){
+				document.querySelector(".overlay").style.display="none";
+				document.getElementById("parent").style.pointerEvents="inherit";
+			});
   </script>
 </body>
 </html>
