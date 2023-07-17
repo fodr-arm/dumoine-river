@@ -413,6 +413,15 @@ strong.mail:hover {
 }
 /* end of email link styling */
 
+/* Styling for donation in-text link on home page */
+strong.home {
+    color: #293821;
+}
+strong.home:hover {
+    color: #adadad;
+}
+/* end of donation link styling */
+
 /* Styling of 'Read more' buttons on trail-history page */
 #more {display: none;}
 #more2 {display: none;}
