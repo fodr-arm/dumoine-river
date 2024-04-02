@@ -31,12 +31,12 @@
 
 		<div class="info">
 			<div class='heading'>
-				<h1 id='map-info-heading'>Chemin de Portage Dumoine</h1>
+				<h1 id='map-info-heading'>Chemin du portage Dumoine</h1>
 			</div>
 			<div class = 'divider'></div>
 			<div class="subheading-map">
 				<h4>Comment utiliser cette carte</h4>
-				<p>Il s'agit d'une carte interactive: vous pouvez vous déplacer sur la carte, et survoler et cliquer sur les caractéristiques pour voir le sentier plus en détail.</p>
+				<p>Il s'agit d'une carte interactive: vous pouvez vous déplacer sur la carte, survoler et cliquer sur les caractéristiques pour voir le sentier plus en détail.</p>
 				<p>Pour un tutoriel plus complet sur la façon d'utiliser cette carte, <strong><a href="../chemin/informations#Tutorial">cliquez ici.</a></strong></p>
 			</div>
 			<div class = 'divider'></div>
@@ -58,8 +58,8 @@
 	<div class="alert">
 		<!-- <button id="close">&times;</button> -->
 		<h1>Mise en garde</h1>
-		<p>Cette carte est présentée à titre d'information seulement et ne garantit pas l'exactitude de l'emplacement des éléments sur la carte, car il est probable que certaines erreurs existent. Le créateur, les Amis de la rivière Dumoine, ne garantit pas qu'une partie de la carte ou de ses caractéristiques est exacte dans l'espace ou dans le temps ou qu'elle convient à un usage particulier. Les Amis de la rivière Dumoine, ses membres et ses partenaires associés ne sont pas responsables des dommages ou des blessures subis à la suite de l'utilisation de toute partie ou reproduction de cette carte.</p>
-		<button id="consent">Je comprend</button>
+		<p>Cette carte est présentée à titre d'information seulement et ne garantit pas l'exactitude de l'emplacement des éléments sur la carte, car il est possible que certaines erreurs existent. Le créateur, les Amis de la rivière Dumoine, ne garantit pas qu'une partie de la carte ou de ses caractéristiques est exacte dans l'espace ou dans le temps ou qu'elle convienne à un usage particulier. Les Amis de la rivière Dumoine, ses membres et ses partenaires associés ne sont pas responsables des dommages ou des blessures subis à la suite de l'utilisation de toute partie ou reproduction de cette carte.</p>
+		<button id="consent">Je comprends</button>
 	</div> 
     <script>
 		var open = true;
@@ -93,7 +93,7 @@
 		map.on('load', function() {
 			const targets = {
 				'campsitesequenced': 'Site de camp',
-				'kilometermarkers': 'Plaquette',
+				'kilometermarkers': 'Repère kilométrique',
 				'scenic': 'Point de vue',
 				'rapids': 'Rapides',
 				'boatlaunch': "Rampe de mise à l'eau",
@@ -135,7 +135,7 @@
 					"TagFR": "Camp Ponens",
 					"CampsiteLa": 1,
 					"Sequence": 1,
-					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est proche des rapides, soyez prudents</i>.",
+					"Description": "Site de camping adapté pour quatre tentes. Foyer et toilette rustique à proximité. <i>Notez que ce site est proche des rapides, soyez prudents</i>.",
 					"KM": "Point de départ nord"
 		}
 			},
@@ -157,7 +157,7 @@
 					"TagFR": "Camp Bellevue",
 					"CampsiteLa": 2,
 					"Sequence": 2,
-					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est proche des rapides, soyez prudents</i>.",
+					"Description": "Site de camping adapté pour quatre tentes. Foyer et toilette rustique à proximité.. <i>Notez que ce site est proche des rapides, soyez prudents</i>.",
 					"KM": "Point de départ nord"
 				}
 			},
@@ -178,7 +178,7 @@
 					"TagFR": "Camp Ankose",
 					"CampsiteLa": 3,
 					"Sequence": 3,
-					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
+					"Description": "Site de camping adapté pour quatre tentes. Foyer et toilette rustique à proximité.",
 					"KM": "KM 1"
 				}
 			},
@@ -200,7 +200,7 @@
 					"TagFR": "Camp Marque de Bois",
 					"CampsiteLa": 4,
 					"Sequence": 4,
-					"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité.",
+					"Description": "Site de camping simple avec espace limité. Toilette rustique et feu de camp en proximité.",
 			"KM": "KM 2"
 				}
 			},
@@ -221,7 +221,7 @@
 					"TagFR": "Camp Robinson - A",
 					"CampsiteLa": "5A",
 					"Sequence": 5,
-					"Description": "Site de camp simple pour les canoéistes. Les randonneurs dovons utiliser Camp Robinson - B. Toilette rustique et feu de camp en proximité.",
+					"Description": "Site de camping pour les pagayeurs. Les randonneurs devraient utiliser le Camp Robinson – B.",
 			"KM": "KM 4"
 				}
 			},
@@ -242,7 +242,7 @@
 					"TagFR": "Camp Robinson - B",
 					"CampsiteLa": "5B",
 					"Sequence": 5,
-					"Description": "Site de camp pour les randonneurs. Les canoéistes devons utiliser Camp Robinson - A. Toilette rustique et feu de camp en proximité.",
+					"Description": "Site de camping pour les randonneurs. Les adeptes de canot devraient utiliser le Camp Robinson – A.",
 			"KM": "KM 4"
 				}
 			},
@@ -263,7 +263,7 @@
 					"TagFR": "Camp C FODA",
 					"CampsiteLa": 6,
 					"Sequence": 6,
-					"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité.",
+					"Description": "Site de camping simple avec espace limité.",
 			"KM": "KM 8"
 				}
 			},
@@ -284,7 +284,7 @@
 					"TagFR": "Camp l'Île Spectateur",
 					"CampsiteLa": 7,
 					"Sequence": 7,
-					"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité. <i>Notez que ce site est proche des rapides, soyez prudents</i>.",
+					"Description": "Site de camping simple avec espace limité. <i>Notez que ce site est proche des rapides, soyez prudents</i>.",
 			"KM": "KM 9"
 				}
 			},
@@ -305,7 +305,7 @@
 					"TagFR": "Camp Grande Pin",
 					"CampsiteLa": 8,
 					"Sequence": 8,
-					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
+					"Description": "Site de camping adapté pour quatre tentes. Foyer et toilette rustique à proximité.",
 			"KM": "KM 10"
 				}
 			},
@@ -327,7 +327,7 @@
 					"TagFR": "Camp Esker",
 					"CampsiteLa": 9,
 					"Sequence": 9,
-					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
+					"Description": "Site de camping adapté pour quatre tentes. Foyer et toilette rustique à proximité.",
 			"KM": "KM 10"
 				}
 			},
@@ -348,7 +348,7 @@
 					"TagFR": "Camp Bois Carré",
 					"CampsiteLa": 10,
 					"Sequence": 10,
-					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
+					"Description": "Site de camping adapté pour quatre tentes. Foyer et toilette rustique à proximité..",
 			"KM": "KM 11"
 				}
 			},
@@ -370,7 +370,7 @@
 					"TagFR": "Camp Cèdre",
 					"CampsiteLa": 11,
 					"Sequence": 11,
-					"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité.",
+					"Description": "Site de camping simple avec espace limité.",
 			"KM": "KM 11"
 				}
 			},
@@ -392,7 +392,7 @@
 					"TagFR": "Camp l'Heure du Thé",
 					"CampsiteLa": 12,
 					"Sequence": 12,
-					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
+					"Description": "Site de camping adapté pour quatre tentes. Foyer et toilette rustique à proximité.",
 					"KM": "KM 12"
 				}
 				},
@@ -414,7 +414,7 @@
 					"TagFR": "Camp Potvins",
 					"CampsiteLa": 13,
 					"Sequence": 13,
-					"Description": "Site de camp simple avec espace limité. Toilette rustique et feu de camp en proximité.",
+					"Description": "Site de camping simple avec espace limité.",
 			"KM": "KM 12"
 				}
 			},
@@ -435,7 +435,7 @@
 					"TagFR": "Camp Racinnes de Pins",
 					"CampsiteLa": 14,
 					"Sequence": 14,
-					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité.",
+					"Description": "Site de camping adapté pour quatre tentes. Foyer et toilette rustique à proximité.",
 			"KM": "KM 13"
 				}
 			},
@@ -457,7 +457,7 @@
 					"TagFR": "Camp Pattons Chute - A",
 					"CampsiteLa": "15A",
 					"Sequence": 15,
-					"Description": "Site de camp simple pour les canoéistes. Les randonneurs dovons utiliser Camp Pattons Chute - B.",
+					"Description": "Site de camping pour les adeptes de canot. Les randonneurs devraient utiliser le Camp Chute Pattons – B.",
 			"KM": "KM 14"
 				}
 			},
@@ -479,7 +479,7 @@
 					"TagFR": "Camp Pattons Chute - B",
 					"CampsiteLa": "15B",
 					"Sequence": 15,
-					"Description": "Site de camp simple pour les randonneurs avec espace limité. Les canoéistes devons utiliser Camp Pattons Chute - A. Toilette rustique et feu de camp en proximité.",
+					"Description": "Site de camping simple pour les randonneurs avec espace limité. Les pagayeurs devraient utiliser le Camp Chute Pattons – A. Ce site est particulièrement beau, assurez-vous de vous y arrêter!",
 			"KM": "KM 14"
 				}
 			},
@@ -501,7 +501,7 @@
 					"TagFR": "Camp Amik",
 					"CampsiteLa": 16,
 					"Sequence": 16,
-					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez qu'il y a des canots disponible pour faciliter la traverse de la rivière Fildegrand.<br> <a href=https://fodr-arm.github.io/dumoine-river/fr/chemin/contexte#crossing_instr>Cliquez ici pour des instructions de traversée plus spécifiques</a></i>",
+					"Description": "Site de camping adapté pour quatre tentes. Foyer et toilette rustique à proximité. Notez qu'il y a des canots disponibles à proximité pour faciliter la traversée de la rivière Fildegrand.<br> <a href=https://fodr-arm.github.io/dumoine-river/fr/chemin/contexte#crossing_instr>Cliquez ici pour des instructions de traversée plus spécifiques</a></i>.",
 			"KM": "KM 16"
 				}
 			},
@@ -522,7 +522,7 @@
 					"TagFR": "Camp Bertrands",
 					"CampsiteLa": 17,
 					"Sequence": 17,
-					"Description": "Site de camp adapté pour plusieurs groupes. Toilette rustique et feu de camp en proximité. <i>Notez qu'il y a des canots disponible pour faciliter la traverse de la rivière Fildegrand.<br> <a href=https://fodr-arm.github.io/dumoine-river/fr/chemin/contexte#crossing_instr>Cliquez ici pour des instructions de traversée plus spécifiques</a></i>",
+					"Description": "Site de camping adapté pour quatre tentes. Foyer et toilette rustique à proximité.. Notez qu'il y a des canots disponibles à proximité pour faciliter la traversée de la rivière Fildegrand.<br> <a href=https://fodr-arm.github.io/dumoine-river/fr/chemin/contexte#crossing_instr>Cliquez ici pour des instructions de traversée plus spécifiques</a></i>.",
 			"KM": "KM 16"
 				}
 			},
